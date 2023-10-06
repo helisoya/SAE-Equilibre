@@ -11,4 +11,5 @@ public class Movement : ScriptableObject
     public string animationTriggerName;
     public bool isContinuous;
     public float animationLength;
+    public Sprite animationIcon;
 }

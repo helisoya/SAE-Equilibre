@@ -17,3 +17,4 @@ MonoBehaviour:
   animationTriggerName: Squat
   isContinuous: 0
   animationLength: 1
+  animationIcon: {fileID: 21300000, guid: d98c04477b6f086488c0888604038f50, type: 3}

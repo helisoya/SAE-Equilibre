@@ -5,6 +5,7 @@ using UnityEngine;
 public class ExerciceManager : MonoBehaviour
 {
     [SerializeField] private Animator playerAnimator;
+    [SerializeField] private Sprite defaultMovementIcon;
 
     void Start()
     {
@@ -17,10 +18,38 @@ public class ExerciceManager : MonoBehaviour
         yield return new WaitForSeconds(1);
 
         Movement move;
-        foreach (Sequence sequence in exercice.sequences)
+        Sequence sequence;
+        Sequence nextSequence;
+
+        for (int i = 0; i < exercice.sequences.Count; i++)
         {
+            sequence = exercice.sequences[i];
             print(sequence.idMovement + " " + sequence.movementTime);
             move = GameManager.instance.GetMovement(sequence.idMovement);
+
+
+            GameGUI.instance.SetCurrentExericeImg(sequence.movementTime.ToString(), move.animationIcon);
+
+            if (i < exercice.sequences.Count - 1)
+            {
+                nextSequence = exercice.sequences[i + 1];
+                GameGUI.instance.SetNext1ExericeImg(nextSequence.movementTime.ToString(), GameManager.instance.GetMovement(nextSequence.idMovement).animationIcon);
+            }
+            else
+            {
+                GameGUI.instance.SetNext1ExericeImg("", defaultMovementIcon);
+            }
+
+            if (i < exercice.sequences.Count - 2)
+            {
+                nextSequence = exercice.sequences[i + 2];
+                GameGUI.instance.SetNext2ExericeImg(nextSequence.movementTime.ToString(), GameManager.instance.GetMovement(nextSequence.idMovement).animationIcon);
+            }
+            else
+            {
+                GameGUI.instance.SetNext2ExericeImg("", defaultMovementIcon);
+            }
+
 
 
             playerAnimator.SetTrigger(move.animationTriggerName);
@@ -35,6 +64,9 @@ public class ExerciceManager : MonoBehaviour
             yield return new WaitForEndOfFrame();
         }
 
+        GameGUI.instance.SetCurrentExericeImg("", defaultMovementIcon);
+        GameGUI.instance.SetNext1ExericeImg("", defaultMovementIcon);
+        GameGUI.instance.SetNext2ExericeImg("", defaultMovementIcon);
         playerAnimator.SetTrigger("Win");
 
     }
