@@ -5,18 +5,13 @@ using UnityEngine.UI;
 
 public class GameGUI : MonoBehaviour
 {
-    [SerializeField] private ExerciceGUIIcon exerciceImg_current;
-    [SerializeField] private ExerciceGUIIcon exerciceImg_next1;
-    [SerializeField] private ExerciceGUIIcon exerciceImg_next2;
-
-
     [Header("Movements")]
     [SerializeField] private Transform movementsRoot;
     [SerializeField] private GameObject movementIconPrefab;
-    [SerializeField] private GameObject movementLinePrefab;
+    [SerializeField] private float oneSecondEqualsInUnits = 50;
     private float stopAtX = 400;
     private float startSpawnAt = 850;
-    private float oneSecondEqualsInUnits = 50;
+
 
     private bool _startedExercice = false;
 
@@ -77,25 +72,10 @@ public class GameGUI : MonoBehaviour
                     icon = Instantiate(movementIconPrefab, movementsRoot).GetComponent<GameExerciceIcon>();
                     icon.Init(oneSecondEqualsInUnits, stopAtX, move.animationIcon, currentX);
 
-                    distanceToNext = move.animationLength * oneSecondEqualsInUnits;
+                    distanceToNext = sequence.animationInSeconds * oneSecondEqualsInUnits;
                     currentX += distanceToNext + (i == sequence.movementTime - 1 ? oneSecondEqualsInUnits : 0);
                 }
             }
         }
-    }
-
-    public void SetCurrentExericeImg(string time, Sprite sprite)
-    {
-        exerciceImg_current.Refresh(sprite, time);
-    }
-
-    public void SetNext1ExericeImg(string time, Sprite sprite)
-    {
-        exerciceImg_next1.Refresh(sprite, time);
-    }
-
-    public void SetNext2ExericeImg(string time, Sprite sprite)
-    {
-        exerciceImg_next2.Refresh(sprite, time);
     }
 }

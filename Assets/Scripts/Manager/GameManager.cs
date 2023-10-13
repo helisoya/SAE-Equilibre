@@ -120,6 +120,10 @@ public class GameManager : MonoBehaviour
         {
             usersData = FileManager.LoadJSON<UsersData>(FileManager.savPath + "users.sav");
         }
+        else
+        {
+            Save_UsersData();
+        }
     }
 
 
@@ -133,6 +137,10 @@ public class GameManager : MonoBehaviour
         if (System.IO.File.Exists(FileManager.savPath + "exercices.sav"))
         {
             exercicesData = FileManager.LoadJSON<ExercicesData>(FileManager.savPath + "exercices.sav");
+        }
+        else
+        {
+            Save_ExercicesData();
         }
     }
 

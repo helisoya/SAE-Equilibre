@@ -34,12 +34,14 @@ public class Sequence
 {
     public string idMovement;
     public int movementTime;
+    public float animationInSeconds;
 
-    public Sequence() : this("NONE", 0) { }
+    public Sequence() : this("NONE", 0, 0) { }
 
-    public Sequence(string id, int time)
+    public Sequence(string id, int time, float timeSeconds)
     {
         idMovement = id;
         movementTime = time;
+        animationInSeconds = timeSeconds;
     }
 }

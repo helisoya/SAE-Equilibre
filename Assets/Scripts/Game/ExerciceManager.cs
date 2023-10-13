@@ -29,15 +29,18 @@ public class ExerciceManager : MonoBehaviour
             print(sequence.idMovement + " " + sequence.movementTime);
             move = GameManager.instance.GetMovement(sequence.idMovement);
 
+
+            playerAnimator.speed = move.isContinuous ? 1 : move.animationLength / sequence.animationInSeconds;
+
             playerAnimator.SetTrigger(move.animationTriggerName);
 
             yield return new WaitForSeconds(
                 move.isContinuous ?
                 sequence.movementTime :
-                sequence.movementTime * move.animationLength
+                (float)(sequence.movementTime) * sequence.animationInSeconds
             );
-
-            playerAnimator.SetTrigger("Win");
+            playerAnimator.speed = 1;
+            playerAnimator.SetTrigger("Idle");
             yield return new WaitForSeconds(1);
         }
 
