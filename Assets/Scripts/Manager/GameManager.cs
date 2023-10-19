@@ -10,7 +10,33 @@ public class GameManager : MonoBehaviour
     [SerializeField] private UsersData usersData;
     [SerializeField] private ExercicesData exercicesData;
     private Dictionary<string, Movement> movements;
-    public Exercice currentExercice;
+
+    private List<User> _participants;
+
+    public List<User> participants
+    {
+        get
+        {
+            return _participants;
+        }
+        set
+        {
+            _participants = value;
+        }
+    }
+    private Exercice _currentExercice;
+    public Exercice currentExercice
+    {
+        get
+        {
+            return _currentExercice;
+        }
+        set
+        {
+            _currentExercice = value;
+        }
+    }
+
 
     void Awake()
     {
@@ -24,6 +50,8 @@ public class GameManager : MonoBehaviour
             Load_UsersData();
             Load_ExercicesData();
             currentExercice = exercicesData.exercices[0];
+
+            participants = new List<User>();
         }
         else
         {
@@ -51,6 +79,17 @@ public class GameManager : MonoBehaviour
         {
             movements.Add(loadedMove.ID, loadedMove);
         }
+    }
+
+
+    public List<Exercice> GetAllExercices()
+    {
+        return exercicesData.exercices;
+    }
+
+    public List<User> GetAllUsers()
+    {
+        return usersData.users;
     }
 
 

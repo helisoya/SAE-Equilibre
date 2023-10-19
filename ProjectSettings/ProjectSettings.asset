@@ -13,7 +13,7 @@ PlayerSettings:
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: DoamsGames
-  productName: Yes
+  productName: EquilibreLeJeu
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 1, g: 1, b: 1, a: 1}
@@ -156,7 +156,8 @@ PlayerSettings:
   androidSupportedAspectRatio: 1
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
-    Standalone: com.DoamsGames.INTER-ACTIV
+    Android: com.DoamsGames.EquilibreLeJeu
+    Standalone: com.DoamsGames.EquilibreLeJeu
   buildNumber:
     Standalone: 0
     iPhone: 0
@@ -274,7 +275,7 @@ PlayerSettings:
   - m_BuildTarget: 
     m_Icons:
     - serializedVersion: 2
-      m_Icon: {fileID: 2800000, guid: f5e3b227549a99443ab3c9f1eb2f3c53, type: 3}
+      m_Icon: {fileID: 2800000, guid: 08a829bc24e1df04487c4472fb214d22, type: 3}
       m_Width: 128
       m_Height: 128
       m_Kind: 0
@@ -822,7 +823,7 @@ PlayerSettings:
   luminVersion:
     m_VersionCode: 1
     m_VersionName: 
-  apiCompatibilityLevel: 6
+  apiCompatibilityLevel: 3
   activeInputHandler: 0
   windowsGamepadBackendHint: 0
   cloudProjectId: 43a3fff8-0f1f-4a3b-b67a-45f73ba1f0a7
