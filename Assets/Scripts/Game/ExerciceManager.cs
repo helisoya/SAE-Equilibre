@@ -29,10 +29,10 @@ public class ExerciceManager : MonoBehaviour
             print(sequence.idMovement + " " + sequence.movementTime);
             move = GameManager.instance.GetMovement(sequence.idMovement);
 
-
             playerAnimator.speed = move.isContinuous ? 1 : move.animationLength / sequence.animationInSeconds;
 
-            playerAnimator.SetTrigger(move.animationTriggerName);
+
+            playerAnimator.CrossFade(move.animationTriggerName, 0.1f);
 
             yield return new WaitForSeconds(
                 move.isContinuous ?
@@ -40,7 +40,8 @@ public class ExerciceManager : MonoBehaviour
                 (float)(sequence.movementTime) * sequence.animationInSeconds
             );
             playerAnimator.speed = 1;
-            playerAnimator.SetTrigger("Idle");
+            playerAnimator.CrossFade("Idle", 0.1f);
+
             yield return new WaitForSeconds(1);
         }
 
