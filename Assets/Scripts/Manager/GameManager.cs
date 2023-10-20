@@ -7,12 +7,14 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
-    [SerializeField] private UsersData usersData;
-    [SerializeField] private ExercicesData exercicesData;
+
+    [Header("Data")]
+    [SerializeField] private UsersDataHandler usersDataHandler;
+    [SerializeField] private ExercicesDataHandler exercicesDataHandler;
     private Dictionary<string, Movement> movements;
 
-    private List<User> _participants;
 
+    private List<User> _participants;
     public List<User> participants
     {
         get
@@ -24,6 +26,7 @@ public class GameManager : MonoBehaviour
             _participants = value;
         }
     }
+
     private Exercice _currentExercice;
     public Exercice currentExercice
     {
@@ -47,11 +50,12 @@ public class GameManager : MonoBehaviour
 
             LoadMovements();
 
-            Load_UsersData();
-            Load_ExercicesData();
-            currentExercice = exercicesData.exercices[0];
+            usersDataHandler.Load();
+            exercicesDataHandler.Load();
+            currentExercice = exercicesDataHandler.GetExercice(0);
 
             participants = new List<User>();
+            currentExercice = null;
         }
         else
         {
@@ -82,14 +86,15 @@ public class GameManager : MonoBehaviour
     }
 
 
+
     public List<Exercice> GetAllExercices()
     {
-        return exercicesData.exercices;
+        return exercicesDataHandler.GetExercices();
     }
 
     public List<User> GetAllUsers()
     {
-        return usersData.users;
+        return usersDataHandler.GetUsers();
     }
 
 
@@ -106,81 +111,18 @@ public class GameManager : MonoBehaviour
 
             MySqlDataReader reader = command.ExecuteReader();
 
-            usersData.users = new List<User>();
-
             while (reader.Read())
             {
                 print("Loaded " + reader.GetString("pseudo"));
-                AddUser(reader.GetString("pseudo"));
+                usersDataHandler.AddUser(new User(reader.GetString("pseudo")));
             }
             reader.Close();
 
-
-            Save_UsersData();
+            usersDataHandler.Save();
         }
         catch
         {
             print("Error while connecting to database");
         }
     }
-
-    public void AddUser(string username)
-    {
-        usersData.users.Add(new User(username));
-        Save_UsersData();
-    }
-
-    public void RemoveUser(User user)
-    {
-        usersData.users.Remove(user);
-        Save_UsersData();
-    }
-
-
-    public void AddExercice(Exercice exercice)
-    {
-        exercicesData.exercices.Add(exercice);
-    }
-
-    public void RemoveExercice(Exercice exercice)
-    {
-        exercicesData.exercices.Remove(exercice);
-    }
-
-
-    public void Save_UsersData()
-    {
-        FileManager.SaveJSON(FileManager.savPath + "users.sav", usersData);
-    }
-
-    public void Load_UsersData()
-    {
-        if (System.IO.File.Exists(FileManager.savPath + "users.sav"))
-        {
-            usersData = FileManager.LoadJSON<UsersData>(FileManager.savPath + "users.sav");
-        }
-        else
-        {
-            Save_UsersData();
-        }
-    }
-
-
-    public void Save_ExercicesData()
-    {
-        FileManager.SaveJSON(FileManager.savPath + "exercices.sav", exercicesData);
-    }
-
-    public void Load_ExercicesData()
-    {
-        if (System.IO.File.Exists(FileManager.savPath + "exercices.sav"))
-        {
-            exercicesData = FileManager.LoadJSON<ExercicesData>(FileManager.savPath + "exercices.sav");
-        }
-        else
-        {
-            Save_ExercicesData();
-        }
-    }
-
 }

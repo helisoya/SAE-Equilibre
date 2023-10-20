@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class UsersData
+public class UsersData : DataFile
 {
     public List<User> users;
 

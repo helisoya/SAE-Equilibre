@@ -4,7 +4,7 @@ using UnityEngine;
 
 
 [System.Serializable]
-public class ExercicesData
+public class ExercicesData : DataFile
 {
     public List<Exercice> exercices;
 
