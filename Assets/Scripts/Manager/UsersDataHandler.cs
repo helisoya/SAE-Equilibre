@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using MySql.Data.MySqlClient;
 
 [System.Serializable]
 public class UsersDataHandler : DataHandler
@@ -45,5 +46,35 @@ public class UsersDataHandler : DataHandler
     public void RemoveUser(User user)
     {
         data.users.Remove(user);
+    }
+
+
+
+    public void ConvertSQLToJSON()
+    {
+        try
+        {
+
+            MySqlConnection connection = new MySqlConnection("Server = localhost; Database = participants-unity; User = root; Password = ; Charset = utf8;");
+            connection.Open();
+
+
+            MySqlCommand command = new MySqlCommand("SELECT * FROM users", connection);
+
+            MySqlDataReader reader = command.ExecuteReader();
+
+            while (reader.Read())
+            {
+                Debug.Log("Loaded " + reader.GetString("pseudo"));
+                AddUser(new User(reader.GetString("pseudo")));
+            }
+            reader.Close();
+
+            Save();
+        }
+        catch
+        {
+            Debug.Log("Error while connecting to database");
+        }
     }
 }

@@ -50,6 +50,7 @@ public class GameGUI : MonoBehaviour
         Movement move;
         GameExerciceIcon icon;
         float distanceToNext;
+        print(exercice);
         foreach (Sequence sequence in exercice.sequences)
         {
             move = GameManager.instance.GetMovement(sequence.idMovement);

@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using MySql.Data.MySqlClient;
+
 
 public class GameManager : MonoBehaviour
 {
@@ -52,10 +52,9 @@ public class GameManager : MonoBehaviour
 
             usersDataHandler.Load();
             exercicesDataHandler.Load();
-            currentExercice = exercicesDataHandler.GetExercice(0);
+            _currentExercice = exercicesDataHandler.GetExercice(0);
 
             participants = new List<User>();
-            currentExercice = null;
         }
         else
         {
@@ -98,31 +97,5 @@ public class GameManager : MonoBehaviour
     }
 
 
-    public void ConvertSQLToJSON()
-    {
-        try
-        {
 
-            MySqlConnection connection = new MySqlConnection("Server = localhost; Database = participants-unity; User = root; Password = ; Charset = utf8;");
-            connection.Open();
-
-
-            MySqlCommand command = new MySqlCommand("SELECT * FROM users", connection);
-
-            MySqlDataReader reader = command.ExecuteReader();
-
-            while (reader.Read())
-            {
-                print("Loaded " + reader.GetString("pseudo"));
-                usersDataHandler.AddUser(new User(reader.GetString("pseudo")));
-            }
-            reader.Close();
-
-            usersDataHandler.Save();
-        }
-        catch
-        {
-            print("Error while connecting to database");
-        }
-    }
 }
