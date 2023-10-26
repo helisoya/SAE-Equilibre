@@ -269,11 +269,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1824232400}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 99e8f6496ccb5b5438921b6ef391d83d, type: 3}
+  m_Script: {fileID: 11500000, guid: 961a7d045c7254e4aa2e5e17f23f6d29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   directionalLight: {fileID: 1130919378}
-  sceneTime: 3
+  sceneTime: 22
 --- !u!4 &1824232402
 Transform:
   m_ObjectHideFlags: 0
