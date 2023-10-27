@@ -114,7 +114,7 @@ Material:
     - _DepthContrast: 0.5
     - _DepthOffsetEnable: 0
     - _Depth_Bias_Alpha: 0.5
-    - _Depth_Contrast: 0.5
+    - _Depth_Contrast: 0.298
     - _DiffusionProfileHash: 0
     - _Distortion: 0.01
     - _DoubleSidedEnable: 1
