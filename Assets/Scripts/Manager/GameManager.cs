@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Threading.Tasks;
 
 
 public class GameManager : MonoBehaviour
@@ -12,7 +13,22 @@ public class GameManager : MonoBehaviour
     [SerializeField] private UsersDataHandler usersDataHandler;
     [SerializeField] private ExercicesDataHandler exercicesDataHandler;
     private Dictionary<string, Movement> movements;
+    private AudioManager audioManager;
 
+
+
+    private string _currentMusic;
+    public string currentMusic
+    {
+        get
+        {
+            return _currentMusic;
+        }
+        set
+        {
+            _currentMusic = value;
+        }
+    }
 
     private List<User> _participants;
     public List<User> participants
@@ -55,6 +71,11 @@ public class GameManager : MonoBehaviour
             _currentExercice = exercicesDataHandler.GetExercice(0);
 
             participants = new List<User>();
+
+            if (audioManager == null)
+            {
+                audioManager = new AudioManager();
+            }
         }
         else
         {
@@ -97,5 +118,14 @@ public class GameManager : MonoBehaviour
     }
 
 
+    public List<string> GetAllMusics()
+    {
+        return audioManager.GetAvailableMusics();
+    }
+
+    public async Task<AudioClip> GetMusic(string musicName)
+    {
+        return await audioManager.GetClip(musicName);
+    }
 
 }

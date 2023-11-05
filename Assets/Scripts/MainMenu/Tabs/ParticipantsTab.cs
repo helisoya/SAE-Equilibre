@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class ParticipantsTab : MainMenuTab
 {
@@ -10,16 +9,19 @@ public class ParticipantsTab : MainMenuTab
     [SerializeField] private ParticipantsContainer participating;
     [SerializeField] private GameObject prefabUser;
     [SerializeField] private ExercicesTab exercicesTab;
+    [SerializeField] private MusicsTab musicsTab;
 
     public override void Open()
     {
         base.Open();
 
         List<User> users = GameManager.instance.GetAllUsers();
+        ParticipantsContainer selectedContainer;
         foreach (User user in users)
         {
-            Instantiate(prefabUser, notParticipating.root).GetComponent<ParticipantDragable>().Init(user, notParticipating);
-            notParticipating.AddUser(user);
+            selectedContainer = GameManager.instance.participants.Contains(user) ? participating : notParticipating;
+            Instantiate(prefabUser, selectedContainer.root).GetComponent<ParticipantDragable>().Init(user, selectedContainer);
+            selectedContainer.AddUser(user);
         }
     }
 
@@ -45,8 +47,9 @@ public class ParticipantsTab : MainMenuTab
 
     public void Click_Start()
     {
-        GameManager.instance.participants = participating.users;
-        SceneManager.LoadScene("GameScene");
+        GameManager.instance.participants = new List<User>(participating.users);
+        Close();
+        musicsTab.Open();
     }
 
 }
