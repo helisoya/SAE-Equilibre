@@ -1,12 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Drawing.Text;
 using UnityEngine;
+using Cinemachine;
 
 public class ExerciceManager : MonoBehaviour
 {
+    [Header("Components")]
     [SerializeField] private Animator playerAnimator;
-    [SerializeField] private Sprite defaultMovementIcon;
     [SerializeField] private AudioSource musicSource;
+
+    [Header("Virtual Cameras")]
+    [SerializeField] private CinemachineVirtualCamera frontCam;
+    [SerializeField] private CinemachineVirtualCamera leftCam;
+    [SerializeField] private CinemachineVirtualCamera rightCam;
+
 
     void Start()
     {
@@ -20,9 +28,17 @@ public class ExerciceManager : MonoBehaviour
         musicSource.Play();
     }
 
+    void RefreshCams(CameraPosition position)
+    {
+        frontCam.Priority = position == CameraPosition.FRONT ? 20 : 10;
+        leftCam.Priority = position == CameraPosition.LEFT ? 20 : 10;
+        rightCam.Priority = position == CameraPosition.RIGHT ? 20 : 10;
+    }
+
 
     IEnumerator Routine_Exercice(Exercice exercice)
     {
+        RefreshCams(CameraPosition.FRONT);
         LoadMusic(GameManager.instance.currentMusic);
         GameGUI.instance.InitializeMovementsUI(exercice);
         GameGUI.instance.SetStartedExerice(true);
@@ -39,7 +55,7 @@ public class ExerciceManager : MonoBehaviour
 
             playerAnimator.speed = move.isContinuous ? 1 : move.animationLength / sequence.animationInSeconds;
 
-
+            RefreshCams(move.cameraPosition);
             playerAnimator.CrossFade(move.animationTriggerName, 0.1f);
 
             yield return new WaitForSeconds(
@@ -49,6 +65,7 @@ public class ExerciceManager : MonoBehaviour
             );
             playerAnimator.speed = 1;
             playerAnimator.CrossFade("Idle", 0.1f);
+            RefreshCams(CameraPosition.FRONT);
 
             yield return new WaitForSeconds(1);
         }

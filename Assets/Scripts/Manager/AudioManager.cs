@@ -29,7 +29,6 @@ public class AudioManager
         {
             if (music.EndsWith(".mp3"))
             {
-                Debug.Log(System.IO.Path.GetFileName(music));
                 musicsAvailable.Add(System.IO.Path.GetFileName(music));
             }
 
@@ -43,6 +42,8 @@ public class AudioManager
 
     public async Task<AudioClip> GetClip(string clipName)
     {
+        if (clipName == null) return null;
+
         if (musicClips.ContainsKey(clipName))
         {
             Debug.Log("Clip already loaded");
