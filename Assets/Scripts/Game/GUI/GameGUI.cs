@@ -1,16 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class GameGUI : MonoBehaviour
 {
+    [Header("Start")]
+    [SerializeField] private TextMeshProUGUI serverIpText;
+    [SerializeField] private GameObject startRoot;
+    [SerializeField] private ExerciceManager manager;
+
+
     [Header("Movements")]
     [SerializeField] private Transform movementsRoot;
     [SerializeField] private GameObject movementIconPrefab;
     [SerializeField] private float oneSecondEqualsInUnits = 50;
-    private float stopAtX = 400;
-    private float startSpawnAt = 850;
+    private readonly float stopAtX = 400;
+    private readonly float startSpawnAt = 850;
 
 
     private bool _startedExercice = false;
@@ -37,11 +44,20 @@ public class GameGUI : MonoBehaviour
     {
         _startedExercice = false;
         instance = this;
+        serverIpText.text += GameManager.instance.ipAddress;
+        InitializeMovementsUI(GameManager.instance.currentExercice);
     }
 
     public void SetStartedExerice(bool value)
     {
         _startedExercice = value;
+    }
+
+
+    public void Click_Start()
+    {
+        startRoot.SetActive(false);
+        manager.StartExercice();
     }
 
     public void InitializeMovementsUI(Exercice exercice)
@@ -50,7 +66,6 @@ public class GameGUI : MonoBehaviour
         Movement move;
         GameExerciceIcon icon;
         float distanceToNext;
-        print(exercice);
         foreach (Sequence sequence in exercice.sequences)
         {
             move = GameManager.instance.GetMovement(sequence.idMovement);
@@ -61,7 +76,7 @@ public class GameGUI : MonoBehaviour
                 icon = Instantiate(movementIconPrefab, movementsRoot).GetComponent<GameExerciceIcon>();
                 icon.Init(oneSecondEqualsInUnits, stopAtX, move.animationIcon, currentX);
 
-                distanceToNext = (float)(sequence.movementTime) * oneSecondEqualsInUnits;
+                distanceToNext = sequence.movementTime * oneSecondEqualsInUnits;
                 icon.InitTrail(distanceToNext, sequence.movementTime);
 
                 currentX += distanceToNext + oneSecondEqualsInUnits;

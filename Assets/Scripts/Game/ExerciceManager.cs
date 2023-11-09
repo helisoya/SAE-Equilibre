@@ -16,7 +16,7 @@ public class ExerciceManager : MonoBehaviour
     [SerializeField] private CinemachineVirtualCamera rightCam;
 
 
-    void Start()
+    public void StartExercice()
     {
         StartCoroutine(Routine_Exercice(GameManager.instance.currentExercice));
     }
@@ -40,7 +40,6 @@ public class ExerciceManager : MonoBehaviour
     {
         RefreshCams(CameraPosition.FRONT);
         LoadMusic(GameManager.instance.currentMusic);
-        GameGUI.instance.InitializeMovementsUI(exercice);
         GameGUI.instance.SetStartedExerice(true);
         yield return new WaitForSeconds(GameGUI.instance.timeBetweenFirstIconAndStop);
 

@@ -12,10 +12,18 @@ public class GameManager : MonoBehaviour
     [Header("Data")]
     [SerializeField] private UsersDataHandler usersDataHandler;
     [SerializeField] private ExercicesDataHandler exercicesDataHandler;
+    [SerializeField] private AppServer server;
     private Dictionary<string, Movement> movements;
     private AudioManager audioManager;
 
 
+    public string ipAddress
+    {
+        get
+        {
+            return server.GetLocalIPAddress().ToString();
+        }
+    }
 
     private string _currentMusic;
     public string currentMusic
@@ -76,6 +84,8 @@ public class GameManager : MonoBehaviour
             {
                 audioManager = new AudioManager();
             }
+
+            server.InitServer();
         }
         else
         {
