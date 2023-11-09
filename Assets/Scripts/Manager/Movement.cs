@@ -12,4 +12,12 @@ public class Movement : ScriptableObject
     public bool isContinuous;
     public float animationLength;
     public Sprite animationIcon;
+    public CameraPosition cameraPosition;
+}
+
+public enum CameraPosition
+{
+    FRONT,
+    LEFT,
+    RIGHT
 }

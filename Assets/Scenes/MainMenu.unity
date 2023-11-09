@@ -302,6 +302,9 @@ MonoBehaviour:
   - backgroundName: Test Map
     sceneName: GameScene
     backgroundImg: {fileID: 21300000, guid: cd84860b166d96d4cabad08b5fe94f4e, type: 3}
+  - backgroundName: Forest
+    sceneName: ForestSpring
+    backgroundImg: {fileID: 21300000, guid: 98d4fed2f6d63794f99bc1d08d55a34e, type: 3}
 --- !u!1 &171716245
 GameObject:
   m_ObjectHideFlags: 0
