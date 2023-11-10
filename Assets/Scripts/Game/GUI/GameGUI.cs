@@ -1,7 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameGUI : MonoBehaviour
@@ -11,6 +14,11 @@ public class GameGUI : MonoBehaviour
     [SerializeField] private GameObject startRoot;
     [SerializeField] private ExerciceManager manager;
 
+    [Header("Pause")]
+    [SerializeField] private GameObject pauseRoot;
+
+    [Header("End")]
+    [SerializeField] private GameObject endRoot;
 
     [Header("Movements")]
     [SerializeField] private Transform movementsRoot;
@@ -44,15 +52,37 @@ public class GameGUI : MonoBehaviour
     {
         _startedExercice = false;
         instance = this;
-        serverIpText.text += GameManager.instance.ipAddress;
         InitializeMovementsUI(GameManager.instance.currentExercice);
+        serverIpText.text += GameManager.instance.ipAddress;
     }
+
 
     public void SetStartedExerice(bool value)
     {
         _startedExercice = value;
     }
 
+    void Update()
+    {
+        if (endRoot.activeInHierarchy) return;
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            pauseRoot.SetActive(!pauseRoot.activeInHierarchy);
+            Time.timeScale = pauseRoot.activeInHierarchy ? 0 : 1;
+        }
+    }
+
+    public void ShowEndScreen()
+    {
+        endRoot.SetActive(true);
+        pauseRoot.SetActive(false);
+    }
+
+    public void Click_End()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
 
     public void Click_Start()
     {

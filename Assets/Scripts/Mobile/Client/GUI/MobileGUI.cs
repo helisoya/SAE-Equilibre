@@ -38,8 +38,8 @@ public class MobileGUI : MonoBehaviour
 
         GridLayoutGroup layout = gridRoot.GetComponent<GridLayoutGroup>();
         gridRoot.GetComponent<RectTransform>().sizeDelta = new Vector2(
-            (layout.cellSize.x + 5) * (form.columns.Count + 1) + 5,
-            (layout.cellSize.y + 5) * (form.rows.Count + 1) + 5
+            (layout.cellSize.x) * (form.columns.Count + 1) + 10,
+            (layout.cellSize.y) * (form.rows.Count + 1) + 10
         );
 
         print(gridRoot.GetComponent<RectTransform>().sizeDelta);

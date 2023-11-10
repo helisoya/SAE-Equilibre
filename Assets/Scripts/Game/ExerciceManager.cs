@@ -69,6 +69,8 @@ public class ExerciceManager : MonoBehaviour
             yield return new WaitForSeconds(1);
         }
 
+        GameGUI.instance.ShowEndScreen();
+
 
 
     }
