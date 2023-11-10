@@ -1894,6 +1894,7 @@ GameObject:
   - component: {fileID: 1016955766}
   - component: {fileID: 1016955765}
   - component: {fileID: 1016955764}
+  - component: {fileID: 1016955767}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1967,6 +1968,39 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1016955767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1016955763}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_VolumeFrameworkUpdateModeOption: 2
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_AllowXRRendering: 1
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_Version: 2
 --- !u!1 &1018626354
 GameObject:
   m_ObjectHideFlags: 0
@@ -4888,6 +4922,98 @@ PrefabInstance:
     - target: {fileID: 6347966720796065916, guid: 4e23b79bad96119409e73edbfb26dfff, type: 3}
       propertyPath: m_Name
       value: GameManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 6347966720796065917, guid: 4e23b79bad96119409e73edbfb26dfff, type: 3}
+      propertyPath: exercicesDataHandler.data.exercices.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6347966720796065917, guid: 4e23b79bad96119409e73edbfb26dfff, type: 3}
+      propertyPath: exercicesDataHandler.data.exercices.Array.data[2].exerciceName
+      value: Demo
+      objectReference: {fileID: 0}
+    - target: {fileID: 6347966720796065917, guid: 4e23b79bad96119409e73edbfb26dfff, type: 3}
+      propertyPath: exercicesDataHandler.data.exercices.Array.data[2].sequences.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6347966720796065917, guid: 4e23b79bad96119409e73edbfb26dfff, type: 3}
+      propertyPath: exercicesDataHandler.data.exercices.Array.data[2].sequences.Array.data[0].idMovement
+      value: MARCHE1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6347966720796065917, guid: 4e23b79bad96119409e73edbfb26dfff, type: 3}
+      propertyPath: exercicesDataHandler.data.exercices.Array.data[2].sequences.Array.data[1].idMovement
+      value: SQUAT1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6347966720796065917, guid: 4e23b79bad96119409e73edbfb26dfff, type: 3}
+      propertyPath: exercicesDataHandler.data.exercices.Array.data[2].sequences.Array.data[2].idMovement
+      value: BOXEVAR2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6347966720796065917, guid: 4e23b79bad96119409e73edbfb26dfff, type: 3}
+      propertyPath: exercicesDataHandler.data.exercices.Array.data[2].sequences.Array.data[3].idMovement
+      value: EQUILIBREJAMBES
+      objectReference: {fileID: 0}
+    - target: {fileID: 6347966720796065917, guid: 4e23b79bad96119409e73edbfb26dfff, type: 3}
+      propertyPath: exercicesDataHandler.data.exercices.Array.data[2].sequences.Array.data[4].idMovement
+      value: BRASHAUT3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6347966720796065917, guid: 4e23b79bad96119409e73edbfb26dfff, type: 3}
+      propertyPath: exercicesDataHandler.data.exercices.Array.data[2].sequences.Array.data[5].idMovement
+      value: POINTEPIED1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6347966720796065917, guid: 4e23b79bad96119409e73edbfb26dfff, type: 3}
+      propertyPath: exercicesDataHandler.data.exercices.Array.data[2].sequences.Array.data[6].idMovement
+      value: TALLONFESSES
+      objectReference: {fileID: 0}
+    - target: {fileID: 6347966720796065917, guid: 4e23b79bad96119409e73edbfb26dfff, type: 3}
+      propertyPath: exercicesDataHandler.data.exercices.Array.data[2].sequences.Array.data[0].movementTime
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6347966720796065917, guid: 4e23b79bad96119409e73edbfb26dfff, type: 3}
+      propertyPath: exercicesDataHandler.data.exercices.Array.data[2].sequences.Array.data[1].movementTime
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6347966720796065917, guid: 4e23b79bad96119409e73edbfb26dfff, type: 3}
+      propertyPath: exercicesDataHandler.data.exercices.Array.data[2].sequences.Array.data[2].movementTime
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6347966720796065917, guid: 4e23b79bad96119409e73edbfb26dfff, type: 3}
+      propertyPath: exercicesDataHandler.data.exercices.Array.data[2].sequences.Array.data[3].movementTime
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6347966720796065917, guid: 4e23b79bad96119409e73edbfb26dfff, type: 3}
+      propertyPath: exercicesDataHandler.data.exercices.Array.data[2].sequences.Array.data[4].movementTime
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6347966720796065917, guid: 4e23b79bad96119409e73edbfb26dfff, type: 3}
+      propertyPath: exercicesDataHandler.data.exercices.Array.data[2].sequences.Array.data[5].movementTime
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6347966720796065917, guid: 4e23b79bad96119409e73edbfb26dfff, type: 3}
+      propertyPath: exercicesDataHandler.data.exercices.Array.data[2].sequences.Array.data[6].movementTime
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6347966720796065917, guid: 4e23b79bad96119409e73edbfb26dfff, type: 3}
+      propertyPath: exercicesDataHandler.data.exercices.Array.data[2].sequences.Array.data[1].animationInSeconds
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6347966720796065917, guid: 4e23b79bad96119409e73edbfb26dfff, type: 3}
+      propertyPath: exercicesDataHandler.data.exercices.Array.data[2].sequences.Array.data[2].animationInSeconds
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6347966720796065917, guid: 4e23b79bad96119409e73edbfb26dfff, type: 3}
+      propertyPath: exercicesDataHandler.data.exercices.Array.data[2].sequences.Array.data[3].animationInSeconds
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6347966720796065917, guid: 4e23b79bad96119409e73edbfb26dfff, type: 3}
+      propertyPath: exercicesDataHandler.data.exercices.Array.data[2].sequences.Array.data[4].animationInSeconds
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6347966720796065917, guid: 4e23b79bad96119409e73edbfb26dfff, type: 3}
+      propertyPath: exercicesDataHandler.data.exercices.Array.data[2].sequences.Array.data[5].animationInSeconds
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6347966720796065917, guid: 4e23b79bad96119409e73edbfb26dfff, type: 3}
+      propertyPath: exercicesDataHandler.data.exercices.Array.data[2].sequences.Array.data[6].animationInSeconds
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4e23b79bad96119409e73edbfb26dfff, type: 3}

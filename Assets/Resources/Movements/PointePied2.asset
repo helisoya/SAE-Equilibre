@@ -15,6 +15,7 @@ MonoBehaviour:
   ID: POINTEPIED2
   movementName: PointePied2
   animationTriggerName: PointePied2
-  isContinuous: 0
+  isContinuous: 1
   animationLength: 1
   animationIcon: {fileID: 21300000, guid: 4161fae211226264dbd970236a1361fd, type: 3}
+  cameraPosition: 0
