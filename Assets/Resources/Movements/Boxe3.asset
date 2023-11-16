@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: Boxe3
   m_EditorClassIdentifier: 
   ID: BOXE3
-  movementName: Boxe3
+  movementName: AttrapeHaut
   animationTriggerName: Boxe3
   isContinuous: 0
   animationLength: 2
-  animationIcon: {fileID: 21300000, guid: d98c04477b6f086488c0888604038f50, type: 3}
+  animationIcon: {fileID: 21300000, guid: f7534565c7939bb71a28be20bdd56c7c, type: 3}
+  cameraPosition: 0
