@@ -8,7 +8,6 @@ public class TitleTab : MainMenuTab
     [SerializeField] private ExercicesTab exerciceTab;
     public void Click_ToExerciceTab()
     {
-        Close();
-        exerciceTab.Open();
+        MainMenuManager.instance.StartTransition(this, exerciceTab);
     }
 }
