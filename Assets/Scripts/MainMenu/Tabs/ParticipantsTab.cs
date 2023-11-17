@@ -41,15 +41,14 @@ public class ParticipantsTab : MainMenuTab
 
     public void Click_Exercices()
     {
-        Close();
-        exercicesTab.Open();
+        MainMenuManager.instance.StartTransition(this, exercicesTab);
     }
 
     public void Click_Start()
     {
         GameManager.instance.participants = new List<User>(participating.users);
-        Close();
-        musicsTab.Open();
+        MainMenuManager.instance.StartTransition(this, musicsTab);
+
     }
 
 }

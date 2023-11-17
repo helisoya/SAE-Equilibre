@@ -47,14 +47,13 @@ public class ExercicesTab : MainMenuTab
 
     public void Click_ToTitle()
     {
-        Close();
-        titleTab.Open();
+        MainMenuManager.instance.StartTransition(this, titleTab);
     }
 
     public void Click_ChooseExercice(Exercice chosenExercice)
     {
         GameManager.instance.currentExercice = chosenExercice;
-        Close();
-        participantsTab.Open();
+
+        MainMenuManager.instance.StartTransition(this, participantsTab);
     }
 }

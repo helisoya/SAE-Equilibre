@@ -44,7 +44,6 @@ public class BackgroundTab : MainMenuTab
 
     public void Click_ToMusics()
     {
-        Close();
-        musicsTab.Open();
+        MainMenuManager.instance.StartTransition(this, musicsTab);
     }
 }

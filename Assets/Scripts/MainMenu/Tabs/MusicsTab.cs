@@ -46,13 +46,11 @@ public class MusicsTab : MainMenuTab
     public void Click_ChooseMusic(string music)
     {
         GameManager.instance.currentMusic = music;
-        Close();
-        backgroundTab.Open();
+        MainMenuManager.instance.StartTransition(this, backgroundTab);
     }
 
     public void Click_ToParticipants()
     {
-        Close();
-        participantsTab.Open();
+        MainMenuManager.instance.StartTransition(this, participantsTab);
     }
 }
