@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: Boxe5
   m_EditorClassIdentifier: 
   ID: BOXE5
-  movementName: Boxe5
+  movementName: AttrapeCoteG
   animationTriggerName: Boxe5
   isContinuous: 0
   animationLength: 1
-  animationIcon: {fileID: 21300000, guid: d98c04477b6f086488c0888604038f50, type: 3}
+  animationIcon: {fileID: 21300000, guid: 6c7efad37b14765a0b3418f3b4b5bcf2, type: 3}
+  cameraPosition: 0

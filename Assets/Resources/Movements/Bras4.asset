@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: Bras4
   m_EditorClassIdentifier: 
   ID: BRAS4
-  movementName: Bras4
+  movementName: AttrapeCoteD
   animationTriggerName: Bras4
   isContinuous: 0
   animationLength: 1
-  animationIcon: {fileID: 21300000, guid: d98c04477b6f086488c0888604038f50, type: 3}
+  animationIcon: {fileID: 21300000, guid: 0b478272e726bd5b7af3e259da592837, type: 3}
+  cameraPosition: 0

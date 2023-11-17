@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: BrasHaut1
   m_EditorClassIdentifier: 
   ID: BRASHAUT1
-  movementName: BrasHaut1
+  movementName: BrasHautIntermitance
   animationTriggerName: BrasHaut1
   isContinuous: 0
   animationLength: 2
   animationIcon: {fileID: 21300000, guid: d98c04477b6f086488c0888604038f50, type: 3}
+  cameraPosition: 0
