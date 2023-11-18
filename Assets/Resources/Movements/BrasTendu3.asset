@@ -17,4 +17,5 @@ MonoBehaviour:
   animationTriggerName: BrasTendu3
   isContinuous: 0
   animationLength: 1.5
-  animationIcon: {fileID: 21300000, guid: d98c04477b6f086488c0888604038f50, type: 3}
+  animationIcon: {fileID: 21300000, guid: c76abc5097655a144ad4393238ce1a88, type: 3}
+  cameraPosition: 0

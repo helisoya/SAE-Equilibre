@@ -17,4 +17,5 @@ MonoBehaviour:
   animationTriggerName: GenouToTalon1
   isContinuous: 0
   animationLength: 2
-  animationIcon: {fileID: 21300000, guid: d98c04477b6f086488c0888604038f50, type: 3}
+  animationIcon: {fileID: 21300000, guid: 664376e0eadb24743bc1ac1d4613ae8d, type: 3}
+  cameraPosition: 0

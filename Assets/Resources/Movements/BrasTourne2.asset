@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: BrasTourne2
   m_EditorClassIdentifier: 
   ID: BRASTOURNE2
-  movementName: BrasTourne2
+  movementName: BrasGrandRondDevant
   animationTriggerName: BrasTourne2
   isContinuous: 0
   animationLength: 2
-  animationIcon: {fileID: 21300000, guid: d98c04477b6f086488c0888604038f50, type: 3}
+  animationIcon: {fileID: 21300000, guid: 4a30b3288af20f1429cd6cceaeb3d2b4, type: 3}
+  cameraPosition: 0
