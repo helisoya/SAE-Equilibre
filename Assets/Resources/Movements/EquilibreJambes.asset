@@ -17,5 +17,5 @@ MonoBehaviour:
   animationTriggerName: EquilibreJambes
   isContinuous: 1
   animationLength: 1
-  animationIcon: {fileID: 21300000, guid: d98c04477b6f086488c0888604038f50, type: 3}
+  animationIcon: {fileID: 21300000, guid: 238fb67feb469ec4383655a544b05dcb, type: 3}
   cameraPosition: 0

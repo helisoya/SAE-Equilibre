@@ -17,5 +17,5 @@ MonoBehaviour:
   animationTriggerName: PasChasse3
   isContinuous: 0
   animationLength: 2
-  animationIcon: {fileID: 21300000, guid: 4161fae211226264dbd970236a1361fd, type: 3}
+  animationIcon: {fileID: 21300000, guid: fc275cf1aea45314bbb9606b2771af9d, type: 3}
   cameraPosition: 0
