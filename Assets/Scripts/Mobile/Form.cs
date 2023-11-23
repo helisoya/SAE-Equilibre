@@ -7,15 +7,17 @@ public class Form
 {
     public List<FormRow> rows;
     public List<string> columns;
+    public List<string> columnsID;
 
-    public Form(List<User> users, List<string> columnsName)
+    public Form(List<User> users, List<string> columnsName, List<string> columnsIDs)
     {
         columns = new List<string>(columnsName);
+        columnsID = columnsIDs;
 
         rows = new List<FormRow>();
         foreach (User user in users)
         {
-            rows.Add(new FormRow(user.username, user.username, columns.Count));
+            rows.Add(new FormRow(user.id, user.username, columns.Count));
         }
     }
 }
@@ -23,12 +25,12 @@ public class Form
 [System.Serializable]
 public class FormRow
 {
-    public string userId;
+    public int userId;
     public string username;
 
     public bool[] columnsSucceded;
 
-    public FormRow(string id, string name, int numberRows)
+    public FormRow(int id, string name, int numberRows)
     {
         userId = id;
         username = name;

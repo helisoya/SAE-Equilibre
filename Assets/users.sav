@@ -1,1 +1,1 @@
-{"users":[{"username":"test1","numberSessions":0},{"username":"test2","numberSessions":0}]}
+{"nextID":3,"users":[{"id":1,"username":"Fouzi","sessions":[]},{"id":2,"username":"Doams","sessions":[]}]}

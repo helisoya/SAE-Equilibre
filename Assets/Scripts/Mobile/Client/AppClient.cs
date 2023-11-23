@@ -55,7 +55,7 @@ public class AppClient : MonoBehaviour
     {
         if (debug)
         {
-            Form form = new Form(GameManager.instance.GetAllUsers(), new List<string>(new string[] { "ex1", "ex2", "ex3" }));
+            Form form = new Form(GameManager.instance.GetAllUsers(), new List<string>(new string[] { "ex1", "ex2", "ex3" }), new List<string>(new string[] { "MARCHE1", "MARCHE2", "SQUAT1" }));
             gui.InitializeForm(form);
             return;
         }

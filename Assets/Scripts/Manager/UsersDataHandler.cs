@@ -14,7 +14,6 @@ public class UsersDataHandler : DataHandler
         FileManager.SaveJSON(FileManager.savPath + dataSavePath, data);
     }
 
-
     public override void Load()
     {
         if (System.IO.File.Exists(FileManager.savPath + dataSavePath))
@@ -40,6 +39,8 @@ public class UsersDataHandler : DataHandler
 
     public void AddUser(User user)
     {
+        user.id = data.nextID;
+        data.nextID++;
         data.users.Add(user);
     }
 
@@ -48,7 +49,10 @@ public class UsersDataHandler : DataHandler
         data.users.Remove(user);
     }
 
-
+    public void AddSessionToUser(int id, Session session)
+    {
+        data.users.Find(user => user.id == id)?.sessions.Add(session);
+    }
 
     public void ConvertSQLToJSON()
     {

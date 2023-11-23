@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Threading.Tasks;
+using System.Net;
 
 
 public class GameManager : MonoBehaviour
@@ -17,11 +18,11 @@ public class GameManager : MonoBehaviour
     private AudioManager audioManager;
 
 
-    public string ipAddress
+    public IPAddress ipAddress
     {
         get
         {
-            return server.GetLocalIPAddress().ToString();
+            return server.address;
         }
     }
 
@@ -62,6 +63,20 @@ public class GameManager : MonoBehaviour
         {
             _currentExercice = value;
         }
+    }
+
+    public Dictionary<string, IPAddress> possibleAddresses
+    {
+        get
+        {
+            return server.addresses;
+        }
+    }
+
+    public void ChangeServerIP(string key)
+    {
+        server.SetCurrentAddress(key);
+        server.RestartServer();
     }
 
 
@@ -127,6 +142,20 @@ public class GameManager : MonoBehaviour
         return usersDataHandler.GetUsers();
     }
 
+    public void SaveUsers()
+    {
+        usersDataHandler.Save();
+    }
+
+    public void SaveExercices()
+    {
+        exercicesDataHandler.Save();
+    }
+
+    public void AddSessionToUser(int id, Session session)
+    {
+        usersDataHandler.AddSessionToUser(id, session);
+    }
 
     public List<string> GetAllMusics()
     {
