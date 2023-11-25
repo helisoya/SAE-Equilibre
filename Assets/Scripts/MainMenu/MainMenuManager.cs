@@ -5,6 +5,16 @@ using UnityEngine.UI;
 
 public class MainMenuManager : MonoBehaviour
 {
+    [Header("Tabs")]
+    public ParticipantsTab participantsTab;
+    public TitleTab titleTab;
+    public OptionsTab optionsTab;
+    public MusicsTab musicsTab;
+    public ExercicesTab exercicesTab;
+    public BackgroundTab backgroundTab;
+    public UsersTab usersTab;
+
+
     [Header("Transition")]
     [SerializeField] private RawImage transitionImg;
     [SerializeField] private Animator transitionAnimator;
@@ -54,6 +64,5 @@ public class MainMenuManager : MonoBehaviour
             startTransition = false;
             StartCoroutine(RecordFrame());
         }
-
     }
 }

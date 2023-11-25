@@ -70,7 +70,7 @@ public class UsersDataHandler : DataHandler
             while (reader.Read())
             {
                 Debug.Log("Loaded " + reader.GetString("pseudo"));
-                AddUser(new User(reader.GetString("pseudo")));
+                AddUser(new User(reader.GetString("pseudo"), 0));
             }
             reader.Close();
 

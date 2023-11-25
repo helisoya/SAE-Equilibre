@@ -9,7 +9,6 @@ public class OptionsTab : MainMenuTab
 {
     [Header("Options Tab")]
     [SerializeField] private TMP_Dropdown dropdownServer;
-    [SerializeField] private TitleTab titleTab;
 
     private int startIndex;
 
@@ -43,7 +42,7 @@ public class OptionsTab : MainMenuTab
     public void Click_ToTitle()
     {
         ValidChange();
-        MainMenuManager.instance.StartTransition(this, titleTab);
+        MainMenuManager.instance.StartTransition(this, MainMenuManager.instance.titleTab);
     }
 
     public void Click_Valid()

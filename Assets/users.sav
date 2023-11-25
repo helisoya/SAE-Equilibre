@@ -1,1 +1,1 @@
-{"nextID":3,"users":[{"id":1,"username":"Fouzi","sessions":[]},{"id":2,"username":"Doams","sessions":[]}]}
+{"nextID":3,"users":[{"id":1,"username":"Fouzi","age":89,"sessions":[{"movements":[{"moveID":"SQUAT1","wasCorrectlyDone":true},{"moveID":"SQUAT1","wasCorrectlyDone":false},{"moveID":"MARCHE1","wasCorrectlyDone":true}]},{"movements":[{"moveID":"SQUAT1","wasCorrectlyDone":true}]}]},{"id":2,"username":"Doams","age":43,"sessions":[{"movements":[{"moveID":"SQUAT1","wasCorrectlyDone":false},{"moveID":"BOXE1","wasCorrectlyDone":true}]}]}]}

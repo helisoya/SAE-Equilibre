@@ -7,8 +7,6 @@ public class ExercicesTab : MainMenuTab
     [Header("Exercices Tab")]
     [SerializeField] private Transform exercicesRoot;
     [SerializeField] private GameObject exercicePrefab;
-    [SerializeField] private TitleTab titleTab;
-    [SerializeField] private ParticipantsTab participantsTab;
 
 
     void DestroyExistingButtons()
@@ -47,13 +45,13 @@ public class ExercicesTab : MainMenuTab
 
     public void Click_ToTitle()
     {
-        MainMenuManager.instance.StartTransition(this, titleTab);
+        MainMenuManager.instance.StartTransition(this, MainMenuManager.instance.titleTab);
     }
 
     public void Click_ChooseExercice(Exercice chosenExercice)
     {
         GameManager.instance.currentExercice = chosenExercice;
 
-        MainMenuManager.instance.StartTransition(this, participantsTab);
+        MainMenuManager.instance.StartTransition(this, MainMenuManager.instance.participantsTab);
     }
 }

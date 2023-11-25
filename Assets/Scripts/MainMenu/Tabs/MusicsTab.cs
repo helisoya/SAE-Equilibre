@@ -8,8 +8,6 @@ public class MusicsTab : MainMenuTab
     [Header("Musics Tab")]
     [SerializeField] private Transform musicsRoot;
     [SerializeField] private GameObject musicPrefab;
-    [SerializeField] private ParticipantsTab participantsTab;
-    [SerializeField] private BackgroundTab backgroundTab;
 
     public override void Open()
     {
@@ -46,11 +44,11 @@ public class MusicsTab : MainMenuTab
     public void Click_ChooseMusic(string music)
     {
         GameManager.instance.currentMusic = music;
-        MainMenuManager.instance.StartTransition(this, backgroundTab);
+        MainMenuManager.instance.StartTransition(this, MainMenuManager.instance.backgroundTab);
     }
 
     public void Click_ToParticipants()
     {
-        MainMenuManager.instance.StartTransition(this, participantsTab);
+        MainMenuManager.instance.StartTransition(this, MainMenuManager.instance.participantsTab);
     }
 }

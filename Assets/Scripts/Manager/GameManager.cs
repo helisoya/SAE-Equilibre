@@ -167,4 +167,9 @@ public class GameManager : MonoBehaviour
         return await audioManager.GetClip(musicName);
     }
 
+    public void AddUser(User user)
+    {
+        usersDataHandler.AddUser(user);
+    }
+
 }

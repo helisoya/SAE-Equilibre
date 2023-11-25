@@ -8,7 +8,6 @@ public class BackgroundTab : MainMenuTab
     [Header("Background Tab")]
     [SerializeField] private Transform backgroundsRoot;
     [SerializeField] private GameObject backgroundPrefab;
-    [SerializeField] private MusicsTab musicsTab;
     [SerializeField] private Background[] backgrounds;
 
     public override void Open()
@@ -44,6 +43,6 @@ public class BackgroundTab : MainMenuTab
 
     public void Click_ToMusics()
     {
-        MainMenuManager.instance.StartTransition(this, musicsTab);
+        MainMenuManager.instance.StartTransition(this, MainMenuManager.instance.musicsTab);
     }
 }

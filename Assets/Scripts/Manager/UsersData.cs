@@ -21,13 +21,15 @@ public class User
 {
     public int id;
     public string username;
+    public int age;
     public List<Session> sessions;
 
-    public User(string name)
+    public User(string name, int age)
     {
         id = -1;
         username = name;
         sessions = new List<Session>();
+        this.age = age;
     }
 }
 

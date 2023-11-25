@@ -8,8 +8,6 @@ public class ParticipantsTab : MainMenuTab
     [SerializeField] private ParticipantsContainer notParticipating;
     [SerializeField] private ParticipantsContainer participating;
     [SerializeField] private GameObject prefabUser;
-    [SerializeField] private ExercicesTab exercicesTab;
-    [SerializeField] private MusicsTab musicsTab;
 
     public override void Open()
     {
@@ -41,13 +39,13 @@ public class ParticipantsTab : MainMenuTab
 
     public void Click_Exercices()
     {
-        MainMenuManager.instance.StartTransition(this, exercicesTab);
+        MainMenuManager.instance.StartTransition(this, MainMenuManager.instance.exercicesTab);
     }
 
     public void Click_Start()
     {
         GameManager.instance.participants = new List<User>(participating.users);
-        MainMenuManager.instance.StartTransition(this, musicsTab);
+        MainMenuManager.instance.StartTransition(this, MainMenuManager.instance.musicsTab);
 
     }
 
