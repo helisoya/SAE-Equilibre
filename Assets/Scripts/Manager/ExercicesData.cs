@@ -20,6 +20,7 @@ public class ExercicesData : DataFile
 public class Exercice
 {
     public string exerciceName;
+    public Color exerciceColor;
     public List<Sequence> sequences;
 
     public Exercice()

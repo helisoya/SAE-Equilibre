@@ -24,4 +24,14 @@ public class TitleTab : MainMenuTab
     {
         MainMenuManager.instance.StartTransition(this, MainMenuManager.instance.usersTab);
     }
+
+    public void Click_ToEditExerices()
+    {
+        MainMenuManager.instance.StartTransition(this, MainMenuManager.instance.editExercicesListTab);
+    }
+
+    public void Click_ToCredits()
+    {
+        MainMenuManager.instance.StartTransition(this, MainMenuManager.instance.creditsTab);
+    }
 }

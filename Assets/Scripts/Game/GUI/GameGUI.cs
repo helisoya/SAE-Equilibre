@@ -68,9 +68,14 @@ public class GameGUI : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            pauseRoot.SetActive(!pauseRoot.activeInHierarchy);
-            Time.timeScale = pauseRoot.activeInHierarchy ? 0 : 1;
+            SetPauseMenuActive(!pauseRoot.activeInHierarchy);
         }
+    }
+
+    public void SetPauseMenuActive(bool value)
+    {
+        pauseRoot.SetActive(value);
+        Time.timeScale = value ? 0 : 1;
     }
 
     public void ShowEndScreen()
@@ -81,6 +86,7 @@ public class GameGUI : MonoBehaviour
 
     public void Click_End()
     {
+        GameManager.instance.SaveUsers();
         SceneManager.LoadScene("MainMenu");
     }
 
@@ -123,5 +129,11 @@ public class GameGUI : MonoBehaviour
                 }
             }
         }
+    }
+
+
+    public void Click_Continue()
+    {
+        SetPauseMenuActive(false);
     }
 }

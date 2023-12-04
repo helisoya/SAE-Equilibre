@@ -13,6 +13,12 @@ public class MainMenuManager : MonoBehaviour
     public ExercicesTab exercicesTab;
     public BackgroundTab backgroundTab;
     public UsersTab usersTab;
+    public EditExercicesListTab editExercicesListTab;
+    public EditExerciceTab editExerciceTab;
+    public CreditsTab creditsTab;
+
+
+    [HideInInspector] public Exercice editedExercice;
 
 
     [Header("Transition")]

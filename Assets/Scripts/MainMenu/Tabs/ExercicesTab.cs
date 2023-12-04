@@ -48,7 +48,7 @@ public class ExercicesTab : MainMenuTab
         MainMenuManager.instance.StartTransition(this, MainMenuManager.instance.titleTab);
     }
 
-    public void Click_ChooseExercice(Exercice chosenExercice)
+    public virtual void Click_ChooseExercice(Exercice chosenExercice)
     {
         GameManager.instance.currentExercice = chosenExercice;
 

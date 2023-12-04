@@ -34,6 +34,7 @@ public class ParticipantsTab : MainMenuTab
     {
         base.Close();
         PurgeUsers();
+        GameManager.instance.SaveUsers();
     }
 
 

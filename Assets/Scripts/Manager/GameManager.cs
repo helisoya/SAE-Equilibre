@@ -130,6 +130,10 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public List<Movement> GetAllMovements()
+    {
+        return new List<Movement>(movements.Values);
+    }
 
 
     public List<Exercice> GetAllExercices()
@@ -170,6 +174,11 @@ public class GameManager : MonoBehaviour
     public void AddUser(User user)
     {
         usersDataHandler.AddUser(user);
+    }
+
+    public void AddExercice(Exercice exercice)
+    {
+        exercicesDataHandler.AddExercice(exercice);
     }
 
 }
