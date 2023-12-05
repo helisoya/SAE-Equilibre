@@ -64,8 +64,7 @@ public class EditExerciceTab : MainMenuTab
         currentMovesRoot.GetComponent<RectTransform>().sizeDelta = new Vector2(
         currentMovesRoot.GetComponent<RectTransform>().sizeDelta.x,
         (currentMovePrefab.GetComponent<RectTransform>().sizeDelta.y + 5) * exercice.sequences.Count
-);
-
+        );
     }
 
 
@@ -97,10 +96,7 @@ public class EditExerciceTab : MainMenuTab
 
     public void Event_ChangeName()
     {
-        if (!string.IsNullOrEmpty(exerciceName.text))
-        {
-            exercice.exerciceName = exerciceName.text;
-        }
+        exercice.exerciceName = exerciceName.text;
     }
 
     public void Click_SetColorPickerActive(bool value)
@@ -112,6 +108,7 @@ public class EditExerciceTab : MainMenuTab
     {
 
         Sequence sequence = new Sequence(move.ID, 1, 1);
+        exercice.sequences.Add(sequence);
 
         Instantiate(currentMovePrefab, currentMovesRoot).GetComponent<CurrentMoveComponent>().Init(sequence, move, this);
 
