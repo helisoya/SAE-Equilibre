@@ -48,12 +48,14 @@ MonoBehaviour:
   usersDataHandler:
     dataSavePath: users.sav
     data:
+      nextID: 1
       users: []
   exercicesDataHandler:
     dataSavePath: exercices.sav
     data:
       exercices:
       - exerciceName: The Quick One
+        exerciceColor: {r: 0, g: 0, b: 0, a: 0}
         sequences:
         - idMovement: SQUAT1
           movementTime: 3
@@ -62,6 +64,7 @@ MonoBehaviour:
           movementTime: 5
           animationInSeconds: 3
       - exerciceName: The less quick one
+        exerciceColor: {r: 0, g: 0, b: 0, a: 0}
         sequences:
         - idMovement: MARCHE1
           movementTime: 2
