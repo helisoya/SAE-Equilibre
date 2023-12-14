@@ -16,9 +16,11 @@ public class MainMenuManager : MonoBehaviour
     public EditExercicesListTab editExercicesListTab;
     public EditExerciceTab editExerciceTab;
     public CreditsTab creditsTab;
+    public SummaryTab summaryTab;
 
 
     [HideInInspector] public Exercice editedExercice;
+    [HideInInspector] public string chosenScene;
 
 
     [Header("Transition")]

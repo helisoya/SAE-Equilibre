@@ -38,7 +38,8 @@ public class BackgroundTab : MainMenuTab
 
     public void Click_ChooseBackground(string sceneName)
     {
-        SceneManager.LoadScene(sceneName);
+        MainMenuManager.instance.chosenScene = sceneName;
+        MainMenuManager.instance.StartTransition(this, MainMenuManager.instance.summaryTab);
     }
 
     public void Click_ToMusics()
