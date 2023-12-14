@@ -23,6 +23,8 @@ public class ExerciceManager : MonoBehaviour
 
     async void LoadMusic(string music)
     {
+        if (music == null) return;
+
         musicSource.clip = await GameManager.instance.GetMusic(music);
         print("found clip");
         musicSource.Play();

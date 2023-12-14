@@ -14,6 +14,8 @@ public class MusicsTab : MainMenuTab
         base.Open();
         DestroyExistingButtons();
 
+        Instantiate(musicPrefab, musicsRoot).GetComponent<MusicButton>().Init(null, this);
+
         List<string> musics = GameManager.instance.GetAllMusics();
         foreach (string music in musics)
         {
@@ -22,7 +24,7 @@ public class MusicsTab : MainMenuTab
 
         musicsRoot.GetComponent<RectTransform>().sizeDelta = new Vector2(
             musicsRoot.GetComponent<RectTransform>().sizeDelta.x,
-            (musicPrefab.GetComponent<RectTransform>().sizeDelta.y + 5) * musics.Count
+            (musicPrefab.GetComponent<RectTransform>().sizeDelta.y + 5) * (musics.Count + 1)
         );
     }
 

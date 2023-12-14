@@ -35,5 +35,10 @@ public class FormRow
         userId = id;
         username = name;
         columnsSucceded = new bool[numberRows];
+
+        for (int i = 0; i < numberRows; i++)
+        {
+            columnsSucceded[i] = true;
+        }
     }
 }
