@@ -14,7 +14,7 @@ public class MusicButton : MonoBehaviour
         this.music = music;
         this.tab = tab;
 
-        musicNameText.text = music.Replace(".mp3", "");
+        musicNameText.text = music != null ? music.Replace(".mp3", "") : "Pas de musique";
     }
 
     public void Click()

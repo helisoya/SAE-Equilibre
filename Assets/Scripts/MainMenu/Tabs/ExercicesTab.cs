@@ -1,12 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ExercicesTab : MainMenuTab
 {
     [Header("Exercices Tab")]
     [SerializeField] private Transform exercicesRoot;
     [SerializeField] private GameObject exercicePrefab;
+
+    [Header("Exercice Info")]
+    [SerializeField] private Image bandImage;
+    [SerializeField] private TextMeshProUGUI exerciceNameText;
+    [SerializeField] private Transform exerciceMovesRoot;
+    [SerializeField] private GameObject prefabMoveText;
+    [SerializeField] private TextMeshProUGUI exerciceLengthText;
 
 
     void DestroyExistingButtons()
