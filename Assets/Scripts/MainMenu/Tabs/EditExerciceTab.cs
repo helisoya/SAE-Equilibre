@@ -123,6 +123,12 @@ public class EditExerciceTab : MainMenuTab
         MainMenuManager.instance.StartTransition(this, MainMenuManager.instance.editExercicesListTab);
     }
 
+    public void Click_DeleteExercice()
+    {
+        GameManager.instance.RemoveExerice(exercice);
+        Click_ToExercicesList();
+    }
+
     public void SetPreview(string triggerName, float animationSpeed)
     {
         demoAnimator.speed = animationSpeed;

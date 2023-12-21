@@ -13,11 +13,14 @@ public class UsersTab : MainMenuTab
     [SerializeField] private TextMeshProUGUI userAgeText;
     [SerializeField] private Transform userSessionsRoot;
     [SerializeField] private GameObject userSessionPrefab;
+    [SerializeField] private GameObject userInfoRoot;
 
     [Header("Add User")]
     [SerializeField] private GameObject addUserRoot;
     [SerializeField] private TMP_InputField inputFieldName;
     [SerializeField] private TMP_InputField inputFieldAge;
+
+    private User currentUser;
 
     public override void Open()
     {
@@ -36,10 +39,13 @@ public class UsersTab : MainMenuTab
             Instantiate(userButtonPrefab, usersRoot).GetComponent<UserButton>().Init(user, this);
         }
 
-        if (users.Count != 0)
+        bool positiveNumberOfUsers = users.Count != 0;
+        if (positiveNumberOfUsers)
         {
             Click_ChooseUser(users[0]);
         }
+        userInfoRoot.SetActive(positiveNumberOfUsers);
+
 
         usersRoot.GetComponent<RectTransform>().sizeDelta = new Vector2(
         usersRoot.GetComponent<RectTransform>().sizeDelta.x,
@@ -92,8 +98,7 @@ public class UsersTab : MainMenuTab
             return;
         }
 
-        int age;
-        if (!int.TryParse(inputAge, out age))
+        if (!int.TryParse(inputAge, out int age))
         {
             return;
         }
@@ -108,6 +113,7 @@ public class UsersTab : MainMenuTab
 
     public void Click_ChooseUser(User user)
     {
+        currentUser = user;
         ClearChildUserSessions();
 
         userNameText.text = "Nom : " + user.username;
@@ -143,12 +149,19 @@ public class UsersTab : MainMenuTab
         userSessionsRoot.GetComponent<RectTransform>().sizeDelta = new Vector2(
         userSessionsRoot.GetComponent<RectTransform>().sizeDelta.x,
         (userSessionPrefab.GetComponent<RectTransform>().sizeDelta.y + 5) * movesForUser.Values.Count
-);
+        );
     }
 
     public void Click_ToTitle()
     {
         MainMenuManager.instance.StartTransition(this, MainMenuManager.instance.titleTab);
+    }
+
+    public void Click_DeleteUser()
+    {
+        if (currentUser == null) return;
+        GameManager.instance.RemoveUser(currentUser);
+        Open();
     }
 
 

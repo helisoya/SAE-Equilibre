@@ -174,11 +174,25 @@ public class GameManager : MonoBehaviour
     public void AddUser(User user)
     {
         usersDataHandler.AddUser(user);
+        usersDataHandler.Save();
     }
 
     public void AddExercice(Exercice exercice)
     {
         exercicesDataHandler.AddExercice(exercice);
+        exercicesDataHandler.Save();
+    }
+
+    public void RemoveExerice(Exercice exercice)
+    {
+        exercicesDataHandler.RemoveExercice(exercice);
+        exercicesDataHandler.Save();
+    }
+
+    public void RemoveUser(User user)
+    {
+        usersDataHandler.RemoveUser(user);
+        usersDataHandler.Save();
     }
 
 }
