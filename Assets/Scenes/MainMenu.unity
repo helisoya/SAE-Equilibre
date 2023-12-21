@@ -1743,12 +1743,15 @@ MonoBehaviour:
   backgroundsRoot: {fileID: 622364310}
   backgroundPrefab: {fileID: 3423142611877874334, guid: 71a8942cff1e55d45ba7bceca67c339b, type: 3}
   backgrounds:
-  - backgroundName: Test Map
-    sceneName: GameScene
-    backgroundImg: {fileID: 21300000, guid: cd84860b166d96d4cabad08b5fe94f4e, type: 3}
   - backgroundName: Forest
     sceneName: ForestSpring
     backgroundImg: {fileID: 21300000, guid: 98d4fed2f6d63794f99bc1d08d55a34e, type: 3}
+  - backgroundName: Beach
+    sceneName: Beach
+    backgroundImg: {fileID: 21300000, guid: 9ed79b75a71686b42966778cc0c3ecd8, type: 3}
+  - backgroundName: City
+    sceneName: City
+    backgroundImg: {fileID: 21300000, guid: e02eb89438bd67843adbe37eb4a3b53e, type: 3}
 --- !u!1 &171716245
 GameObject:
   m_ObjectHideFlags: 0
@@ -24868,11 +24871,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6347966720796065917, guid: 4e23b79bad96119409e73edbfb26dfff, type: 3}
       propertyPath: usersDataHandler.data.nextID
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6347966720796065917, guid: 4e23b79bad96119409e73edbfb26dfff, type: 3}
       propertyPath: usersDataHandler.data.users.Array.size
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6347966720796065917, guid: 4e23b79bad96119409e73edbfb26dfff, type: 3}
       propertyPath: usersDataHandler.data.users.Array.data[0].id
@@ -24892,7 +24895,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6347966720796065917, guid: 4e23b79bad96119409e73edbfb26dfff, type: 3}
       propertyPath: exercicesDataHandler.data.exercices.Array.size
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6347966720796065917, guid: 4e23b79bad96119409e73edbfb26dfff, type: 3}
       propertyPath: usersDataHandler.data.users.Array.data[0].username
@@ -24911,8 +24914,16 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6347966720796065917, guid: 4e23b79bad96119409e73edbfb26dfff, type: 3}
+      propertyPath: exercicesDataHandler.data.exercices.Array.data[0].exerciceName
+      value: "Session par d\xE9faut"
+      objectReference: {fileID: 0}
+    - target: {fileID: 6347966720796065917, guid: 4e23b79bad96119409e73edbfb26dfff, type: 3}
+      propertyPath: exercicesDataHandler.data.exercices.Array.data[1].exerciceName
+      value: "Session par d\xE9faut"
+      objectReference: {fileID: 0}
+    - target: {fileID: 6347966720796065917, guid: 4e23b79bad96119409e73edbfb26dfff, type: 3}
       propertyPath: exercicesDataHandler.data.exercices.Array.data[2].exerciceName
-      value: Demo
+      value: "Session par d\xE9faut"
       objectReference: {fileID: 0}
     - target: {fileID: 6347966720796065917, guid: 4e23b79bad96119409e73edbfb26dfff, type: 3}
       propertyPath: exercicesDataHandler.data.exercices.Array.data[0].exerciceColor.a
@@ -24920,15 +24931,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6347966720796065917, guid: 4e23b79bad96119409e73edbfb26dfff, type: 3}
       propertyPath: exercicesDataHandler.data.exercices.Array.data[0].exerciceColor.b
-      value: 0.9056604
+      value: 0.083481655
       objectReference: {fileID: 0}
     - target: {fileID: 6347966720796065917, guid: 4e23b79bad96119409e73edbfb26dfff, type: 3}
       propertyPath: exercicesDataHandler.data.exercices.Array.data[0].exerciceColor.g
-      value: 0.5511819
+      value: 0.083481655
       objectReference: {fileID: 0}
     - target: {fileID: 6347966720796065917, guid: 4e23b79bad96119409e73edbfb26dfff, type: 3}
       propertyPath: exercicesDataHandler.data.exercices.Array.data[0].exerciceColor.r
-      value: 0.2682805
+      value: 0.6603774
       objectReference: {fileID: 0}
     - target: {fileID: 6347966720796065917, guid: 4e23b79bad96119409e73edbfb26dfff, type: 3}
       propertyPath: exercicesDataHandler.data.exercices.Array.data[1].exerciceColor.a
@@ -24936,15 +24947,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6347966720796065917, guid: 4e23b79bad96119409e73edbfb26dfff, type: 3}
       propertyPath: exercicesDataHandler.data.exercices.Array.data[1].exerciceColor.b
-      value: 0.745283
+      value: 0.083481655
       objectReference: {fileID: 0}
     - target: {fileID: 6347966720796065917, guid: 4e23b79bad96119409e73edbfb26dfff, type: 3}
       propertyPath: exercicesDataHandler.data.exercices.Array.data[1].exerciceColor.g
-      value: 0.46895134
+      value: 0.083481655
       objectReference: {fileID: 0}
     - target: {fileID: 6347966720796065917, guid: 4e23b79bad96119409e73edbfb26dfff, type: 3}
       propertyPath: exercicesDataHandler.data.exercices.Array.data[1].exerciceColor.r
-      value: 0.23483442
+      value: 0.6603774
       objectReference: {fileID: 0}
     - target: {fileID: 6347966720796065917, guid: 4e23b79bad96119409e73edbfb26dfff, type: 3}
       propertyPath: exercicesDataHandler.data.exercices.Array.data[2].exerciceColor.a
@@ -24963,8 +24974,64 @@ PrefabInstance:
       value: 0.6603774
       objectReference: {fileID: 0}
     - target: {fileID: 6347966720796065917, guid: 4e23b79bad96119409e73edbfb26dfff, type: 3}
+      propertyPath: exercicesDataHandler.data.exercices.Array.data[0].sequences.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6347966720796065917, guid: 4e23b79bad96119409e73edbfb26dfff, type: 3}
+      propertyPath: exercicesDataHandler.data.exercices.Array.data[1].sequences.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6347966720796065917, guid: 4e23b79bad96119409e73edbfb26dfff, type: 3}
       propertyPath: exercicesDataHandler.data.exercices.Array.data[2].sequences.Array.size
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6347966720796065917, guid: 4e23b79bad96119409e73edbfb26dfff, type: 3}
+      propertyPath: exercicesDataHandler.data.exercices.Array.data[0].sequences.Array.data[0].idMovement
+      value: MARCHE1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6347966720796065917, guid: 4e23b79bad96119409e73edbfb26dfff, type: 3}
+      propertyPath: exercicesDataHandler.data.exercices.Array.data[0].sequences.Array.data[1].idMovement
+      value: SQUAT1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6347966720796065917, guid: 4e23b79bad96119409e73edbfb26dfff, type: 3}
+      propertyPath: exercicesDataHandler.data.exercices.Array.data[0].sequences.Array.data[2].idMovement
+      value: BOXEVAR2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6347966720796065917, guid: 4e23b79bad96119409e73edbfb26dfff, type: 3}
+      propertyPath: exercicesDataHandler.data.exercices.Array.data[0].sequences.Array.data[3].idMovement
+      value: EQUILIBREJAMBES
+      objectReference: {fileID: 0}
+    - target: {fileID: 6347966720796065917, guid: 4e23b79bad96119409e73edbfb26dfff, type: 3}
+      propertyPath: exercicesDataHandler.data.exercices.Array.data[0].sequences.Array.data[4].idMovement
+      value: BRASHAUT3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6347966720796065917, guid: 4e23b79bad96119409e73edbfb26dfff, type: 3}
+      propertyPath: exercicesDataHandler.data.exercices.Array.data[0].sequences.Array.data[5].idMovement
+      value: POINTEPIED1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6347966720796065917, guid: 4e23b79bad96119409e73edbfb26dfff, type: 3}
+      propertyPath: exercicesDataHandler.data.exercices.Array.data[0].sequences.Array.data[6].idMovement
+      value: TALLONFESSES
+      objectReference: {fileID: 0}
+    - target: {fileID: 6347966720796065917, guid: 4e23b79bad96119409e73edbfb26dfff, type: 3}
+      propertyPath: exercicesDataHandler.data.exercices.Array.data[1].sequences.Array.data[2].idMovement
+      value: BOXEVAR2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6347966720796065917, guid: 4e23b79bad96119409e73edbfb26dfff, type: 3}
+      propertyPath: exercicesDataHandler.data.exercices.Array.data[1].sequences.Array.data[3].idMovement
+      value: EQUILIBREJAMBES
+      objectReference: {fileID: 0}
+    - target: {fileID: 6347966720796065917, guid: 4e23b79bad96119409e73edbfb26dfff, type: 3}
+      propertyPath: exercicesDataHandler.data.exercices.Array.data[1].sequences.Array.data[4].idMovement
+      value: BRASHAUT3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6347966720796065917, guid: 4e23b79bad96119409e73edbfb26dfff, type: 3}
+      propertyPath: exercicesDataHandler.data.exercices.Array.data[1].sequences.Array.data[5].idMovement
+      value: POINTEPIED1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6347966720796065917, guid: 4e23b79bad96119409e73edbfb26dfff, type: 3}
+      propertyPath: exercicesDataHandler.data.exercices.Array.data[1].sequences.Array.data[6].idMovement
+      value: TALLONFESSES
       objectReference: {fileID: 0}
     - target: {fileID: 6347966720796065917, guid: 4e23b79bad96119409e73edbfb26dfff, type: 3}
       propertyPath: exercicesDataHandler.data.exercices.Array.data[2].sequences.Array.data[0].idMovement
@@ -25007,6 +25074,54 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6347966720796065917, guid: 4e23b79bad96119409e73edbfb26dfff, type: 3}
+      propertyPath: exercicesDataHandler.data.exercices.Array.data[0].sequences.Array.data[0].movementTime
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6347966720796065917, guid: 4e23b79bad96119409e73edbfb26dfff, type: 3}
+      propertyPath: exercicesDataHandler.data.exercices.Array.data[0].sequences.Array.data[1].movementTime
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6347966720796065917, guid: 4e23b79bad96119409e73edbfb26dfff, type: 3}
+      propertyPath: exercicesDataHandler.data.exercices.Array.data[0].sequences.Array.data[2].movementTime
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6347966720796065917, guid: 4e23b79bad96119409e73edbfb26dfff, type: 3}
+      propertyPath: exercicesDataHandler.data.exercices.Array.data[0].sequences.Array.data[3].movementTime
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6347966720796065917, guid: 4e23b79bad96119409e73edbfb26dfff, type: 3}
+      propertyPath: exercicesDataHandler.data.exercices.Array.data[0].sequences.Array.data[4].movementTime
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6347966720796065917, guid: 4e23b79bad96119409e73edbfb26dfff, type: 3}
+      propertyPath: exercicesDataHandler.data.exercices.Array.data[0].sequences.Array.data[5].movementTime
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6347966720796065917, guid: 4e23b79bad96119409e73edbfb26dfff, type: 3}
+      propertyPath: exercicesDataHandler.data.exercices.Array.data[0].sequences.Array.data[6].movementTime
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6347966720796065917, guid: 4e23b79bad96119409e73edbfb26dfff, type: 3}
+      propertyPath: exercicesDataHandler.data.exercices.Array.data[1].sequences.Array.data[2].movementTime
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6347966720796065917, guid: 4e23b79bad96119409e73edbfb26dfff, type: 3}
+      propertyPath: exercicesDataHandler.data.exercices.Array.data[1].sequences.Array.data[3].movementTime
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6347966720796065917, guid: 4e23b79bad96119409e73edbfb26dfff, type: 3}
+      propertyPath: exercicesDataHandler.data.exercices.Array.data[1].sequences.Array.data[4].movementTime
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6347966720796065917, guid: 4e23b79bad96119409e73edbfb26dfff, type: 3}
+      propertyPath: exercicesDataHandler.data.exercices.Array.data[1].sequences.Array.data[5].movementTime
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6347966720796065917, guid: 4e23b79bad96119409e73edbfb26dfff, type: 3}
+      propertyPath: exercicesDataHandler.data.exercices.Array.data[1].sequences.Array.data[6].movementTime
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6347966720796065917, guid: 4e23b79bad96119409e73edbfb26dfff, type: 3}
       propertyPath: exercicesDataHandler.data.exercices.Array.data[2].sequences.Array.data[0].movementTime
       value: 2
       objectReference: {fileID: 0}
@@ -25033,6 +25148,46 @@ PrefabInstance:
     - target: {fileID: 6347966720796065917, guid: 4e23b79bad96119409e73edbfb26dfff, type: 3}
       propertyPath: exercicesDataHandler.data.exercices.Array.data[2].sequences.Array.data[6].movementTime
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6347966720796065917, guid: 4e23b79bad96119409e73edbfb26dfff, type: 3}
+      propertyPath: exercicesDataHandler.data.exercices.Array.data[0].sequences.Array.data[0].animationInSeconds
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6347966720796065917, guid: 4e23b79bad96119409e73edbfb26dfff, type: 3}
+      propertyPath: exercicesDataHandler.data.exercices.Array.data[0].sequences.Array.data[2].animationInSeconds
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6347966720796065917, guid: 4e23b79bad96119409e73edbfb26dfff, type: 3}
+      propertyPath: exercicesDataHandler.data.exercices.Array.data[0].sequences.Array.data[3].animationInSeconds
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6347966720796065917, guid: 4e23b79bad96119409e73edbfb26dfff, type: 3}
+      propertyPath: exercicesDataHandler.data.exercices.Array.data[0].sequences.Array.data[4].animationInSeconds
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6347966720796065917, guid: 4e23b79bad96119409e73edbfb26dfff, type: 3}
+      propertyPath: exercicesDataHandler.data.exercices.Array.data[0].sequences.Array.data[5].animationInSeconds
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6347966720796065917, guid: 4e23b79bad96119409e73edbfb26dfff, type: 3}
+      propertyPath: exercicesDataHandler.data.exercices.Array.data[0].sequences.Array.data[6].animationInSeconds
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6347966720796065917, guid: 4e23b79bad96119409e73edbfb26dfff, type: 3}
+      propertyPath: exercicesDataHandler.data.exercices.Array.data[1].sequences.Array.data[2].animationInSeconds
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6347966720796065917, guid: 4e23b79bad96119409e73edbfb26dfff, type: 3}
+      propertyPath: exercicesDataHandler.data.exercices.Array.data[1].sequences.Array.data[4].animationInSeconds
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6347966720796065917, guid: 4e23b79bad96119409e73edbfb26dfff, type: 3}
+      propertyPath: exercicesDataHandler.data.exercices.Array.data[1].sequences.Array.data[5].animationInSeconds
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6347966720796065917, guid: 4e23b79bad96119409e73edbfb26dfff, type: 3}
+      propertyPath: exercicesDataHandler.data.exercices.Array.data[1].sequences.Array.data[6].animationInSeconds
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6347966720796065917, guid: 4e23b79bad96119409e73edbfb26dfff, type: 3}
       propertyPath: exercicesDataHandler.data.exercices.Array.data[2].sequences.Array.data[1].animationInSeconds

@@ -86,6 +86,7 @@ public class GameGUI : MonoBehaviour
 
     public void Click_End()
     {
+        Time.timeScale = 1;
         GameManager.instance.SaveUsers();
         SceneManager.LoadScene("MainMenu");
     }

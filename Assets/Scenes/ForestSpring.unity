@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.172768, g: 0.21589169, b: 0.29782546, a: 1}
+  m_IndirectSpecularColor: {r: 0.17604688, g: 0.22031741, b: 0.30264574, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -508,6 +508,18 @@ PrefabInstance:
     - target: {fileID: 2713062942073511118, guid: a9044dc9624f2eb43954161d2e3d0d70, type: 3}
       propertyPath: m_Name
       value: Light axe
+      objectReference: {fileID: 0}
+    - target: {fileID: 2713062942756223692, guid: a9044dc9624f2eb43954161d2e3d0d70, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.54427314
+      objectReference: {fileID: 0}
+    - target: {fileID: 2713062942756223692, guid: a9044dc9624f2eb43954161d2e3d0d70, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.83890814
+      objectReference: {fileID: 0}
+    - target: {fileID: 2713062942756223692, guid: a9044dc9624f2eb43954161d2e3d0d70, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 114.05
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a9044dc9624f2eb43954161d2e3d0d70, type: 3}
