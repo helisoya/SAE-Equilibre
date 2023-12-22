@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: BrasTourne2
   m_EditorClassIdentifier: 
   ID: BRASTOURNE2
-  movementName: BrasGrandRondDevant
+  movementName: Bras Grand Rond Devant
   animationTriggerName: BrasTourne2
   isContinuous: 0
   animationLength: 2

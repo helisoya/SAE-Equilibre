@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: BrasTendu3
   m_EditorClassIdentifier: 
   ID: BRASTENDU3
-  movementName: BrasTendu3
+  movementName: Bras Tendu
   animationTriggerName: BrasTendu3
   isContinuous: 0
   animationLength: 1.5

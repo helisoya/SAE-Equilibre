@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: Marche1
   m_EditorClassIdentifier: 
   ID: MARCHE1
-  movementName: Marche1
+  movementName: Marche (Var. 1)
   animationTriggerName: Marche1
   isContinuous: 1
   animationLength: 2
   animationIcon: {fileID: 21300000, guid: 4161fae211226264dbd970236a1361fd, type: 3}
+  cameraPosition: 0

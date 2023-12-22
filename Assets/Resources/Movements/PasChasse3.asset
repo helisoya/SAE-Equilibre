@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PasChasse3
   m_EditorClassIdentifier: 
   ID: PASCHASSE3
-  movementName: PasChasseDouble
+  movementName: Pas Chasse Double
   animationTriggerName: PasChasse3
   isContinuous: 0
   animationLength: 2

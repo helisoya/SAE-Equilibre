@@ -50,6 +50,26 @@ public class AppClient : MonoBehaviour
         }
     }
 
+    public async void PauseApp()
+    {
+        if (debug) return;
+
+        if (client.Connected)
+        {
+            print("Sending Data");
+
+            await sw.WriteLineAsync("Pause|");
+            string response = await sr.ReadLineAsync();
+
+            string[] split = response.Split("|");
+
+            if (!split[0].Equals("OK"))
+            {
+                print("Error : " + response);
+            }
+        }
+    }
+
 
     public async void AskForForm()
     {

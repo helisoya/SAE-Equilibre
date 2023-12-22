@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: BrasDevant
   m_EditorClassIdentifier: 
   ID: BRASDEVANT
-  movementName: BrasDevant
+  movementName: Bras Devant
   animationTriggerName: BrasDevant
   isContinuous: 0
   animationLength: 1

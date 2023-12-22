@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: GenouToTalon2
   m_EditorClassIdentifier: 
   ID: GENOUTOTALON2
-  movementName: GenouToTalon2
+  movementName: Genou - Talon (Var. 2)
   animationTriggerName: GenouToTalon2
   isContinuous: 0
   animationLength: 2

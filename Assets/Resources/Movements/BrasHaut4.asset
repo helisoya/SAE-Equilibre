@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: BrasHaut4
   m_EditorClassIdentifier: 
   ID: BRASHAUT4
-  movementName: BrasHaut
+  movementName: Bras Haut
   animationTriggerName: BrasHaut4
   isContinuous: 0
   animationLength: 1

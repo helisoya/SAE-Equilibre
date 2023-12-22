@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Bras1
   m_EditorClassIdentifier: 
   ID: BRAS1
-  movementName: AttrapeFace
+  movementName: Attrape Face
   animationTriggerName: Bras1
   isContinuous: 0
   animationLength: 2

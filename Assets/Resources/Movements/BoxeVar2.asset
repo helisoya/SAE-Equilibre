@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: BoxeVar2
   m_EditorClassIdentifier: 
   ID: BOXEVAR2
-  movementName: BoxeCrochet
+  movementName: Boxe (Crochet)
   animationTriggerName: BoxeVar2
   isContinuous: 0
   animationLength: 2.5

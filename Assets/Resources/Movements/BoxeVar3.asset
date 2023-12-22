@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: BoxeVar3
   m_EditorClassIdentifier: 
   ID: BOXEVAR3
-  movementName: JesaisPasCestQuoiCetruc
+  movementName: Upercut
   animationTriggerName: BoxeVar3
   isContinuous: 0
   animationLength: 1.5

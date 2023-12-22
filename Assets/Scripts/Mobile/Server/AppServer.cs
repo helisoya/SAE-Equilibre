@@ -118,6 +118,10 @@ public class AppServer : MonoBehaviour
 
             switch (split[0])
             {
+                case "Pause":
+                    GameGUI.instance.SetPauseMenuActive(!GameGUI.instance.paused);
+                    await sw.WriteLineAsync("OK|");
+                    break;
                 case "FORM_ASK":
                     print("Phone Asking for Form");
                     List<string> columns = new List<string>();

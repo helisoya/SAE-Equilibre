@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Bras5
   m_EditorClassIdentifier: 
   ID: BRAS5
-  movementName: AttrapeCoteG
+  movementName: Attrape Cote Gauche
   animationTriggerName: Bras5
   isContinuous: 0
   animationLength: 1

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PointePied2
   m_EditorClassIdentifier: 
   ID: POINTEPIED2
-  movementName: PointeTalon
+  movementName: Pointe Talon
   animationTriggerName: PointePied2
   isContinuous: 1
   animationLength: 1

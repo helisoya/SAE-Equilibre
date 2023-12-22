@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: Squat2
   m_EditorClassIdentifier: 
   ID: SQUAT2
-  movementName: Squat2
+  movementName: Squat (Var.2)
   animationTriggerName: Squat2
   isContinuous: 0
   animationLength: 3.133
   animationIcon: {fileID: 21300000, guid: d98c04477b6f086488c0888604038f50, type: 3}
+  cameraPosition: 0

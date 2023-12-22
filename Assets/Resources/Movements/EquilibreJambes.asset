@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: EquilibreJambes
   m_EditorClassIdentifier: 
   ID: EQUILIBREJAMBES
-  movementName: EquilibrePointeTalon
+  movementName: Equilibre (Pointe Talon)
   animationTriggerName: EquilibreJambes
   isContinuous: 1
   animationLength: 1

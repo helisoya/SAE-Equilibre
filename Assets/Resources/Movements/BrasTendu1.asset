@@ -15,7 +15,7 @@ MonoBehaviour:
   ID: BRASTENDU1
   movementName: Equilibre
   animationTriggerName: BrasTendu1
-  isContinuous: 0
+  isContinuous: 1
   animationLength: 2
   animationIcon: {fileID: 21300000, guid: cc2c592a0a37c27459c0aae483277a25, type: 3}
   cameraPosition: 0

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PasChasse4
   m_EditorClassIdentifier: 
   ID: PASCHASSE4
-  movementName: EcartJambe
+  movementName: Ecart Jambe
   animationTriggerName: PasChasse4
   isContinuous: 0
   animationLength: 1.5

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Marche3
   m_EditorClassIdentifier: 
   ID: MARCHE3
-  movementName: MonteGenoux
+  movementName: Monte Genoux (Var. 1)
   animationTriggerName: Marche3
   isContinuous: 1
   animationLength: 2

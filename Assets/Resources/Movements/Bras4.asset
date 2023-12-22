@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Bras4
   m_EditorClassIdentifier: 
   ID: BRAS4
-  movementName: AttrapeCoteD
+  movementName: Attrape Cote Droit
   animationTriggerName: Bras4
   isContinuous: 0
   animationLength: 1

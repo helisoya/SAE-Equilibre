@@ -45,6 +45,14 @@ public class GameGUI : MonoBehaviour
         get { return _startedExercice; }
     }
 
+    public bool paused
+    {
+        get
+        {
+            return pauseRoot.activeInHierarchy;
+        }
+    }
+
 
     public static GameGUI instance;
 
@@ -68,7 +76,7 @@ public class GameGUI : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            SetPauseMenuActive(!pauseRoot.activeInHierarchy);
+            SetPauseMenuActive(!paused);
         }
     }
 

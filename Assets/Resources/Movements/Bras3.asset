@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Bras3
   m_EditorClassIdentifier: 
   ID: BRAS3
-  movementName: Bras3
-  animationTriggerName: AttrapeDiagonalFace
+  movementName: Attrape Diagonal Face
+  animationTriggerName: Bras3
   isContinuous: 0
   animationLength: 1
   animationIcon: {fileID: 21300000, guid: dcb408988ee6b4c7a80baef80b998ad8, type: 3}

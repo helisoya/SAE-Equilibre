@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PiedTendu1
   m_EditorClassIdentifier: 
   ID: PIEDTENDU1
-  movementName: EcartJambeG
+  movementName: Ecart Jambe Gauche
   animationTriggerName: PiedTendu1
   isContinuous: 0
   animationLength: 1

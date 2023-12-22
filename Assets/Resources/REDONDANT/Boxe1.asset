@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: def0dc12350d5ef418e67c3f76008126, type: 3}
-  m_Name: Boxe2
+  m_Name: Boxe1
   m_EditorClassIdentifier: 
-  ID: BOXE2
-  movementName: AttrapeFace
-  animationTriggerName: Boxe2
+  ID: BOXE1
+  movementName: Boxe (Var. 1)
+  animationTriggerName: Boxe1
   isContinuous: 0
-  animationLength: 1
-  animationIcon: {fileID: 21300000, guid: 777c73059841503908d8a4bb39a012a6, type: 3}
+  animationLength: 1.5
+  animationIcon: {fileID: 21300000, guid: 6c7efad37b14765a0b3418f3b4b5bcf2, type: 3}
   cameraPosition: 0

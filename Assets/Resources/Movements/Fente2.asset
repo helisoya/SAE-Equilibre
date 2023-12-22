@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Fente2
   m_EditorClassIdentifier: 
   ID: FENTE2
-  movementName: Fente2
+  movementName: Fente (Var. 2)
   animationTriggerName: Fente2
   isContinuous: 0
   animationLength: 1

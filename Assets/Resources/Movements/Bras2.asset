@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Bras2
   m_EditorClassIdentifier: 
   ID: BRAS2
-  movementName: AttrapeHaut
+  movementName: Attrape Haut
   animationTriggerName: Bras2
   isContinuous: 0
   animationLength: 2

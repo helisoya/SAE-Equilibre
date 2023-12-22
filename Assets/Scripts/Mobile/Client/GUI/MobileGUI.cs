@@ -87,4 +87,8 @@ public class MobileGUI : MonoBehaviour
         client.SendForm(form);
     }
 
+    public void Click_TogglePause()
+    {
+        client.PauseApp();
+    }
 }
