@@ -30,10 +30,12 @@ public class AppClient : MonoBehaviour
             return;
         }
 
+        print("FOUZI - Starting");
         TcpClient clientTesting = new TcpClient();
+        print("FOUZI - Created TcpClient, connecting...");
         clientTesting.Connect(ip, AppServer.serverPort);
 
-        print("Connection success to " + ip + ":" + AppServer.serverPort + " : " + clientTesting.Connected);
+        print("FOUZI - Connection success to " + ip + ":" + AppServer.serverPort + " : " + clientTesting.Connected);
 
         if (clientTesting.Connected)
         {
