@@ -55,18 +55,12 @@ public class UsersTab : MainMenuTab
 
     void ClearChildUsers()
     {
-        foreach (Transform child in usersRoot)
-        {
-            Destroy(child.gameObject);
-        }
+        Utils.DestroyChildren(usersRoot);
     }
 
     void ClearChildUserSessions()
     {
-        foreach (Transform child in userSessionsRoot)
-        {
-            Destroy(child.gameObject);
-        }
+        Utils.DestroyChildren(userSessionsRoot);
     }
 
     public override void Close()

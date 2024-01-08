@@ -22,7 +22,7 @@ public class IconPreview : MonoBehaviour
 
     public void OnPointerEnter()
     {
-        tab.SetPreview(move.animationTriggerName, move.isContinuous ? 1 : sequence.animationInSeconds);
+        tab.SetPreview(move.animationTriggerName, move.isContinuous ? 1 : move.animationLength / sequence.animationInSeconds);
     }
 
     public void OnPointerExit()

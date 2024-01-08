@@ -52,9 +52,6 @@ public class ParticipantsContainer : MonoBehaviour, IDropHandler
     public void Purge()
     {
         _users.Clear();
-        foreach (Transform child in userRoot)
-        {
-            Destroy(child.gameObject);
-        }
+        Utils.DestroyChildren(userRoot);
     }
 }

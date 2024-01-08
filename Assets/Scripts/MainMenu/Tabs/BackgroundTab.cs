@@ -29,10 +29,7 @@ public class BackgroundTab : MainMenuTab
 
     void DestroyExistingButtons()
     {
-        foreach (Transform child in backgroundsRoot)
-        {
-            Destroy(child.gameObject);
-        }
+        Utils.DestroyChildren(backgroundsRoot);
     }
 
 

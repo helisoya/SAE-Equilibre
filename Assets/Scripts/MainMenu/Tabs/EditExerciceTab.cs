@@ -70,15 +70,8 @@ public class EditExerciceTab : MainMenuTab
 
     void ClearAllPrefabs()
     {
-        foreach (Transform child in currentMovesRoot)
-        {
-            Destroy(child.gameObject);
-        }
-
-        foreach (Transform child in availableMovesRoot)
-        {
-            Destroy(child.gameObject);
-        }
+        Utils.DestroyChildren(currentMovesRoot);
+        Utils.DestroyChildren(availableMovesRoot);
     }
 
     public override void Close()

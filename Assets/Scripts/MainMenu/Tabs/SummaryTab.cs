@@ -34,10 +34,7 @@ public class SummaryTab : MainMenuTab
 
     void DeleteAllIcons()
     {
-        foreach (Transform child in iconsRoot)
-        {
-            Destroy(child.gameObject);
-        }
+        Utils.DestroyChildren(iconsRoot);
     }
 
     public override void Close()

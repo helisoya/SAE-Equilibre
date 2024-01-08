@@ -24,4 +24,9 @@ public class ExerciceButton : MonoBehaviour
     {
         tab.Click_ChooseExercice(exercice);
     }
+
+    public void Enter()
+    {
+        tab.ShowExerciceInfo(exercice);
+    }
 }

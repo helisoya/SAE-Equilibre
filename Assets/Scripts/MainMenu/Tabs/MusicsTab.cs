@@ -36,10 +36,7 @@ public class MusicsTab : MainMenuTab
 
     void DestroyExistingButtons()
     {
-        foreach (Transform child in musicsRoot)
-        {
-            Destroy(child.gameObject);
-        }
+        Utils.DestroyChildren(musicsRoot);
     }
 
 
