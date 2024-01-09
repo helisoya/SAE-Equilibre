@@ -13,7 +13,7 @@ using System.Data;
 
 public class AppServer : MonoBehaviour
 {
-    public const int serverPort = 4242;
+    public const int serverPort = 17224;
     private TcpListener listener;
 
     private Socket socket;
@@ -92,6 +92,7 @@ public class AppServer : MonoBehaviour
         print("Starting Server On : " + _address.ToString() + " : " + serverPort);
         listener = new TcpListener(_address, serverPort);
         listener.Start();
+
 
         socket = listener.AcceptSocket();
 

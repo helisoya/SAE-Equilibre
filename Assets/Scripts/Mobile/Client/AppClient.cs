@@ -5,6 +5,7 @@ using System.Net.NetworkInformation;
 using System.Net.Sockets;
 using System.Net;
 using System.Threading;
+using Unity.VisualScripting;
 
 
 
@@ -21,8 +22,9 @@ public class AppClient : MonoBehaviour
 
     private string distantIP;
     private Form form;
+    private Coroutine routineConnection;
 
-    public void TryConnectionToIP(string ip)
+    public async void TryConnectionToIP(string ip)
     {
         if (debug)
         {
@@ -30,12 +32,18 @@ public class AppClient : MonoBehaviour
             return;
         }
 
-        print("FOUZI - Starting");
-        TcpClient clientTesting = new TcpClient();
-        print("FOUZI - Created TcpClient, connecting...");
-        clientTesting.Connect(ip, AppServer.serverPort);
+        if (routineConnection != null) return;
 
-        print("FOUZI - Connection success to " + ip + ":" + AppServer.serverPort + " : " + clientTesting.Connected);
+        TcpClient clientTesting = new TcpClient
+        {
+            SendTimeout = 2000,
+            ReceiveTimeout = 2000
+        };
+
+        print("[RESULT] = Created TcpClient, connecting...");
+        await clientTesting.ConnectAsync(ip, AppServer.serverPort);
+
+        print("[RESULT] = Connection success to " + ip + ":" + AppServer.serverPort + " : " + clientTesting.Connected);
 
         if (clientTesting.Connected)
         {
@@ -50,7 +58,9 @@ public class AppClient : MonoBehaviour
 
             gui.OpenConnectedTab(distantIP);
         }
+
     }
+
 
     public async void PauseApp()
     {
