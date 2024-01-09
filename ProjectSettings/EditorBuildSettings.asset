@@ -5,22 +5,22 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Android/AndroidScene.unity
     guid: 51795602b93abf645a3717f135fb6955
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: 4065aada25a3de34a9f3964f5e91899e
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/GameScene.unity
     guid: 0034af4c13487e546a591e251075ca0b
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/ForestSpring.unity
     guid: 1dfd62514ed29fb409463a09f63efb8e
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Beach.unity
     guid: 44da3a8391923d542aacea469055024d
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/City.unity
     guid: 2d1b0e0da961bd12ea6258ca71afcd16
   m_configObjects: {}

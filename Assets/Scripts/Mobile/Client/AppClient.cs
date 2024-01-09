@@ -44,10 +44,10 @@ public class AppClient : MonoBehaviour
             ReceiveTimeout = 2000
         };
 
-        print("[RESULT] = Created TcpClient at " + ipAddress.ToString() + ":" + AppServer.serverPort + ", connecting...");
+        print("[RESULT] Created TcpClient at " + ipAddress.ToString() + ":" + AppServer.serverPort + ", connecting...");
         await clientTesting.ConnectAsync(ip, AppServer.serverPort);
 
-        print("[RESULT] = Connection success to " + ip + ":" + AppServer.serverPort + " : " + clientTesting.Connected);
+        print("[RESULT] Connection success to " + ip + ":" + AppServer.serverPort + " : " + clientTesting.Connected);
 
         if (clientTesting.Connected)
         {
@@ -72,16 +72,18 @@ public class AppClient : MonoBehaviour
 
         if (client.Connected)
         {
-            print("Sending Data");
+            print("[Result] Asking to pause");
 
             await sw.WriteLineAsync("Pause|");
             string response = await sr.ReadLineAsync();
+
+            print("[Result] Received : " + response);
 
             string[] split = response.Split("|");
 
             if (!split[0].Equals("OK"))
             {
-                print("Error : " + response);
+                print("[Result] Error : " + response);
             }
         }
     }
@@ -98,22 +100,23 @@ public class AppClient : MonoBehaviour
 
         if (client.Connected)
         {
-            print("Sending Data");
+            print("[Result] Asking for form");
             await sw.WriteLineAsync("FORM_ASK|");
             string response = await sr.ReadLineAsync();
 
+            print("[Result] Received : " + response);
             string[] split = response.Split("|");
 
             if (split[0].Equals("FORM"))
             {
-                Debug.Log("Form : " + split[1]);
+                Debug.Log("[Result] Form : " + split[1]);
                 form = JsonUtility.FromJson<Form>(split[1]);
-                Debug.Log("Parsed Form : " + form);
+                Debug.Log("[Result] Parsed Form : " + form);
                 gui.InitializeForm(form);
             }
             else
             {
-                print("Error : " + response);
+                print("[Result] Error : " + response);
             }
         }
     }
@@ -125,13 +128,14 @@ public class AppClient : MonoBehaviour
 
         if (client.Connected)
         {
-            print("Sending Data");
+            print("[Result] Sending Form");
             string json = JsonUtility.ToJson(form);
 
-            print("Sending : " + json);
+            print("[Result] Sending : " + json);
             await sw.WriteLineAsync("FORM|" + json);
             string response = await sr.ReadLineAsync();
 
+            print("[Result] Received : " + response);
             string[] split = response.Split("|");
 
             if (split[0].Equals("OK"))
@@ -140,7 +144,7 @@ public class AppClient : MonoBehaviour
             }
             else
             {
-                print("Error : " + response);
+                print("[Result] Error : " + response);
             }
         }
     }

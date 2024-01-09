@@ -72,8 +72,6 @@ public class GameGUI : MonoBehaviour
 
     void Update()
     {
-        if (endRoot.activeInHierarchy) return;
-
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             SetPauseMenuActive(!paused);
@@ -82,6 +80,7 @@ public class GameGUI : MonoBehaviour
 
     public void SetPauseMenuActive(bool value)
     {
+        if (endRoot.activeInHierarchy || !_startedExercice) return;
         pauseRoot.SetActive(value);
         Time.timeScale = value ? 0 : 1;
     }

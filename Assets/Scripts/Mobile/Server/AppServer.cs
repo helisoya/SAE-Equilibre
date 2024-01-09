@@ -40,6 +40,19 @@ public class AppServer : MonoBehaviour
         }
     }
 
+    private bool _wantToPause;
+
+
+    void Update()
+    {
+        if (_wantToPause && GameGUI.instance != null)
+        {
+            _wantToPause = false;
+            GameGUI.instance.SetPauseMenuActive(!GameGUI.instance.paused);
+        }
+    }
+
+
     void Awake()
     {
         RefreshIps();
@@ -119,7 +132,8 @@ public class AppServer : MonoBehaviour
             switch (split[0])
             {
                 case "Pause":
-                    GameGUI.instance.SetPauseMenuActive(!GameGUI.instance.paused);
+                    print("Phone asking to pause");
+                    _wantToPause = true;
                     await sw.WriteLineAsync("OK|");
                     break;
                 case "FORM_ASK":
@@ -167,21 +181,6 @@ public class AppServer : MonoBehaviour
             }
         }
     }
-
-    /*
-    public IPAddress GetLocalIPAddress()
-    {
-
-        IPHostEntry host = Dns.GetHostEntry(Dns.GetHostName());
-        foreach (IPAddress ip in host.AddressList)
-        {
-            if (ip.AddressFamily == AddressFamily.InterNetwork)
-            {
-                return ip;
-            }
-        }
-        return null;
-    }*/
 
     public void RestartServer()
     {
