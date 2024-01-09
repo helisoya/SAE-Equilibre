@@ -34,13 +34,17 @@ public class AppClient : MonoBehaviour
 
         if (routineConnection != null) return;
 
-        TcpClient clientTesting = new TcpClient
+
+        IPAddress ipAddress = Dns.GetHostEntry(Dns.GetHostName()).AddressList[0];
+        IPEndPoint ipLocalEndPoint = new IPEndPoint(ipAddress, AppServer.serverPort);
+
+        TcpClient clientTesting = new TcpClient(ipLocalEndPoint)
         {
             SendTimeout = 2000,
             ReceiveTimeout = 2000
         };
 
-        print("[RESULT] = Created TcpClient, connecting...");
+        print("[RESULT] = Created TcpClient at " + ipAddress.ToString() + ":" + AppServer.serverPort + ", connecting...");
         await clientTesting.ConnectAsync(ip, AppServer.serverPort);
 
         print("[RESULT] = Connection success to " + ip + ":" + AppServer.serverPort + " : " + clientTesting.Connected);
