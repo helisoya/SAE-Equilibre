@@ -13,10 +13,10 @@ using System.Data;
 
 public class AppServer : MonoBehaviour
 {
-    public const int serverPort = 4242;
+    public const int serverPort = 17224;
     private TcpListener listener;
 
-    private Socket socket;
+    private TcpClient socket;
     private System.IO.StreamReader sr;
     private System.IO.StreamWriter sw;
     private NetworkStream stream;
@@ -87,17 +87,17 @@ public class AppServer : MonoBehaviour
         serverThread.Start();
     }
 
-    void ServerThreadInit()
+    async void ServerThreadInit()
     {
         print("Starting Server On : " + _address.ToString() + " : " + serverPort);
         listener = new TcpListener(_address, serverPort);
         listener.Start();
 
-        socket = listener.AcceptSocket();
+        socket = await listener.AcceptTcpClientAsync();
 
         print("A Device Has Connected To The Server");
 
-        stream = new NetworkStream(socket);
+        stream = socket.GetStream();
         sr = new System.IO.StreamReader(stream);
         sw = new System.IO.StreamWriter(stream)
         {
