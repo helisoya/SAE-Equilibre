@@ -6,6 +6,7 @@ using System.Net.Sockets;
 using System.Net;
 using System.Threading;
 using System;
+using System.Threading.Tasks;
 
 
 
@@ -36,7 +37,7 @@ public class AppClient : MonoBehaviour
 
 
 
-        IPAddress ipAddress = Dns.GetHostEntry(Dns.GetHostName()).AddressList[0];
+        IPAddress ipAddress = NetworkGateway();
         IPEndPoint ipLocalEndPoint = new IPEndPoint(ipAddress, AppServer.serverPort);
 
         TcpClient clientTesting = new TcpClient(ipLocalEndPoint)
@@ -45,14 +46,16 @@ public class AppClient : MonoBehaviour
             ReceiveTimeout = 2000
         };
 
-        print("[RESULT] Created TcpClient at " + ipAddress.ToString() + ":" + AppServer.serverPort + ", connecting...");
+        print("[RESULT] Created TcpClient at " + ipAddress.ToString() + ":" + AppServer.serverPort + ", connecting to " + ip + ":" + AppServer.serverPort);
         try
         {
             await clientTesting.ConnectAsync(ip, AppServer.serverPort);
+            print("[RESULT] Handshaked " + ip);
         }
-        catch
+        catch (Exception e)
         {
             print("[RESULT] Connection failed to " + ip + ":" + AppServer.serverPort);
+            print("[RESULT] Error : " + e);
             return;
         }
 
@@ -166,13 +169,15 @@ public class AppClient : MonoBehaviour
 
         findingServer = true;
 
-        string gate_ip = NetworkGateway();
+        string gate_ip = NetworkGateway().ToString();
         print("[IP] : " + gate_ip);
         string[] array = gate_ip.Split('.');
 
         for (int i = 2; i <= 255; i++)
         {
             if (client != null) break;
+            if (array[3] == i.ToString()) continue;
+
             string ping_var = array[0] + "." + array[1] + "." + array[2] + "." + i;
 
 
@@ -185,13 +190,12 @@ public class AppClient : MonoBehaviour
     }
 
 
-    static string NetworkGateway()
+    static IPAddress NetworkGateway()
     {
 
         foreach (NetworkInterface f in NetworkInterface.GetAllNetworkInterfaces())
         {
             print("[INTERFACE] Found : " + f.Name);
-            if (!f.Name.Contains("wlan")) continue;
 
             foreach (UnicastIPAddressInformation d in f.GetIPProperties().UnicastAddresses)
             {
@@ -199,7 +203,7 @@ public class AppClient : MonoBehaviour
                     d.Address.ToString() != "127.0.0.1")
                 {
                     print("[INTERFACE] IP : " + d.Address.ToString());
-                    return d.Address.ToString();
+                    return d.Address;
                 }
 
             }
