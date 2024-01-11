@@ -5,7 +5,7 @@ using System.Net.NetworkInformation;
 using System.Net.Sockets;
 using System.Net;
 using System.Threading;
-using Unity.VisualScripting;
+using System;
 
 
 
@@ -22,7 +22,7 @@ public class AppClient : MonoBehaviour
 
     private string distantIP;
     private Form form;
-    private Coroutine routineConnection;
+    private bool findingServer;
 
     public async void TryConnectionToIP(string ip)
     {
@@ -32,7 +32,8 @@ public class AppClient : MonoBehaviour
             return;
         }
 
-        if (routineConnection != null) return;
+        if (client != null) return;
+
 
 
         IPAddress ipAddress = Dns.GetHostEntry(Dns.GetHostName()).AddressList[0];
@@ -45,7 +46,16 @@ public class AppClient : MonoBehaviour
         };
 
         print("[RESULT] Created TcpClient at " + ipAddress.ToString() + ":" + AppServer.serverPort + ", connecting...");
-        await clientTesting.ConnectAsync(ip, AppServer.serverPort);
+        try
+        {
+            await clientTesting.ConnectAsync(ip, AppServer.serverPort);
+        }
+        catch
+        {
+            print("[RESULT] Connection failed to " + ip + ":" + AppServer.serverPort);
+            return;
+        }
+
 
         print("[RESULT] Connection success to " + ip + ":" + AppServer.serverPort + " : " + clientTesting.Connected);
 
@@ -149,6 +159,55 @@ public class AppClient : MonoBehaviour
         }
     }
 
+
+    public void FindServer()
+    {
+        if (findingServer) return;
+
+        findingServer = true;
+
+        string gate_ip = NetworkGateway();
+        print("[IP] : " + gate_ip);
+        string[] array = gate_ip.Split('.');
+
+        for (int i = 2; i <= 255; i++)
+        {
+            if (client != null) break;
+            string ping_var = array[0] + "." + array[1] + "." + array[2] + "." + i;
+
+
+            print("[PING] Connecting to " + ping_var);
+
+            TryConnectionToIP(ping_var);
+        }
+
+        findingServer = false;
+    }
+
+
+    static string NetworkGateway()
+    {
+
+        foreach (NetworkInterface f in NetworkInterface.GetAllNetworkInterfaces())
+        {
+            print("[INTERFACE] Found : " + f.Name);
+            if (!f.Name.Contains("wlan")) continue;
+
+            foreach (UnicastIPAddressInformation d in f.GetIPProperties().UnicastAddresses)
+            {
+                if (d.Address.AddressFamily == AddressFamily.InterNetwork &&
+                    d.Address.ToString() != "127.0.0.1")
+                {
+                    print("[INTERFACE] IP : " + d.Address.ToString());
+                    return d.Address.ToString();
+                }
+
+            }
+
+
+        }
+        return null;
+    }
 
     void OnApplicationQuit()
     {

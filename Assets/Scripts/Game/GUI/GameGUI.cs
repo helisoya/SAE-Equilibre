@@ -10,7 +10,6 @@ using UnityEngine.UI;
 public class GameGUI : MonoBehaviour
 {
     [Header("Start")]
-    [SerializeField] private TextMeshProUGUI serverIpText;
     [SerializeField] private GameObject startRoot;
     [SerializeField] private ExerciceManager manager;
 
@@ -61,7 +60,6 @@ public class GameGUI : MonoBehaviour
         _startedExercice = false;
         instance = this;
         InitializeMovementsUI(GameManager.instance.currentExercice);
-        serverIpText.text += GameManager.instance.ipAddress;
     }
 
 

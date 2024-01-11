@@ -10,8 +10,6 @@ public class MobileGUI : MonoBehaviour
 
     [Header("Unconnected")]
     [SerializeField] private GameObject unconnectedRoot;
-    [SerializeField] private Button tryConnectionButton;
-    [SerializeField] private TMP_InputField ipInputField;
 
     [Header("Connected")]
     [SerializeField] private GameObject connectedRoot;
@@ -64,7 +62,7 @@ public class MobileGUI : MonoBehaviour
 
     public void Click_TryConnection()
     {
-        client.TryConnectionToIP(ipInputField.text);
+        client.FindServer();
     }
 
 

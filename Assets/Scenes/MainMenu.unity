@@ -1752,6 +1752,9 @@ MonoBehaviour:
   - backgroundName: City
     sceneName: City
     backgroundImg: {fileID: 21300000, guid: e02eb89438bd67843adbe37eb4a3b53e, type: 3}
+  - backgroundName: Space
+    sceneName: Space
+    backgroundImg: {fileID: 21300000, guid: ece6c7ef1e4769343825768535c798f5, type: 3}
 --- !u!1 &171716245
 GameObject:
   m_ObjectHideFlags: 0
