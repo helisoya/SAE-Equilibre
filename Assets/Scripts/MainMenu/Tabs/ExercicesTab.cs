@@ -65,7 +65,7 @@ public class ExercicesTab : MainMenuTab
                 move = GameManager.instance.GetMovement(sequence.idMovement);
                 Instantiate(prefabMoveText, exerciceMovesRoot).GetComponent<TextMeshProUGUI>().text =
                     "- " + (move.isContinuous ? move.movementName + " pendant " + sequence.movementTime + " secondes"
-                    : sequence.movementTime + " " + move.movementName + " de " + sequence.animationInSeconds);
+                    : sequence.movementTime + " " + move.movementName + " de " + sequence.animationInSeconds + " secondes");
 
                 exerciceLenth += move.isContinuous ? sequence.movementTime : sequence.movementTime * sequence.animationInSeconds;
                 exerciceLenth += 1;
