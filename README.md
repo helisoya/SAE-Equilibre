@@ -31,13 +31,16 @@ Julien OUDOT
  - Code général du logiciel (Mouvements, Séances, ...)
  - Création du système de sauvegarde de fichier (JSON)
  - Implémentation application Android
+   
 Titouan NICOT
  - Maquette des interfaces graphiques
  - Implémentation des interfaces graphiques
  - Implémentation application Android
+   
 Justin VILLEROT
  - Décors
 
+## Notes
 Bien que nous avons utilisé Unity Engine pour créer le projet, nous n'avons pas réellement eu à utiliser de notions de Game Design, ni de Level Design. 
 
 Les besoins de l'association ont été recueillit lors d'une réunion ou toute les personnes liées au projet était conviées. 
