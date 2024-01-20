@@ -43,7 +43,7 @@ Justin VILLEROT
 ## Notes
 Bien que nous avons utilisé Unity Engine pour créer le projet, nous n'avons pas réellement eu à utiliser de notions de Game Design, ni de Level Design. 
 
-Les besoins de l'association ont été recueillit lors d'une réunion ou toute les personnes liées au projet était conviées. 
+Les besoins de l'association ont été recueilli lors d'une réunion ou toutes les personnes liées au projet était conviées. 
 
 
 ## Screenshots
