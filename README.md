@@ -3,6 +3,8 @@ Ce git est le git du projet Inter'Activ, réalisé par 3 étudiants en BUT Infor
 
 Le client de ce projet est l'association Équilibre, association belfortaine aidant des personnes en situation de handicap à se remettre en forme.
 
+Le projet avait déjà été commencé par un groupe précédent, mais nous avons décider de ne garder de leur projet que les besoins clients qu'ils avaient identifiés.
+
 # Compétences acquises
 - Unity Engine
 - C#
@@ -43,7 +45,7 @@ Justin VILLEROT
 ## Notes
 Bien que nous avons utilisé Unity Engine pour créer le projet, nous n'avons pas réellement eu à utiliser de notions de Game Design, ni de Level Design. 
 
-Les besoins de l'association ont été recueilli lors d'une réunion ou toutes les personnes liées au projet était conviées. 
+Les besoins de l'association ont été recueilli lors d'une réunion ou toutes les personnes liées au projet était conviées. Titouan NICOT s'est chargé de prendre en notes ces besoins.
 
 
 ## Screenshots
