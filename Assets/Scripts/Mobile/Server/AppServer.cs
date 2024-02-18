@@ -11,6 +11,9 @@ using System.Text;
 using System.Linq;
 using System.Data;
 
+/// <summary>
+/// Server side of the android app
+/// </summary>
 public class AppServer : MonoBehaviour
 {
     public const int serverPort = 17224;
@@ -58,6 +61,9 @@ public class AppServer : MonoBehaviour
         RefreshIps();
     }
 
+    /// <summary>
+    /// Finds the potential ips for the network
+    /// </summary>
     public void RefreshIps()
     {
         _addresses = new Dictionary<string, IPAddress>();
@@ -65,11 +71,18 @@ public class AppServer : MonoBehaviour
         SetCurrentAddress(addresses.Keys.ElementAt(0));
     }
 
+    /// <summary>
+    /// Changes the current IP address
+    /// </summary>
+    /// <param name="key">The key for new IP</param>
     public void SetCurrentAddress(string key)
     {
         _address = addresses[key];
     }
 
+    /// <summary>
+    /// Find the IPs of the computer
+    /// </summary>
     void FindIPs()
     {
         NetworkInterface[] interfaces = NetworkInterface.GetAllNetworkInterfaces();
@@ -94,12 +107,18 @@ public class AppServer : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Initialize the server
+    /// </summary>
     public void InitServer()
     {
         serverThread = new Thread(ServerThreadInit);
         serverThread.Start();
     }
 
+    /// <summary>
+    /// Initialize the server (call this only on a thread)
+    /// </summary>
     async void ServerThreadInit()
     {
         print("Starting Server On : " + _address.ToString() + " : " + serverPort);
@@ -120,6 +139,9 @@ public class AppServer : MonoBehaviour
         ServerThreadLoop();
     }
 
+    /// <summary>
+    /// Main Server loop (call this only on a thread)
+    /// </summary>
     async void ServerThreadLoop()
     {
         while (socket.Connected)
@@ -182,13 +204,18 @@ public class AppServer : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Restarts the server
+    /// </summary>
     public void RestartServer()
     {
         OnApplicationQuit();
         InitServer();
     }
 
-
+    /// <summary>
+    /// Closes the server when the game is closed
+    /// </summary>
     void OnApplicationQuit()
     {
         print("Stopping Server");

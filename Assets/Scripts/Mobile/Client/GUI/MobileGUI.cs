@@ -4,6 +4,9 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 
+/// <summary>
+/// GUI of the android app
+/// </summary>
 public class MobileGUI : MonoBehaviour
 {
     [SerializeField] private AppClient client;
@@ -23,6 +26,10 @@ public class MobileGUI : MonoBehaviour
     private Form form;
 
 
+    /// <summary>
+    /// Initialize the grid with a form
+    /// </summary>
+    /// <param name="form">The form</param>
     public void InitializeForm(Form form)
     {
         formRoot.SetActive(true);
@@ -60,12 +67,18 @@ public class MobileGUI : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// OnClick event to try to find the server
+    /// </summary>
     public void Click_TryConnection()
     {
         client.FindServer();
     }
 
-
+    /// <summary>
+    /// Opens the connected tab
+    /// </summary>
+    /// <param name="ip">The IP the app is connected to</param>
     public void OpenConnectedTab(string ip)
     {
         unconnectedRoot.SetActive(false);
@@ -74,17 +87,25 @@ public class MobileGUI : MonoBehaviour
         connectedIpText.text = "Connecté à : " + ip;
     }
 
-
+    /// <summary>
+    /// OnClick event for asking the form
+    /// </summary>
     public void Click_AskForForm()
     {
         client.AskForForm();
     }
 
+    /// <summary>
+    /// OnClick event for sending the form
+    /// </summary>
     public void Click_SendForm()
     {
         client.SendForm(form);
     }
 
+    /// <summary>
+    /// OnClick event for pausing the game
+    /// </summary>
     public void Click_TogglePause()
     {
         client.PauseApp();

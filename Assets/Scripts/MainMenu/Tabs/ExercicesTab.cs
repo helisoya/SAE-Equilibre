@@ -4,6 +4,9 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// Represents the exercices tab, where you can select an exercice to play
+/// </summary>
 public class ExercicesTab : MainMenuTab
 {
     [Header("Exercices Tab")]
@@ -45,6 +48,10 @@ public class ExercicesTab : MainMenuTab
         Utils.DestroyChildren(exercicesRoot);
     }
 
+    /// <summary>
+    /// Shows informations about an exercice
+    /// </summary>
+    /// <param name="exercice">The exercice</param>
     public void ShowExerciceInfo(Exercice exercice)
     {
         if (exercice == null)
@@ -75,11 +82,18 @@ public class ExercicesTab : MainMenuTab
         }
     }
 
+    /// <summary>
+    /// Click event for the button that opens the title tab
+    /// </summary>
     public void Click_ToTitle()
     {
         MainMenuManager.instance.StartTransition(this, MainMenuManager.instance.titleTab);
     }
 
+    /// <summary>
+    /// Click event for the button that opens the participants tab
+    /// </summary>
+    /// <param name="chosenExercice"></param>
     public virtual void Click_ChooseExercice(Exercice chosenExercice)
     {
         GameManager.instance.currentExercice = chosenExercice;

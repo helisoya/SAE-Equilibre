@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// Represents a GUI icon that shows what to do on the screen
+/// </summary>
 public class GameExerciceIcon : MonoBehaviour
 {
     [Header("Normal")]
@@ -22,7 +25,9 @@ public class GameExerciceIcon : MonoBehaviour
 
     private bool ignoreUpdate = false;
 
-
+    /// <summary>
+    /// Updates the position of the icon
+    /// </summary>
     void Update()
     {
         if (!ignoreUpdate && GameGUI.instance.startedExercice)
@@ -54,12 +59,19 @@ public class GameExerciceIcon : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Starts fading the icon (deletes it too, when finished)
+    /// </summary>
     void FinishMove()
     {
         ignoreUpdate = true;
         StartCoroutine(Routine_Fading());
     }
 
+    /// <summary>
+    /// Routine for the fading of the icon
+    /// </summary>
+    /// <returns>IEnumerator</returns>
     IEnumerator Routine_Fading()
     {
         Color col = moveIcon.color;
@@ -74,6 +86,13 @@ public class GameExerciceIcon : MonoBehaviour
         Destroy(gameObject);
     }
 
+    /// <summary>
+    /// Initialize the icon
+    /// </summary>
+    /// <param name="speed">Icon's speed</param>
+    /// <param name="stopAt">Where the icon should stop at</param>
+    /// <param name="sprite">Icon's sprite</param>
+    /// <param name="position">Icon's initial position</param>
     public void Init(float speed, float stopAt, Sprite sprite, float position)
     {
         ignoreUpdate = false;
@@ -84,6 +103,11 @@ public class GameExerciceIcon : MonoBehaviour
         moveIcon.sprite = sprite;
     }
 
+    /// <summary>
+    /// Initialize the trail of the icon
+    /// </summary>
+    /// <param name="trailSize">The trail's size</param>
+    /// <param name="trailSpeed">The trail's speed</param>
     public void InitTrail(float trailSize, float trailSpeed)
     {
         this.trailSpeed = trailSpeed;

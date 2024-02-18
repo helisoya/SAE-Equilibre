@@ -7,6 +7,9 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+/// <summary>
+/// Class representing the exercice's GUI
+/// </summary>
 public class GameGUI : MonoBehaviour
 {
     [Header("Start")]
@@ -55,6 +58,9 @@ public class GameGUI : MonoBehaviour
 
     public static GameGUI instance;
 
+    /// <summary>
+    /// Initialize the GUI
+    /// </summary>
     void Awake()
     {
         _startedExercice = false;
@@ -62,12 +68,18 @@ public class GameGUI : MonoBehaviour
         InitializeMovementsUI(GameManager.instance.currentExercice);
     }
 
-
+    /// <summary>
+    /// Changes if the exercice was started or not
+    /// </summary>
+    /// <param name="value">Is the exercice ongoing ?</param>
     public void SetStartedExerice(bool value)
     {
         _startedExercice = value;
     }
 
+    /// <summary>
+    /// Updates the GUI (Checks for inputs)
+    /// </summary>
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -76,6 +88,10 @@ public class GameGUI : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Changes if the pause menu is active or not
+    /// </summary>
+    /// <param name="value">Is the pause menu active ?</param>
     public void SetPauseMenuActive(bool value)
     {
         if (endRoot.activeInHierarchy || !_startedExercice) return;
@@ -83,25 +99,20 @@ public class GameGUI : MonoBehaviour
         Time.timeScale = value ? 0 : 1;
     }
 
+    /// <summary>
+    /// Show the end screen
+    /// </summary>
     public void ShowEndScreen()
     {
         endRoot.SetActive(true);
         pauseRoot.SetActive(false);
     }
 
-    public void Click_End()
-    {
-        Time.timeScale = 1;
-        GameManager.instance.SaveUsers();
-        SceneManager.LoadScene("MainMenu");
-    }
 
-    public void Click_Start()
-    {
-        startRoot.SetActive(false);
-        manager.StartExercice();
-    }
-
+    /// <summary>
+    /// Initialize the GUI
+    /// </summary>
+    /// <param name="exercice">The corresponding exercice</param>
     public void InitializeMovementsUI(Exercice exercice)
     {
         float currentX = startSpawnAt;
@@ -138,6 +149,28 @@ public class GameGUI : MonoBehaviour
     }
 
 
+    /// <summary>
+    /// Click event for the button that redirects to the main menu
+    /// </summary>
+    public void Click_End()
+    {
+        Time.timeScale = 1;
+        GameManager.instance.SaveUsers();
+        SceneManager.LoadScene("MainMenu");
+    }
+
+    /// <summary>
+    /// Click event for the button that starts the exerice
+    /// </summary>
+    public void Click_Start()
+    {
+        startRoot.SetActive(false);
+        manager.StartExercice();
+    }
+
+    /// <summary>
+    /// Click event for the button that unpauses the exercice
+    /// </summary>
     public void Click_Continue()
     {
         SetPauseMenuActive(false);

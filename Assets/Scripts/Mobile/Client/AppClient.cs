@@ -9,7 +9,9 @@ using System;
 using System.Threading.Tasks;
 
 
-
+/// <summary>
+/// Client side of the android app
+/// </summary>
 public class AppClient : MonoBehaviour
 {
     [Header("Infos")]
@@ -25,6 +27,10 @@ public class AppClient : MonoBehaviour
     private Form form;
     private bool findingServer;
 
+    /// <summary>
+    /// Try the connection to an IP
+    /// </summary>
+    /// <param name="ip">The IP to try to connect to</param>
     public async void TryConnectionToIP(string ip)
     {
         if (debug)
@@ -78,7 +84,9 @@ public class AppClient : MonoBehaviour
 
     }
 
-
+    /// <summary>
+    /// Asks the server to pause the game
+    /// </summary>
     public async void PauseApp()
     {
         if (debug) return;
@@ -101,7 +109,9 @@ public class AppClient : MonoBehaviour
         }
     }
 
-
+    /// <summary>
+    /// Asks the server for the form
+    /// </summary>
     public async void AskForForm()
     {
         if (debug)
@@ -134,7 +144,10 @@ public class AppClient : MonoBehaviour
         }
     }
 
-
+    /// <summary>
+    /// Sends the completed form to the server
+    /// </summary>
+    /// <param name="form">The completed form</param>
     public async void SendForm(Form form)
     {
         this.form = form;
@@ -162,7 +175,9 @@ public class AppClient : MonoBehaviour
         }
     }
 
-
+    /// <summary>
+    /// Finds the server
+    /// </summary>
     public void FindServer()
     {
         if (findingServer) return;
@@ -189,7 +204,10 @@ public class AppClient : MonoBehaviour
         findingServer = false;
     }
 
-
+    /// <summary>
+    /// Gets the current network gateway IP
+    /// </summary>
+    /// <returns>The network gateway's IP</returns>
     static IPAddress NetworkGateway()
     {
 
@@ -213,6 +231,9 @@ public class AppClient : MonoBehaviour
         return null;
     }
 
+    /// <summary>
+    /// Closes the client when the application is closed
+    /// </summary>
     void OnApplicationQuit()
     {
         client?.Close();

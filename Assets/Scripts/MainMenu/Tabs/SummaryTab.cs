@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// Represents the summary tab, where the user can see visually all the movements he will have to do in the exercice
+/// </summary>
 public class SummaryTab : MainMenuTab
 {
     [Header("Summary")]
@@ -32,6 +35,9 @@ public class SummaryTab : MainMenuTab
         );
     }
 
+    /// <summary>
+    /// Deletes the existing icons
+    /// </summary>
     void DeleteAllIcons()
     {
         Utils.DestroyChildren(iconsRoot);
@@ -43,18 +49,28 @@ public class SummaryTab : MainMenuTab
         DeleteAllIcons();
     }
 
+    /// <summary>
+    /// Changes the current preview
+    /// </summary>
+    /// <param name="triggerName">The animation's trigger</param>
+    /// <param name="animationSpeed">The animation speed</param>
     public void SetPreview(string triggerName, float animationSpeed)
     {
         demoAnimator.speed = animationSpeed;
         demoAnimator.CrossFade(triggerName, 0.1f);
     }
 
-
+    /// <summary>
+    /// Click event for the button that starts the exercice
+    /// </summary>
     public void Click_Start()
     {
         SceneManager.LoadScene(MainMenuManager.instance.chosenScene);
     }
 
+    /// <summary>
+    /// Click event for the button that opens the backgrounds tab
+    /// </summary>
     public void Click_ToBackgrounds()
     {
         MainMenuManager.instance.StartTransition(this, MainMenuManager.instance.backgroundTab);

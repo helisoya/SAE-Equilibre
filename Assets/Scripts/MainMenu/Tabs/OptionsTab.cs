@@ -5,6 +5,9 @@ using System.Net;
 using TMPro;
 using UnityEngine;
 
+/// <summary>
+/// Represents the options tab, where you can customize the options of the softare
+/// </summary>
 public class OptionsTab : MainMenuTab
 {
     [Header("Options Tab")]
@@ -38,18 +41,26 @@ public class OptionsTab : MainMenuTab
         dropdownServer.SetValueWithoutNotify(startIndex);
     }
 
-
+    /// <summary>
+    /// Click event for the button that opens the title tab
+    /// </summary>
     public void Click_ToTitle()
     {
         ValidChange();
         MainMenuManager.instance.StartTransition(this, MainMenuManager.instance.titleTab);
     }
 
+    /// <summary>
+    /// Click event for the button that validate the changes
+    /// </summary>
     public void Click_Valid()
     {
         ValidChange();
     }
 
+    /// <summary>
+    /// Saves the changes to the software's options
+    /// </summary>
     public void ValidChange()
     {
         int ipSelected = dropdownServer.value;

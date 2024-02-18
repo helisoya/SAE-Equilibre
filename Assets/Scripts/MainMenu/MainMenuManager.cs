@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// Handles the main menu's GUI
+/// </summary>
 public class MainMenuManager : MonoBehaviour
 {
     [Header("Tabs")]
@@ -37,6 +40,11 @@ public class MainMenuManager : MonoBehaviour
         instance = this;
     }
 
+    /// <summary>
+    /// Starts a transition to a new tab
+    /// </summary>
+    /// <param name="from">The current tab</param>
+    /// <param name="to">The new tab</param>
     public void StartTransition(MainMenuTab from, MainMenuTab to)
     {
         fromTab = from;
@@ -44,6 +52,10 @@ public class MainMenuManager : MonoBehaviour
         startTransition = true;
     }
 
+    /// <summary>
+    /// Records a frame (used for the transition)
+    /// </summary>
+    /// <returns>IEnumerator</returns>
     IEnumerator RecordFrame()
     {
         yield return new WaitForEndOfFrame();
@@ -65,6 +77,9 @@ public class MainMenuManager : MonoBehaviour
         toTab.Open();
     }
 
+    /// <summary>
+    /// Records the frame, if needed, at the end of the drawing process
+    /// </summary>
     public void LateUpdate()
     {
         if (startTransition)

@@ -9,10 +9,10 @@ public class ChangeSpaceColor : MonoBehaviour
    [SerializeField] private Material Purple;
    [SerializeField] private Material Blue;
    [SerializeField] private Material Red;
-   
+
    private void Start()
    {
-      
+
       switch (Random.Range(0, 3))
       {
          case 0:
@@ -20,7 +20,7 @@ public class ChangeSpaceColor : MonoBehaviour
             //Debug.Log("Purple");
             break;
          case 1:
-            RenderSettings.skybox = Blue;         
+            RenderSettings.skybox = Blue;
             //Debug.Log("Blue");
             break;
          case 2:

@@ -5,6 +5,9 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEngine.EventSystems;
 
+/// <summary>
+/// Represents a dragable object that bears the name of it's linked user
+/// </summary>
 public class ParticipantDragable : DragableObject
 {
     [SerializeField] private Image bgImg;
@@ -12,6 +15,11 @@ public class ParticipantDragable : DragableObject
     private User user;
     private ParticipantsContainer container;
 
+    /// <summary>
+    /// Initialize the component
+    /// </summary>
+    /// <param name="user">The linked user</param>
+    /// <param name="startingContainer">The starting container</param>
     public void Init(User user, ParticipantsContainer startingContainer)
     {
         this.user = user;
@@ -19,6 +27,10 @@ public class ParticipantDragable : DragableObject
         userNameText.text = user.username;
     }
 
+    /// <summary>
+    /// OnBeginDrag event
+    /// </summary>
+    /// <param name="eventData">The event data</param>
     public override void OnBeginDrag(PointerEventData eventData)
     {
         base.OnBeginDrag(eventData);
@@ -26,7 +38,10 @@ public class ParticipantDragable : DragableObject
         userNameText.raycastTarget = false;
     }
 
-
+    /// <summary>
+    /// OnEndDrag event
+    /// </summary>
+    /// <param name="eventData">The event data</param>
     public override void OnEndDrag(PointerEventData eventData)
     {
         base.OnEndDrag(eventData);
@@ -34,6 +49,10 @@ public class ParticipantDragable : DragableObject
         userNameText.raycastTarget = true;
     }
 
+    /// <summary>
+    /// Changes the current container
+    /// </summary>
+    /// <param name="newContainer">The new container</param>
     public void SetContainer(ParticipantsContainer newContainer)
     {
         if (container == newContainer) return;

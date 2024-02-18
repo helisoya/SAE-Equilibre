@@ -4,22 +4,28 @@ using UnityEngine;
 using UnityEngine.Networking;
 using System.Threading.Tasks;
 
-
+/// <summary>
+/// Class managing the audio of the game
+/// </summary>
 public class AudioManager
 {
     private List<string> musicsAvailable;
     private Dictionary<string, AudioClip> musicClips;
     private string musicsPath;
 
+    /// <summary>
+    /// Initialize the AudioManager
+    /// </summary>
     public AudioManager()
     {
         musicsPath = Application.streamingAssetsPath + "/Musics";
-
         musicClips = new Dictionary<string, AudioClip>();
-
         FindAvailableMusics();
     }
 
+    /// <summary>
+    /// Finds all available musics in the music folder
+    /// </summary>
     void FindAvailableMusics()
     {
         string[] filesInDir = System.IO.Directory.GetFiles(musicsPath);
@@ -35,11 +41,20 @@ public class AudioManager
         }
     }
 
+    /// <summary>
+    /// Returns the available musics
+    /// </summary>
+    /// <returns>The available musics</returns>
     public List<string> GetAvailableMusics()
     {
         return musicsAvailable;
     }
 
+    /// <summary>
+    /// Gets an Audio Clip, given it's name. It is loaded in memory if not already.
+    /// </summary>
+    /// <param name="clipName">The clip's name</param>
+    /// <returns>The audio clip</returns>
     public async Task<AudioClip> GetClip(string clipName)
     {
         if (clipName == null) return null;

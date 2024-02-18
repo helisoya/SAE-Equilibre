@@ -4,6 +4,9 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
+/// <summary>
+/// Represents the users tab, where you can view and add users
+/// </summary>
 public class UsersTab : MainMenuTab
 {
     [Header("Users")]
@@ -53,11 +56,17 @@ public class UsersTab : MainMenuTab
 
     }
 
+    /// <summary>
+    /// Clears the childs of the users root
+    /// </summary>
     void ClearChildUsers()
     {
         Utils.DestroyChildren(usersRoot);
     }
 
+    /// <summary>
+    /// Clears the childs of the user's sessions 
+    /// </summary>
     void ClearChildUserSessions()
     {
         Utils.DestroyChildren(userSessionsRoot);
@@ -71,6 +80,9 @@ public class UsersTab : MainMenuTab
         Click_CloseCreateUser();
     }
 
+    /// <summary>
+    /// Click event for opening the user creation window
+    /// </summary>
     public void Click_OpenCreateUser()
     {
         addUserRoot.SetActive(true);
@@ -78,11 +90,17 @@ public class UsersTab : MainMenuTab
         inputFieldName.SetTextWithoutNotify("");
     }
 
+    /// <summary>
+    /// Click event for closing the user creation window
+    /// </summary>
     public void Click_CloseCreateUser()
     {
         addUserRoot.SetActive(false);
     }
 
+    /// <summary>
+    /// Click event for creating a new user
+    /// </summary>
     public void Click_CreateUser()
     {
         string inputName = inputFieldName.text.Replace("\t", "");
@@ -105,6 +123,10 @@ public class UsersTab : MainMenuTab
         addUserRoot.SetActive(false);
     }
 
+    /// <summary>
+    /// Click event for choosing a new user
+    /// </summary>
+    /// <param name="user">The new user</param>
     public void Click_ChooseUser(User user)
     {
         currentUser = user;
@@ -146,11 +168,17 @@ public class UsersTab : MainMenuTab
         );
     }
 
+    /// <summary>
+    /// Click event for returning to the title tab
+    /// </summary>
     public void Click_ToTitle()
     {
         MainMenuManager.instance.StartTransition(this, MainMenuManager.instance.titleTab);
     }
 
+    /// <summary>
+    /// Click event for deleting a user
+    /// </summary>
     public void Click_DeleteUser()
     {
         if (currentUser == null) return;
@@ -162,6 +190,9 @@ public class UsersTab : MainMenuTab
 
 }
 
+/// <summary>
+/// Represents the stats of a user, regarding a specific movement
+/// </summary>
 public class UserMoveStats
 {
     public string moveName;

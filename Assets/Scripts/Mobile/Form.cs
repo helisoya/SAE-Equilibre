@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Represents the form processed by the mobile app
+/// </summary>
 [System.Serializable]
 public class Form
 {
@@ -22,6 +25,9 @@ public class Form
     }
 }
 
+/// <summary>
+/// Represents a row of the form
+/// </summary>
 [System.Serializable]
 public class FormRow
 {

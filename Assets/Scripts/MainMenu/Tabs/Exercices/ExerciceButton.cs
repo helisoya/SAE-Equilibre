@@ -4,6 +4,9 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 
+/// <summary>
+/// Represents a button used in the exercices tab to select an exercice
+/// </summary>
 public class ExerciceButton : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI exerciceNameText;
@@ -11,6 +14,11 @@ public class ExerciceButton : MonoBehaviour
     private ExercicesTab tab;
     private Exercice exercice;
 
+    /// <summary>
+    /// Initialize the component
+    /// </summary>
+    /// <param name="exercice">The linked exercice</param>
+    /// <param name="tab">The root tab</param>
     public void Init(Exercice exercice, ExercicesTab tab)
     {
         this.exercice = exercice;
@@ -20,11 +28,17 @@ public class ExerciceButton : MonoBehaviour
         colorBand.color = exercice.exerciceColor;
     }
 
+    /// <summary>
+    /// OnClick event
+    /// </summary>
     public void Click()
     {
         tab.Click_ChooseExercice(exercice);
     }
 
+    /// <summary>
+    /// OnMouseEnter event
+    /// </summary>
     public void Enter()
     {
         tab.ShowExerciceInfo(exercice);

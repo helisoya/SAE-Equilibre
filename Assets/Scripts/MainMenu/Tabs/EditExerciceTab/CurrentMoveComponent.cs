@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
+/// <summary>
+/// Represents a sequence from an edited exercice. 
+/// Used in the EditExercice tab to modify it's linked sequence
+/// </summary>
 public class CurrentMoveComponent : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI moveNameText;
@@ -14,6 +18,12 @@ public class CurrentMoveComponent : MonoBehaviour
     private Sequence sequence;
     private Movement movement;
 
+    /// <summary>
+    /// Initialize the component
+    /// </summary>
+    /// <param name="sequence">The linked sequence</param>
+    /// <param name="movement">The linked sequence's movement</param>
+    /// <param name="tab">The root tab</param>
     public void Init(Sequence sequence, Movement movement, EditExerciceTab tab)
     {
         this.sequence = sequence;
@@ -32,6 +42,9 @@ public class CurrentMoveComponent : MonoBehaviour
 
     }
 
+    /// <summary>
+    /// Event for changing the sequence's time (Number of repeats / Total time, depending on the type of movement)
+    /// </summary>
     public void Event_TypeNumberTimes()
     {
         int parsed;
@@ -46,6 +59,9 @@ public class CurrentMoveComponent : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Event for changing the animation's length (Repeated movements only)
+    /// </summary>
     public void Event_TypeAnimationLength()
     {
         int parsed;
@@ -61,17 +77,26 @@ public class CurrentMoveComponent : MonoBehaviour
         OnPointerEnter();
     }
 
+    /// <summary>
+    /// Click event for deleting the linked sequence
+    /// </summary>
     public void Click_Delete()
     {
         tab.DeleteSequence(sequence, gameObject);
     }
 
+    /// <summary>
+    /// OnPointerEnter event
+    /// </summary>
     public void OnPointerEnter()
     {
         tab.SetPreview(movement.animationTriggerName,
          movement.isContinuous ? 1 : movement.animationLength / sequence.animationInSeconds);
     }
 
+    /// <summary>
+    /// OnPointerExit event
+    /// </summary>
     public void OnPointerExit()
     {
         tab.SetPreview("Idle", 1);

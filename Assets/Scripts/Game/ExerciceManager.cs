@@ -4,6 +4,9 @@ using System.Drawing.Text;
 using UnityEngine;
 using Cinemachine;
 
+/// <summary>
+/// Manages the process of an exercice
+/// </summary>
 public class ExerciceManager : MonoBehaviour
 {
     [Header("Components")]
@@ -15,12 +18,18 @@ public class ExerciceManager : MonoBehaviour
     [SerializeField] private CinemachineVirtualCamera leftCam;
     [SerializeField] private CinemachineVirtualCamera rightCam;
 
-
+    /// <summary>
+    /// Starts the selected exercice
+    /// </summary>
     public void StartExercice()
     {
         StartCoroutine(Routine_Exercice(GameManager.instance.currentExercice));
     }
 
+    /// <summary>
+    /// Loads the selected music
+    /// </summary>
+    /// <param name="music">The music's name</param>
     async void LoadMusic(string music)
     {
         if (music == null) return;
@@ -30,6 +39,10 @@ public class ExerciceManager : MonoBehaviour
         musicSource.Play();
     }
 
+    /// <summary>
+    /// Refreshes the camera's position
+    /// </summary>
+    /// <param name="position">The camera's position</param>
     void RefreshCams(CameraPosition position)
     {
         frontCam.Priority = position == CameraPosition.FRONT ? 20 : 10;
@@ -37,7 +50,11 @@ public class ExerciceManager : MonoBehaviour
         rightCam.Priority = position == CameraPosition.RIGHT ? 20 : 10;
     }
 
-
+    /// <summary>
+    /// Routine for the exercice
+    /// </summary>
+    /// <param name="exercice">The current exercice</param>
+    /// <returns>IEnumerator</returns>
     IEnumerator Routine_Exercice(Exercice exercice)
     {
         RefreshCams(CameraPosition.FRONT);
@@ -72,8 +89,5 @@ public class ExerciceManager : MonoBehaviour
         }
 
         GameGUI.instance.ShowEndScreen();
-
-
-
     }
 }

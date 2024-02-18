@@ -2,7 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
+/// <summary>
+/// Represents the data file containing the exercices
+/// </summary>
 [System.Serializable]
 public class ExercicesData : DataFile
 {
@@ -15,7 +17,9 @@ public class ExercicesData : DataFile
 }
 
 
-
+/// <summary>
+/// Represents an exercice
+/// </summary>
 [System.Serializable]
 public class Exercice
 {
@@ -29,7 +33,9 @@ public class Exercice
     }
 }
 
-
+/// <summary>
+/// Represents a sequence of the exercice
+/// </summary>
 [System.Serializable]
 public class Sequence
 {

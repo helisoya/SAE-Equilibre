@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
 using TMPro;
-using System.Security.Cryptography.X509Certificates;
 
+/// <summary>
+/// Represents the edit exercice tab, where the user can edit an exercice
+/// </summary>
 public class EditExerciceTab : MainMenuTab
 {
     [Header("Edit Exercice Color")]
@@ -67,7 +69,9 @@ public class EditExerciceTab : MainMenuTab
         );
     }
 
-
+    /// <summary>
+    /// Destroys all the created prefabs in the tab
+    /// </summary>
     void ClearAllPrefabs()
     {
         Utils.DestroyChildren(currentMovesRoot);
@@ -81,22 +85,36 @@ public class EditExerciceTab : MainMenuTab
         GameManager.instance.SaveExercices();
     }
 
+    /// <summary>
+    /// Event for changing the color of the exercice
+    /// </summary>
     public void Event_ChangeColor()
     {
         exercice.exerciceColor = new Color(sliderRed.value, sliderGreen.value, sliderBlue.value);
         colorImg.color = exercice.exerciceColor;
     }
 
+    /// <summary>
+    /// Event for changing the name of the exercice
+    /// </summary>
     public void Event_ChangeName()
     {
         exercice.exerciceName = exerciceName.text;
     }
 
+    /// <summary>
+    /// Event Click for changing if the color picker is shown or not 
+    /// </summary>
+    /// <param name="value">Is the colour picker shown ?</param>
     public void Click_SetColorPickerActive(bool value)
     {
         colorPickerObj.SetActive(value);
     }
 
+    /// <summary>
+    /// Event click for adding a new movement to the exercice
+    /// </summary>
+    /// <param name="move">The new movement</param>
     public void Click_AddMovement(Movement move)
     {
 
@@ -111,23 +129,22 @@ public class EditExerciceTab : MainMenuTab
         );
     }
 
-    public void Click_ToExercicesList()
-    {
-        MainMenuManager.instance.StartTransition(this, MainMenuManager.instance.editExercicesListTab);
-    }
-
-    public void Click_DeleteExercice()
-    {
-        GameManager.instance.RemoveExerice(exercice);
-        Click_ToExercicesList();
-    }
-
+    /// <summary>
+    /// Changes the preview
+    /// </summary>
+    /// <param name="triggerName">The animation's trigger</param>
+    /// <param name="animationSpeed">The animation's speed</param>
     public void SetPreview(string triggerName, float animationSpeed)
     {
         demoAnimator.speed = animationSpeed;
         demoAnimator.CrossFade(triggerName, 0.1f);
     }
 
+    /// <summary>
+    /// Deletes a sequence from an exercice
+    /// </summary>
+    /// <param name="sequence">The sequence</param>
+    /// <param name="component">Component corresponding to the sequence</param>
     public void DeleteSequence(Sequence sequence, GameObject component)
     {
         Destroy(component);
@@ -139,4 +156,20 @@ public class EditExerciceTab : MainMenuTab
         );
     }
 
+    /// <summary>
+    /// Click event for opening the edit exercice list tab
+    /// </summary>
+    public void Click_ToExercicesList()
+    {
+        MainMenuManager.instance.StartTransition(this, MainMenuManager.instance.editExercicesListTab);
+    }
+
+    /// <summary>
+    /// Click event for deleting the current exercice
+    /// </summary>
+    public void Click_DeleteExercice()
+    {
+        GameManager.instance.RemoveExerice(exercice);
+        Click_ToExercicesList();
+    }
 }
