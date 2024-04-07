@@ -93,7 +93,7 @@ public class ExercicesTab : MainMenuTab
     /// <summary>
     /// Click event for the button that opens the participants tab
     /// </summary>
-    /// <param name="chosenExercice"></param>
+    /// <param name="chosenExercice">The chosen exercice</param>
     public virtual void Click_ChooseExercice(Exercice chosenExercice)
     {
         GameManager.instance.currentExercice = chosenExercice;

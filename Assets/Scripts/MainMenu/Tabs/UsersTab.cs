@@ -22,6 +22,7 @@ public class UsersTab : MainMenuTab
     [SerializeField] private GameObject addUserRoot;
     [SerializeField] private TMP_InputField inputFieldName;
     [SerializeField] private TMP_InputField inputFieldAge;
+    [SerializeField] private GameObject managementButtons;
 
     private User currentUser;
 
@@ -85,7 +86,7 @@ public class UsersTab : MainMenuTab
     /// </summary>
     public void Click_OpenCreateUser()
     {
-        addUserRoot.SetActive(true);
+        SetCreateUserPanelActive(true);
         inputFieldAge.SetTextWithoutNotify("");
         inputFieldName.SetTextWithoutNotify("");
     }
@@ -95,7 +96,18 @@ public class UsersTab : MainMenuTab
     /// </summary>
     public void Click_CloseCreateUser()
     {
-        addUserRoot.SetActive(false);
+        SetCreateUserPanelActive(false);
+    }
+
+    /// <summary>
+    /// Changes the visibility of the create user panel
+    /// </summary>
+    /// <param name="value">Is the create user panel active ?</param>
+    void SetCreateUserPanelActive(bool value)
+    {
+        userInfoRoot.SetActive(!value);
+        addUserRoot.SetActive(value);
+        managementButtons.SetActive(!value);
     }
 
     /// <summary>
@@ -130,6 +142,8 @@ public class UsersTab : MainMenuTab
     public void Click_ChooseUser(User user)
     {
         currentUser = user;
+
+        SetCreateUserPanelActive(false);
         ClearChildUserSessions();
 
         userNameText.text = "Nom : " + user.username;
@@ -181,7 +195,7 @@ public class UsersTab : MainMenuTab
     /// </summary>
     public void Click_DeleteUser()
     {
-        if (currentUser == null) return;
+        if (currentUser == null || addUserRoot.activeInHierarchy) return;
         GameManager.instance.RemoveUser(currentUser);
         Open();
     }

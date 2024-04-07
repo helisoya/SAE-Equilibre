@@ -42,20 +42,12 @@ public class OptionsTab : MainMenuTab
     }
 
     /// <summary>
-    /// Click event for the button that opens the title tab
-    /// </summary>
-    public void Click_ToTitle()
-    {
-        ValidChange();
-        MainMenuManager.instance.StartTransition(this, MainMenuManager.instance.titleTab);
-    }
-
-    /// <summary>
     /// Click event for the button that validate the changes
     /// </summary>
     public void Click_Valid()
     {
         ValidChange();
+        MainMenuManager.instance.StartTransition(this, MainMenuManager.instance.titleTab);
     }
 
     /// <summary>
