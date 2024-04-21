@@ -11,7 +11,6 @@ public class ExerciceManager : MonoBehaviour
 {
     [Header("Components")]
     [SerializeField] private Animator playerAnimator;
-    [SerializeField] private AudioSource musicSource;
 
     [Header("Virtual Cameras")]
     [SerializeField] private CinemachineVirtualCamera frontCam;
@@ -32,11 +31,17 @@ public class ExerciceManager : MonoBehaviour
     /// <param name="music">The music's name</param>
     async void LoadMusic(string music)
     {
+        if (GameManager.instance.vocalAssistant)
+        {
+            GameManager.instance.GetAudioManager().PlayBGM(GameManager.instance.GetVocalAssistantData().exerciceMusicClip);
+            return;
+        }
+
         if (music == null) return;
 
-        musicSource.clip = await GameManager.instance.GetMusic(music);
+        AudioClip clip = await GameManager.instance.GetMusic(music);
         print("found clip");
-        musicSource.Play();
+        GameManager.instance.GetAudioManager().PlayBGM(clip);
     }
 
     /// <summary>

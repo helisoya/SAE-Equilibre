@@ -7,8 +7,12 @@ using System.Threading.Tasks;
 /// <summary>
 /// Class managing the audio of the game
 /// </summary>
-public class AudioManager
+public class AudioManager : MonoBehaviour
 {
+    [Header("Sound Sources")]
+    [SerializeField] private AudioSource bgmSource;
+    [SerializeField] private AudioSource sfxSource;
+
     private List<string> musicsAvailable;
     private Dictionary<string, AudioClip> musicClips;
     private string musicsPath;
@@ -16,11 +20,44 @@ public class AudioManager
     /// <summary>
     /// Initialize the AudioManager
     /// </summary>
-    public AudioManager()
+    void Awake()
     {
         musicsPath = Application.streamingAssetsPath + "/Musics";
         musicClips = new Dictionary<string, AudioClip>();
         FindAvailableMusics();
+    }
+
+    /// <summary>
+    /// Plays a sound effect
+    /// </summary>
+    /// <param name="clip">The SFX's clip</param>
+    public void PlaySFX(AudioClip clip)
+    {
+        if (!clip) return;
+
+        if (sfxSource.isPlaying)
+        {
+            sfxSource.Stop();
+        }
+        sfxSource.clip = clip;
+        sfxSource.Play();
+    }
+
+    /// <summary>
+    /// Plays a music
+    /// </summary>
+    /// <param name="clip">The music's clip</param>
+    public void PlayBGM(AudioClip clip)
+    {
+        if (bgmSource.isPlaying)
+        {
+            bgmSource.Stop();
+            bgmSource.clip = null;
+        }
+        if (!clip) return;
+
+        bgmSource.clip = clip;
+        bgmSource.Play();
     }
 
     /// <summary>

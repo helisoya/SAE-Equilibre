@@ -22,6 +22,8 @@ public class BackgroundTab : MainMenuTab
         {
             Instantiate(backgroundPrefab, backgroundsRoot).GetComponent<BackgroundButton>().Init(background, this);
         }
+
+        GameManager.instance.PlayVocalAssistantSFX(GameManager.instance.GetVocalAssistantData().backgroundClip);
     }
 
     public override void Close()

@@ -7,6 +7,16 @@ using UnityEngine;
 /// </summary>
 public class CreditsTab : MainMenuTab
 {
+    public override void Open()
+    {
+        base.Open();
+
+        GameManager.instance.PlayVocalAssistantSFX(GameManager.instance.GetVocalAssistantData().creditsClip);
+    }
+
+    /// <summary>
+    /// Click event to go to the title screen
+    /// </summary>
     public void Click_ToTitle()
     {
         MainMenuManager.instance.StartTransition(this, MainMenuManager.instance.titleTab);

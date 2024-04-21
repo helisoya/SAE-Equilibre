@@ -17,6 +17,8 @@ public class MusicsTab : MainMenuTab
         base.Open();
         DestroyExistingButtons();
 
+        GameManager.instance.PlayVocalAssistantSFX(GameManager.instance.GetVocalAssistantData().musicListClip);
+
         Instantiate(musicPrefab, musicsRoot).GetComponent<MusicButton>().Init(null, this);
 
         List<string> musics = GameManager.instance.GetAllMusics();

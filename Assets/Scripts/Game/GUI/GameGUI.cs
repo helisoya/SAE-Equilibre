@@ -66,6 +66,8 @@ public class GameGUI : MonoBehaviour
         _startedExercice = false;
         instance = this;
         InitializeMovementsUI(GameManager.instance.currentExercice);
+
+        GameManager.instance.PlayVocalAssistantSFX(GameManager.instance.GetVocalAssistantData().startExerciceClip);
     }
 
     /// <summary>
@@ -106,6 +108,8 @@ public class GameGUI : MonoBehaviour
     {
         endRoot.SetActive(true);
         pauseRoot.SetActive(false);
+
+        GameManager.instance.PlayVocalAssistantSFX(GameManager.instance.GetVocalAssistantData().endExerciceClip);
     }
 
 
@@ -155,6 +159,7 @@ public class GameGUI : MonoBehaviour
     public void Click_End()
     {
         Time.timeScale = 1;
+        GameManager.instance.GetAudioManager().PlayBGM(null);
         GameManager.instance.SaveUsers();
         SceneManager.LoadScene("MainMenu");
     }

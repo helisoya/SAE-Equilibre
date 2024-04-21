@@ -7,6 +7,14 @@ using UnityEngine;
 /// </summary>
 public class TitleTab : MainMenuTab
 {
+
+    public override void Open()
+    {
+        base.Open();
+
+        GameManager.instance.PlayVocalAssistantSFX(GameManager.instance.GetVocalAssistantData().titleScreenClip);
+    }
+
     /// <summary>
     /// Click event for opening the exercice tab
     /// </summary>

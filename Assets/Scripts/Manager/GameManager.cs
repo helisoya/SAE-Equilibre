@@ -16,9 +16,12 @@ public class GameManager : MonoBehaviour
     [SerializeField] private UsersDataHandler usersDataHandler;
     [SerializeField] private ExercicesDataHandler exercicesDataHandler;
     [SerializeField] private AppServer server;
+    private VocalAssistantData vocalAssistantData;
     private Dictionary<string, Movement> movements;
-    private AudioManager audioManager;
+    [SerializeField] private AudioManager audioManager;
 
+
+    public bool vocalAssistant { get; set; }
 
     public IPAddress ipAddress
     {
@@ -28,44 +31,11 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private string _currentMusic;
-    public string currentMusic
-    {
-        get
-        {
-            return _currentMusic;
-        }
-        set
-        {
-            _currentMusic = value;
-        }
-    }
+    public string currentMusic { get; set; }
 
-    private List<User> _participants;
-    public List<User> participants
-    {
-        get
-        {
-            return _participants;
-        }
-        set
-        {
-            _participants = value;
-        }
-    }
+    public List<User> participants { get; set; }
 
-    private Exercice _currentExercice;
-    public Exercice currentExercice
-    {
-        get
-        {
-            return _currentExercice;
-        }
-        set
-        {
-            _currentExercice = value;
-        }
-    }
+    public Exercice currentExercice { get; set; }
 
     public Dictionary<string, IPAddress> possibleAddresses
     {
@@ -99,14 +69,12 @@ public class GameManager : MonoBehaviour
 
             usersDataHandler.Load();
             exercicesDataHandler.Load();
-            _currentExercice = exercicesDataHandler.GetExercice(0);
+            currentExercice = exercicesDataHandler.GetExercice(0);
 
             participants = new List<User>();
 
-            if (audioManager == null)
-            {
-                audioManager = new AudioManager();
-            }
+            vocalAssistant = false;
+            vocalAssistantData = Resources.Load<VocalAssistantData>("VocalAssistantData");
 
             server.InitServer();
         }
@@ -114,6 +82,37 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    /// <summary>
+    /// Returns the vocal assistant's data
+    /// </summary>
+    /// <returns>The vocal assistant's data</returns>
+    public VocalAssistantData GetVocalAssistantData()
+    {
+        return vocalAssistantData;
+    }
+
+    /// <summary>
+    /// Plays the sfx if the vocal assistant is active
+    /// </summary>
+    /// <param name="clip">The SFX's clip</param>
+    /// <param name="force">Force the SFX to be played ?</param>
+    public void PlayVocalAssistantSFX(AudioClip clip, bool force = false)
+    {
+        if (vocalAssistant || force)
+        {
+            audioManager.PlaySFX(clip);
+        }
+    }
+
+    /// <summary>
+    /// Returns the Audio Manager
+    /// </summary>
+    /// <returns>The Audio Manager</returns>
+    public AudioManager GetAudioManager()
+    {
+        return audioManager;
     }
 
     /// <summary>

@@ -40,6 +40,11 @@ public class MainMenuManager : MonoBehaviour
         instance = this;
     }
 
+    void Start()
+    {
+        titleTab.Open();
+    }
+
     /// <summary>
     /// Starts a transition to a new tab
     /// </summary>

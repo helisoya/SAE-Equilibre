@@ -33,6 +33,8 @@ public class EditExerciceTab : MainMenuTab
         base.Open();
         ClearAllPrefabs();
 
+        GameManager.instance.PlayVocalAssistantSFX(GameManager.instance.GetVocalAssistantData().editExerciceClip);
+
         exercice = MainMenuManager.instance.editedExercice;
 
         exerciceName.SetTextWithoutNotify(exercice.exerciceName);

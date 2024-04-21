@@ -32,6 +32,8 @@ public class UsersTab : MainMenuTab
         ClearChildUsers();
         ClearChildUserSessions();
 
+        GameManager.instance.PlayVocalAssistantSFX(GameManager.instance.GetVocalAssistantData().userListClip);
+
         List<User> users = new List<User>(GameManager.instance.GetAllUsers());
         users.Sort(delegate (User u1, User u2)
         {

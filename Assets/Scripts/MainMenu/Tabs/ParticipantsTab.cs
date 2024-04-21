@@ -16,6 +16,8 @@ public class ParticipantsTab : MainMenuTab
     {
         base.Open();
 
+        GameManager.instance.PlayVocalAssistantSFX(GameManager.instance.GetVocalAssistantData().participantClip);
+
         List<User> users = GameManager.instance.GetAllUsers();
         ParticipantsContainer selectedContainer;
         foreach (User user in users)

@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 574008b47c210b948b1a47a100dc7083, type: 3}
+  m_Name: VocalAssistantData
+  m_EditorClassIdentifier: 
+  turnOnClip: {fileID: 8300000, guid: 63aa19bb6df71a54584595055819aaaa, type: 3}
+  turnOffClip: {fileID: 8300000, guid: 9f6505d32be83244e940029e53744761, type: 3}
+  titleScreenClip: {fileID: 8300000, guid: 7099853a606e8af4f8b19860b96c08ae, type: 3}
+  optionsClip: {fileID: 8300000, guid: 83490435a3383304480dfa1daf6a4bf0, type: 3}
+  creditsClip: {fileID: 8300000, guid: 0ec436bfc87d1c448af8cd6f9289526b, type: 3}
+  exerciceListClip: {fileID: 8300000, guid: 23dd31d9a95aa1b49b9a41b88a50a8a3, type: 3}
+  editExerciceClip: {fileID: 8300000, guid: ca6008aa994483a4a919bd2366663559, type: 3}
+  userListClip: {fileID: 8300000, guid: ae864749985f5cb4bbd3c27511824805, type: 3}
+  participantClip: {fileID: 8300000, guid: 7ae5edb655aa284479c4d96375b55305, type: 3}
+  backgroundClip: {fileID: 8300000, guid: 520cbfda9e9cd714dbe36ffbe9249630, type: 3}
+  musicListClip: {fileID: 8300000, guid: 0c942b83b1f38b64385bc8744b607af7, type: 3}
+  summaryClip: {fileID: 8300000, guid: 65d9e07f5908255468b2bc38a56e514b, type: 3}
+  startExerciceClip: {fileID: 8300000, guid: 5ee43a19b55d58747a506001aacd4003, type: 3}
+  endExerciceClip: {fileID: 8300000, guid: 9e3637892069c8d4caf0faeb0e85ab6d, type: 3}
+  exerciceMusicClip: {fileID: 8300000, guid: a630a6133b35e7944bec60c6cf89e8a6, type: 3}
