@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// Handles the main menu's GUI
@@ -20,6 +21,7 @@ public class MainMenuManager : MonoBehaviour
     public EditExerciceTab editExerciceTab;
     public CreditsTab creditsTab;
     public SummaryTab summaryTab;
+    public LoadingTab loadingTab;
 
 
     [HideInInspector] public Exercice editedExercice;
@@ -34,6 +36,7 @@ public class MainMenuManager : MonoBehaviour
     private bool startTransition = false;
     private MainMenuTab fromTab;
     private MainMenuTab toTab;
+    private Coroutine routineLoading;
 
     void Awake()
     {
@@ -93,4 +96,29 @@ public class MainMenuManager : MonoBehaviour
             StartCoroutine(RecordFrame());
         }
     }
+
+    /// <summary>
+    /// Starts loading the game scene
+    /// </summary>
+    /// <param name="from">The current tab</param>
+    public void LoadGameScene(MainMenuTab from)
+    {
+        if (routineLoading != null) return;
+        routineLoading = StartCoroutine(Routine_LoadingGameScene(from));
+    }
+
+    /// <summary>
+    /// Coroutine for loading the game scene
+    /// </summary>
+    /// <param name="from">The current tab</param>
+    /// <returns>IEnumerator</returns>
+    private IEnumerator Routine_LoadingGameScene(MainMenuTab from)
+    {
+        StartTransition(from, loadingTab);
+
+        yield return new WaitForSeconds(1);
+
+        SceneManager.LoadSceneAsync(chosenScene);
+    }
+
 }

@@ -67,7 +67,7 @@ public class SummaryTab : MainMenuTab
     /// </summary>
     public void Click_Start()
     {
-        SceneManager.LoadScene(MainMenuManager.instance.chosenScene);
+        MainMenuManager.instance.LoadGameScene(this);
     }
 
     /// <summary>
