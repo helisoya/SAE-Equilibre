@@ -45,6 +45,7 @@ public class MainMenuManager : MonoBehaviour
 
     void Start()
     {
+        Debug.LogError("Opening the debug console...");
         titleTab.Open();
     }
 

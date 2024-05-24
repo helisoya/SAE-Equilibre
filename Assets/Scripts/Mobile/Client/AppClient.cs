@@ -48,8 +48,8 @@ public class AppClient : MonoBehaviour
 
         TcpClient clientTesting = new TcpClient(ipLocalEndPoint)
         {
-            SendTimeout = 2000,
-            ReceiveTimeout = 2000
+            SendTimeout = 4000,
+            ReceiveTimeout = 4000
         };
 
         print("[RESULT] Created TcpClient at " + ipAddress.ToString() + ":" + AppServer.serverPort + ", connecting to " + ip + ":" + AppServer.serverPort);
