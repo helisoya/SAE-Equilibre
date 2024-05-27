@@ -55,12 +55,6 @@ public class AppServer : MonoBehaviour
         }
     }
 
-
-    void Awake()
-    {
-        RefreshIps();
-    }
-
     /// <summary>
     /// Finds the potential ips for the network
     /// </summary>
@@ -112,6 +106,8 @@ public class AppServer : MonoBehaviour
     /// </summary>
     public void InitServer()
     {
+        if (_addresses == null) RefreshIps();
+
         serverThread = new Thread(ServerThreadInit);
         serverThread.Start();
     }
@@ -121,7 +117,7 @@ public class AppServer : MonoBehaviour
     /// </summary>
     async void ServerThreadInit()
     {
-        print("Starting Server On : " + _address.ToString() + " : " + serverPort);
+        Debug.LogError("Starting Server On : " + _address.ToString() + " : " + serverPort);
         listener = new TcpListener(_address, serverPort);
         listener.Start();
 

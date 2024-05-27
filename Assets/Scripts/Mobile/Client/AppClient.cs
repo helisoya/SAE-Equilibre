@@ -48,8 +48,8 @@ public class AppClient : MonoBehaviour
 
         TcpClient clientTesting = new TcpClient(ipLocalEndPoint)
         {
-            SendTimeout = 2000,
-            ReceiveTimeout = 2000
+            SendTimeout = 4000,
+            ReceiveTimeout = 4000
         };
 
         print("[RESULT] Created TcpClient at " + ipAddress.ToString() + ":" + AppServer.serverPort + ", connecting to " + ip + ":" + AppServer.serverPort);
@@ -164,11 +164,9 @@ public class AppClient : MonoBehaviour
             print("[Result] Received : " + response);
             string[] split = response.Split("|");
 
-            if (split[0].Equals("OK"))
-            {
-                gui.OpenConnectedTab(distantIP);
-            }
-            else
+            gui.OpenConnectedTab(distantIP);
+
+            if (!split[0].Equals("OK"))
             {
                 print("[Result] Error : " + response);
             }
