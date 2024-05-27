@@ -164,11 +164,9 @@ public class AppClient : MonoBehaviour
             print("[Result] Received : " + response);
             string[] split = response.Split("|");
 
-            if (split[0].Equals("OK"))
-            {
-                gui.OpenConnectedTab(distantIP);
-            }
-            else
+            gui.OpenConnectedTab(distantIP);
+
+            if (!split[0].Equals("OK"))
             {
                 print("[Result] Error : " + response);
             }
