@@ -48,13 +48,15 @@ public class CurrentMoveComponent : MonoBehaviour
     public void Event_TypeNumberTimes()
     {
         int parsed;
-        if (!int.TryParse(inputFieldNumberTimes.text, out parsed) || parsed <= 0 || parsed >= 50)
+        if (!int.TryParse(inputFieldNumberTimes.text, out parsed))
         {
             inputFieldNumberTimes.SetTextWithoutNotify("1");
             sequence.movementTime = 1;
         }
         else
         {
+            parsed = Mathf.Clamp(parsed, 1, 50);
+            inputFieldNumberTimes.SetTextWithoutNotify(parsed.ToString());
             sequence.movementTime = parsed;
         }
     }
@@ -64,14 +66,16 @@ public class CurrentMoveComponent : MonoBehaviour
     /// </summary>
     public void Event_TypeAnimationLength()
     {
-        int parsed;
-        if (!int.TryParse(inputFieldAnimationLength.text, out parsed) || parsed <= 0 || parsed >= 15)
+        float parsed;
+        if (!float.TryParse(inputFieldAnimationLength.text, out parsed))
         {
             inputFieldAnimationLength.SetTextWithoutNotify("1");
             sequence.animationInSeconds = 1;
         }
         else
         {
+            parsed = Mathf.Clamp(parsed, 0.1f, 15f);
+            inputFieldAnimationLength.SetTextWithoutNotify(parsed.ToString());
             sequence.animationInSeconds = parsed;
         }
         OnPointerEnter();

@@ -10,7 +10,7 @@ using Cinemachine;
 public class ExerciceManager : MonoBehaviour
 {
     [Header("Components")]
-    [SerializeField] private Animator playerAnimator;
+    [SerializeField] private Animator[] playerAnimators;
 
     [Header("Virtual Cameras")]
     [SerializeField] private CinemachineVirtualCamera frontCam;
@@ -76,23 +76,48 @@ public class ExerciceManager : MonoBehaviour
             print(sequence.idMovement + " " + sequence.movementTime);
             move = GameManager.instance.GetMovement(sequence.idMovement);
 
-            playerAnimator.speed = move.isContinuous ? 1 : move.animationLength / sequence.animationInSeconds;
+            SetAnimatorsSpeed(move.isContinuous ? 1 : move.animationLength / sequence.animationInSeconds);
 
             RefreshCams(move.cameraPosition);
-            playerAnimator.CrossFade(move.animationTriggerName, 0.1f);
+            CrossFadeAnimators(move.animationTriggerName);
 
             yield return new WaitForSeconds(
                 move.isContinuous ?
                 sequence.movementTime :
-                (float)(sequence.movementTime) * sequence.animationInSeconds
+                sequence.movementTime * sequence.animationInSeconds
             );
-            playerAnimator.speed = 1;
-            playerAnimator.CrossFade("Idle", 0.1f);
+            SetAnimatorsSpeed(1);
+            CrossFadeAnimators("Idle");
             RefreshCams(CameraPosition.FRONT);
 
             yield return new WaitForSeconds(1);
         }
 
         GameGUI.instance.ShowEndScreen();
+    }
+
+    /// <summary>
+    /// Sets the animation speed of the animators
+    /// </summary>
+    /// <param name="speed">The new speed</param>
+    private void SetAnimatorsSpeed(float speed)
+    {
+        foreach (Animator animator in playerAnimators)
+        {
+            animator.speed = speed;
+        }
+    }
+
+    /// <summary>
+    /// Crossfades the animators to a new state (animation)
+    /// </summary>
+    /// <param name="stateName">The state's name</param>
+    /// <param name="normalizedTransitionTime">The normalized transition time (0.1f by default)</param>
+    private void CrossFadeAnimators(string stateName, float normalizedTransitionTime = 0.1f)
+    {
+        foreach (Animator animator in playerAnimators)
+        {
+            animator.CrossFade(stateName, normalizedTransitionTime);
+        }
     }
 }

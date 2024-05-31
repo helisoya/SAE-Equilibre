@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028331, g: 0.2257133, b: 0.3069217, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 8b2a094e6b8e51746bb917026422a7b7, type: 2}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
@@ -2145,7 +2145,7 @@ MonoBehaviour:
     backgroundImg: {fileID: 21300000, guid: ece6c7ef1e4769343825768535c798f5, type: 3}
   - backgroundName: Gym
     sceneName: Gym
-    backgroundImg: {fileID: 21300000, guid: cd84860b166d96d4cabad08b5fe94f4e, type: 3}
+    backgroundImg: {fileID: 21300000, guid: 14ef7d5787ce8f74a942bc3cb3942cbe, type: 3}
 --- !u!1 &171716245
 GameObject:
   m_ObjectHideFlags: 0

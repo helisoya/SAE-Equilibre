@@ -3188,7 +3188,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcbff1319ddad804d8049218f9e3187f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerAnimator: {fileID: 8787312198517116390}
+  playerAnimators:
+  - {fileID: 8787312198517116390}
   frontCam: {fileID: 8787312199871948583}
   leftCam: {fileID: 8787312199289603666}
   rightCam: {fileID: 8787312198569115041}
