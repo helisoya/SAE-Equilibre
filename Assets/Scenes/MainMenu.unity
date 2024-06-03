@@ -2134,18 +2134,21 @@ MonoBehaviour:
   - backgroundName: Forest
     sceneName: ForestSpring
     backgroundImg: {fileID: 21300000, guid: 98d4fed2f6d63794f99bc1d08d55a34e, type: 3}
-  - backgroundName: Beach
+  - backgroundName: Plage
     sceneName: Beach
     backgroundImg: {fileID: 21300000, guid: 9ed79b75a71686b42966778cc0c3ecd8, type: 3}
-  - backgroundName: City
+  - backgroundName: Ville
     sceneName: City
     backgroundImg: {fileID: 21300000, guid: e02eb89438bd67843adbe37eb4a3b53e, type: 3}
-  - backgroundName: Space
+  - backgroundName: Esapce
     sceneName: Space
     backgroundImg: {fileID: 21300000, guid: ece6c7ef1e4769343825768535c798f5, type: 3}
-  - backgroundName: Gym
+  - backgroundName: Salle de Gym
     sceneName: Gym
     backgroundImg: {fileID: 21300000, guid: 14ef7d5787ce8f74a942bc3cb3942cbe, type: 3}
+  - backgroundName: Chemin de fer
+    sceneName: Railway
+    backgroundImg: {fileID: 21300000, guid: ceb46dfb0a5120546a3663bc5dbacde1, type: 3}
 --- !u!1 &171716245
 GameObject:
   m_ObjectHideFlags: 0
