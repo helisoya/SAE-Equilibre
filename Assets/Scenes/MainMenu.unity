@@ -2149,6 +2149,9 @@ MonoBehaviour:
   - backgroundName: Chemin de fer
     sceneName: Railway
     backgroundImg: {fileID: 21300000, guid: ceb46dfb0a5120546a3663bc5dbacde1, type: 3}
+  - backgroundName: Station de ski
+    sceneName: SkiStation
+    backgroundImg: {fileID: 21300000, guid: 9a4b474e4135cee44a0b58b7e7023db6, type: 3}
 --- !u!1 &171716245
 GameObject:
   m_ObjectHideFlags: 0

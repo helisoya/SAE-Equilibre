@@ -32,4 +32,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Railway.unity
     guid: 05a519a2194d2f34d9f4ccf08eeaad37
+  - enabled: 1
+    path: Assets/Scenes/SkiStation.unity
+    guid: 11662c8e1c322de42949b11d03a65f48
   m_configObjects: {}
