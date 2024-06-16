@@ -7,32 +7,8 @@ using MySql.Data.MySqlClient;
 /// Data handler for the users data file
 /// </summary>
 [System.Serializable]
-public class UsersDataHandler : DataHandler
+public class UsersDataHandler : DataHandler<UsersData>
 {
-    [SerializeField] private UsersData data;
-
-    /// <summary>
-    /// Saves the users
-    /// </summary>
-    public override void Save()
-    {
-        FileManager.SaveJSON(FileManager.savPath + dataSavePath, data);
-    }
-
-    /// <summary>
-    /// Loads the users
-    /// </summary>
-    public override void Load()
-    {
-        if (System.IO.File.Exists(FileManager.savPath + dataSavePath))
-        {
-            data = FileManager.LoadJSON<UsersData>(FileManager.savPath + dataSavePath);
-        }
-        else
-        {
-            Save();
-        }
-    }
 
 
     /// <summary>

@@ -6,7 +6,7 @@ using System.IO.Ports;
 using TMPro;
 using UnityEngine;
 
-public class ArduinoController : MonoBehaviour
+public class ArduinoControllerPunch : MonoBehaviour
 {
     private SerialPort port;
     private Coroutine routine;
@@ -18,9 +18,10 @@ public class ArduinoController : MonoBehaviour
     [SerializeField] private float gravityValue = 0;
     [SerializeField] private float maxAngle;
 
-    private float maxX = -50, minX = 50;
+    private int totalPunch;
     private string[] split;
     private float Accel_X, Accel_Y, Accel_Z, Gyro_x, Gyro_y, Gyro_z;
+
 
     private const float COEF_G = 9.80665f; // 1G = 9.80665f m/s**2
 
@@ -75,11 +76,6 @@ public class ArduinoController : MonoBehaviour
                 Gyro_x = float.Parse(split[3], CultureInfo.InvariantCulture);
                 Gyro_z = float.Parse(split[4], CultureInfo.InvariantCulture);
                 Gyro_y = float.Parse(split[5], CultureInfo.InvariantCulture);
-
-                if (Accel_X > maxX) maxX = Accel_X;
-                if (Accel_X < minX) minX = Accel_X;
-                textMax.text = minX + " - " + Accel_X + " - " + maxX;
-
             }
             catch (Exception e)
             {
@@ -117,7 +113,8 @@ public class ArduinoController : MonoBehaviour
         print("Angle : " + angle);
         if (angle <= maxAngle)
         {
-            print("Correct !");
+            totalPunch++;
+            textMax.text = "Punch : " + totalPunch;
         }
     }
 

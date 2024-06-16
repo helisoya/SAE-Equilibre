@@ -6,32 +6,8 @@ using UnityEngine;
 /// Handles the exercices data file
 /// </summary>
 [System.Serializable]
-public class ExercicesDataHandler : DataHandler
+public class ExercicesDataHandler : DataHandler<ExercicesData>
 {
-    [SerializeField] private ExercicesData data;
-
-    /// <summary>
-    /// Saves the exercices
-    /// </summary>
-    public override void Save()
-    {
-        FileManager.SaveJSON(FileManager.savPath + dataSavePath, data);
-    }
-
-    /// <summary>
-    /// Loads the exercices
-    /// </summary>
-    public override void Load()
-    {
-        if (System.IO.File.Exists(FileManager.savPath + dataSavePath))
-        {
-            data = FileManager.LoadJSON<ExercicesData>(FileManager.savPath + dataSavePath);
-        }
-        else
-        {
-            Save();
-        }
-    }
 
     /// <summary>
     /// Returns the loaded exercices

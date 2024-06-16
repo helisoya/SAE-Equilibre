@@ -6,24 +6,29 @@ using System.IO.Ports;
 using System.Threading;
 using UnityEngine;
 
-public class ArduinoInput : MonoBehaviour
+public class ArduinoControllerTracker : MonoBehaviour
 {
-
     private SerialPort port;
     private Coroutine routine;
     [SerializeField] private Transform rightHand;
     [SerializeField] private Transform leftHand;
     [SerializeField] private Animator animator;
-
     private string[] split;
     private float Accel_X, Accel_Y, Accel_Z, Gyro_x, Gyro_y, Gyro_z;
     private float Speed_X, Speed_Y, Speed_Z;
+    private Vector3 leftStartPos, rightStartPos;
+    [SerializeField] private float gravityValue = 0;
 
     private const float COEF_G = 1f; // 1G = 9.80665f m/s**2
     private const float ACCEL_DAMP = 0.6f;
 
+
+
     void Start()
     {
+        leftStartPos = leftHand.localPosition;
+        rightStartPos = rightHand.localPosition;
+
         port = new SerialPort("COM5", 115200);
         port.ReadTimeout = 5000;
         if (!port.IsOpen)
@@ -74,8 +79,6 @@ public class ArduinoInput : MonoBehaviour
                 Gyro_z = float.Parse(split[4], CultureInfo.InvariantCulture);
                 Gyro_y = float.Parse(split[5], CultureInfo.InvariantCulture);
 
-                RemoveGravity();
-
                 Speed_X += Accel_X;
                 Speed_Y += Accel_Y;
                 Speed_Z += Accel_Z;
@@ -90,46 +93,36 @@ public class ArduinoInput : MonoBehaviour
         }
     }
 
-    void RemoveGravity()
+    void Init()
     {
-        float x = Accel_X;
-        float y = Accel_Y;
-        float z = 0;
-
-        float yawRad = Mathf.Deg2Rad * rightHand.eulerAngles.x;
-        float pitchRad = Mathf.Deg2Rad * rightHand.eulerAngles.y;
-        float rollRad = Mathf.Deg2Rad * rightHand.eulerAngles.z;
-
-        Accel_X -= x * Mathf.Cos(yawRad) - y * Mathf.Sin(yawRad);
-        Accel_Y -= x * Mathf.Sin(yawRad) - y * Mathf.Cos(yawRad);
-
-        x = Accel_X; z = Accel_Z;
-        Accel_X -= x * Mathf.Cos(pitchRad) + z * Mathf.Sin(pitchRad);
-        Accel_Z -= -x * Mathf.Sin(pitchRad) + z * Mathf.Cos(pitchRad);
-
-        y = Accel_Y; z = Accel_Z;
-        Accel_Y -= y * Mathf.Cos(rollRad) - z * Mathf.Sin(rollRad);
-        Accel_Z -= y * Mathf.Sin(rollRad) + z * Mathf.Cos(rollRad);
-
-        print("Corrected : " + Accel_X + " " + Accel_Y + " " + Accel_Z);
+        leftHand.rotation = Quaternion.identity;
+        rightHand.rotation = Quaternion.identity;
+        leftHand.localPosition = leftStartPos;
+        rightHand.localPosition = rightStartPos;
+        gravityValue = Accel_Y;
     }
 
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            Init();
+        }
+
         if (routine != null)
         {
-            leftHand.position += leftHand.forward * Speed_X * Time.deltaTime * COEF_G +
-            leftHand.up * Speed_Y * Time.deltaTime * COEF_G -
-            leftHand.right * Speed_Z * Time.deltaTime * COEF_G;
-
             leftHand.Rotate(new Vector3(Gyro_x, Gyro_y, Gyro_z) * Time.deltaTime);
+            rightHand.Rotate(new Vector3(Gyro_x, Gyro_y, Gyro_z) * Time.deltaTime);
 
+            leftHand.position += leftHand.forward * Speed_X * Time.deltaTime * COEF_G +
+            leftHand.up * Speed_Y * Time.deltaTime * COEF_G +
+            leftHand.right * Speed_Z * Time.deltaTime * COEF_G
+            - Vector3.up * Time.deltaTime * gravityValue * COEF_G;
 
             rightHand.position += rightHand.forward * Speed_X * Time.deltaTime * COEF_G +
             rightHand.up * Speed_Y * Time.deltaTime * COEF_G +
-            rightHand.right * Speed_Z * Time.deltaTime * COEF_G;
-
-            rightHand.Rotate(new Vector3(Gyro_x, Gyro_y, Gyro_z) * Time.deltaTime);
+            rightHand.right * Speed_Z * Time.deltaTime * COEF_G
+            - Vector3.up * Time.deltaTime * gravityValue * COEF_G;
 
 
             Speed_X *= ACCEL_DAMP * Time.deltaTime;
