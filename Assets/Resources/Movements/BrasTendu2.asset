@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: BrasTendu2
   m_EditorClassIdentifier: 
   ID: BRASTENDU2
-  movementName: Equilibre (Un Pied)
   animationTriggerName: BrasTendu2
   isContinuous: 1
   animationLength: 1.5
+  movementName: Equilibre (pied gauche)
   animationIcon: {fileID: 21300000, guid: fba5a6005cddc2d47b50a42d557a5ac1, type: 3}
   cameraPosition: 0

@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: PiedTendu2
   m_EditorClassIdentifier: 
   ID: PIEDTENDU2
-  movementName: Ecart Jambe Droite
   animationTriggerName: PiedTendu2
   isContinuous: 0
   animationLength: 1
-  animationIcon: {fileID: 21300000, guid: fba5a6005cddc2d47b50a42d557a5ac1, type: 3}
+  movementName: Ecart Jambe Droite
+  animationIcon: {fileID: 21300000, guid: 69437868fb17b404785e1686bd1a18a5, type: 3}
   cameraPosition: 0

@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: BoxeVar3
   m_EditorClassIdentifier: 
   ID: BOXEVAR3
-  movementName: Upercut
   animationTriggerName: BoxeVar3
   isContinuous: 0
   animationLength: 1.5
-  animationIcon: {fileID: 21300000, guid: d98c04477b6f086488c0888604038f50, type: 3}
-  cameraPosition: 0
+  movementName: Upercut
+  animationIcon: {fileID: 21300000, guid: 7f3a0efcc371c804685c5ac55d4fdad0, type: 3}
+  cameraPosition: 2

@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: BrasHaut4
   m_EditorClassIdentifier: 
   ID: BRASHAUT4
-  movementName: Bras Haut
   animationTriggerName: BrasHaut4
   isContinuous: 0
   animationLength: 1
-  animationIcon: {fileID: 21300000, guid: f7534565c7939bb71a28be20bdd56c7c, type: 3}
+  movementName: Bras Haut
+  animationIcon: {fileID: 21300000, guid: e71eb74cb35596b4581ddd9c75b2ce72, type: 3}
   cameraPosition: 0

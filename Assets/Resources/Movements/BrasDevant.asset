@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: BrasDevant
   m_EditorClassIdentifier: 
   ID: BRASDEVANT
-  movementName: Bras Devant
   animationTriggerName: BrasDevant
   isContinuous: 0
   animationLength: 1
+  movementName: Bras Devant
   animationIcon: {fileID: 21300000, guid: c9260011e14e8b96cb5898a30cbef0c7, type: 3}
-  cameraPosition: 0
+  cameraPosition: 2

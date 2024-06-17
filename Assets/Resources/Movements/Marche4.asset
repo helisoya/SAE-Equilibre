@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Marche4
   m_EditorClassIdentifier: 
   ID: MARCHE4
-  movementName: Monte Genoux (Var. 2)
   animationTriggerName: Marche4
   isContinuous: 1
   animationLength: 2
+  movementName: Monte Genoux (Var. 2)
   animationIcon: {fileID: 21300000, guid: 38cad43c4f46260498e565374ab4e82a, type: 3}
-  cameraPosition: 0
+  cameraPosition: 1
