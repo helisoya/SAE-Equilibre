@@ -18,7 +18,6 @@ public class ArduinoControllerPunch : MonoBehaviour
     [SerializeField] private float gravityValue = 0;
     [SerializeField] private float maxAngle;
 
-    private int totalPunch;
     private string[] split;
     private float Accel_X, Accel_Y, Accel_Z, Gyro_x, Gyro_y, Gyro_z;
 
@@ -105,17 +104,14 @@ public class ArduinoControllerPunch : MonoBehaviour
 
         rotateCube.Rotate(new Vector3(Gyro_x, Gyro_y, Gyro_z) * Time.deltaTime);
 
-        Vector3 vectorArduino = rotateCube.forward * Accel_X + rotateCube.up * Accel_Y + rotateCube.right * Accel_Z - Vector3.up * gravityValue;
+        Vector3 vectorArduino = new Vector3(Accel_X, Accel_Y, Accel_Z) - Vector3.up * gravityValue;
 
         lineRendererArduino.SetPosition(1, vectorArduino);
 
         float angle = Vector3.Angle(target, vectorArduino);
         print("Angle : " + angle);
-        if (angle <= maxAngle)
-        {
-            totalPunch++;
-            textMax.text = "Punch : " + totalPunch;
-        }
+
+        textMax.text = angle <= maxAngle ? "Punch !" : "";
     }
 
 

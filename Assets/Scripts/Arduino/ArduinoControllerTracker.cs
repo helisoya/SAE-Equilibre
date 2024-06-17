@@ -111,17 +111,13 @@ public class ArduinoControllerTracker : MonoBehaviour
 
         if (routine != null)
         {
-            leftHand.Rotate(new Vector3(Gyro_x, Gyro_y, Gyro_z) * Time.deltaTime);
-            rightHand.Rotate(new Vector3(Gyro_x, Gyro_y, Gyro_z) * Time.deltaTime);
+            //leftHand.Rotate(new Vector3(Gyro_x, Gyro_y, Gyro_z) * Time.deltaTime);
+            //rightHand.Rotate(new Vector3(Gyro_x, Gyro_y, Gyro_z) * Time.deltaTime);
 
-            leftHand.position += leftHand.forward * Speed_X * Time.deltaTime * COEF_G +
-            leftHand.up * Speed_Y * Time.deltaTime * COEF_G +
-            leftHand.right * Speed_Z * Time.deltaTime * COEF_G
-            - Vector3.up * Time.deltaTime * gravityValue * COEF_G;
+            leftHand.position += new Vector3(Speed_X, Speed_Y, Speed_Z) * Time.deltaTime * COEF_G +
+            -Vector3.up * Time.deltaTime * gravityValue * COEF_G;
 
-            rightHand.position += rightHand.forward * Speed_X * Time.deltaTime * COEF_G +
-            rightHand.up * Speed_Y * Time.deltaTime * COEF_G +
-            rightHand.right * Speed_Z * Time.deltaTime * COEF_G
+            rightHand.position += new Vector3(Speed_X, Speed_Y, Speed_Z) * Time.deltaTime * COEF_G
             - Vector3.up * Time.deltaTime * gravityValue * COEF_G;
 
 
