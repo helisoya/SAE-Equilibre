@@ -13,19 +13,31 @@ public class ArduinoControllerPunch : MonoBehaviour
     [SerializeField] private Transform rotateCube;
     [SerializeField] private LineRenderer lineRendererArduino;
     [SerializeField] private LineRenderer lineRendererTarget;
-    [SerializeField] private Vector3 target = Vector3.forward;
     [SerializeField] private TextMeshProUGUI textMax;
     [SerializeField] private float gravityValue = 0;
     [SerializeField] private float maxAngle;
 
+
+    [SerializeField] private bool changeTarget = true;
+    [SerializeField]
+    private Vector3[] targets = {
+        Vector3.forward,
+        Vector3.up,
+        Vector3.right,
+        -Vector3.right,
+        -Vector3.up
+    };
+
+    private Vector3 target = Vector3.forward;
+    private float lastGood = 0;
+
     private string[] split;
     private float Accel_X, Accel_Y, Accel_Z, Gyro_x, Gyro_y, Gyro_z;
 
-
-    private const float COEF_G = 9.80665f; // 1G = 9.80665f m/s**2
-
     void Start()
     {
+        target = Vector3.forward;
+
         port = new SerialPort("COM5", 115200);
         port.ReadTimeout = 5000;
         if (!port.IsOpen)
@@ -111,7 +123,15 @@ public class ArduinoControllerPunch : MonoBehaviour
         float angle = Vector3.Angle(target, vectorArduino);
         print("Angle : " + angle);
 
-        textMax.text = angle <= maxAngle ? "Punch !" : "";
+        bool didAPunch = angle <= maxAngle && Time.time - lastGood >= 1; // Angle OK + Au moins 1 seconde après le dernier punch
+
+        textMax.text = didAPunch ? "Punch !" : "";
+        if (didAPunch) lastGood = Time.time;
+
+        if (didAPunch && changeTarget)
+        {
+            target = targets[UnityEngine.Random.Range(0, targets.Length)];
+        }
     }
 
 
