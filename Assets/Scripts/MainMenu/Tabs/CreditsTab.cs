@@ -10,8 +10,6 @@ public class CreditsTab : MainMenuTab
     public override void Open()
     {
         base.Open();
-
-        GameManager.instance.PlayVocalAssistantSFX(GameManager.instance.GetVocalAssistantData().creditsClip);
     }
 
     /// <summary>

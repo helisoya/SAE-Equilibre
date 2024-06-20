@@ -35,12 +35,7 @@ public class AudioManager : MonoBehaviour
     {
         if (!clip) return;
 
-        if (sfxSource.isPlaying)
-        {
-            sfxSource.Stop();
-        }
-        sfxSource.clip = clip;
-        sfxSource.Play();
+        sfxSource.PlayOneShot(clip);
     }
 
     /// <summary>

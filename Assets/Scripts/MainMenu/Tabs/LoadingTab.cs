@@ -7,17 +7,8 @@ using UnityEngine;
 /// </summary>
 public class LoadingTab : MainMenuTab
 {
-    [Header("Loading Tab")]
-    [SerializeField] private GameObject loadingGuyNormal;
-    [SerializeField] private GameObject loadingGuyAssistant;
-
     public override void Open()
     {
         base.Open();
-
-        bool isAssistantActive = GameManager.instance.vocalAssistant;
-
-        loadingGuyNormal.SetActive(!isAssistantActive);
-        loadingGuyAssistant.SetActive(isAssistantActive);
     }
 }

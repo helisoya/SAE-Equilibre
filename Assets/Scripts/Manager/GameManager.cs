@@ -16,12 +16,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private UsersDataHandler usersDataHandler;
     [SerializeField] private ExercicesDataHandler exercicesDataHandler;
     [SerializeField] private AppServer server;
-    private VocalAssistantData vocalAssistantData;
     private Dictionary<string, Movement> movements;
     [SerializeField] private AudioManager audioManager;
 
-
-    public bool vocalAssistant { get; set; }
 
     public IPAddress ipAddress
     {
@@ -73,9 +70,6 @@ public class GameManager : MonoBehaviour
 
             participants = new List<User>();
 
-            vocalAssistant = false;
-            vocalAssistantData = Resources.Load<VocalAssistantData>("VocalAssistantData");
-
             server.InitServer();
         }
         else
@@ -84,27 +78,6 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// Returns the vocal assistant's data
-    /// </summary>
-    /// <returns>The vocal assistant's data</returns>
-    public VocalAssistantData GetVocalAssistantData()
-    {
-        return vocalAssistantData;
-    }
-
-    /// <summary>
-    /// Plays the sfx if the vocal assistant is active
-    /// </summary>
-    /// <param name="clip">The SFX's clip</param>
-    /// <param name="force">Force the SFX to be played ?</param>
-    public void PlayVocalAssistantSFX(AudioClip clip, bool force = false)
-    {
-        if (vocalAssistant || force)
-        {
-            audioManager.PlaySFX(clip);
-        }
-    }
 
     /// <summary>
     /// Returns the Audio Manager

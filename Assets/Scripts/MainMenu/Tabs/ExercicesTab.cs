@@ -27,8 +27,6 @@ public class ExercicesTab : MainMenuTab
         base.Open();
         Utils.DestroyChildren(exercicesRoot);
 
-        GameManager.instance.PlayVocalAssistantSFX(GameManager.instance.GetVocalAssistantData().exerciceListClip);
-
 
         List<Exercice> exercices = GameManager.instance.GetAllExercices();
         foreach (Exercice exercice in exercices)

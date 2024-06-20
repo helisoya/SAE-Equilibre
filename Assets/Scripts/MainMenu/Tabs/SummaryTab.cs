@@ -19,8 +19,6 @@ public class SummaryTab : MainMenuTab
         base.Open();
         DeleteAllIcons();
 
-        GameManager.instance.PlayVocalAssistantSFX(GameManager.instance.GetVocalAssistantData().summaryClip);
-
         List<Sequence> sequences = GameManager.instance.currentExercice.sequences;
         List<string> done = new List<string>();
 

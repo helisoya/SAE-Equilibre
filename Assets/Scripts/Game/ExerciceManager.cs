@@ -31,12 +31,6 @@ public class ExerciceManager : MonoBehaviour
     /// <param name="music">The music's name</param>
     async void LoadMusic(string music)
     {
-        if (GameManager.instance.vocalAssistant)
-        {
-            GameManager.instance.GetAudioManager().PlayBGM(GameManager.instance.GetVocalAssistantData().exerciceMusicClip);
-            return;
-        }
-
         if (music == null) return;
 
         AudioClip clip = await GameManager.instance.GetMusic(music);
