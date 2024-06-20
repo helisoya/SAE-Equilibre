@@ -117,9 +117,10 @@ public class ArduinoControllerPunch : MonoBehaviour
 
         lineRendererTarget.SetPosition(1, target * 3);
 
-        rotateCube.eulerAngles = new Vector3(Gyro_x, Gyro_y - 180f, Gyro_z) - rotationOffset;
+        rotateCube.eulerAngles = new Vector3(-Gyro_x, -Gyro_y, -Gyro_z) + rotationOffset;
 
         Vector3 vectorArduino = rotateCube.right * Accel_X + rotateCube.forward * Accel_Z + rotateCube.up * Accel_Y - Vector3.up * gravityValue;
+        //Vector3 vectorArduino = new Vector3(Accel_X, Accel_Y, Accel_Z) - Vector3.up * gravityValue;
 
         lineRendererArduino.SetPosition(1, vectorArduino);
 

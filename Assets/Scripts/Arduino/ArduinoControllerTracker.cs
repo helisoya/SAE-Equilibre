@@ -18,6 +18,7 @@ public class ArduinoControllerTracker : MonoBehaviour
     private float Speed_X, Speed_Y, Speed_Z;
     private Vector3 leftStartPos, rightStartPos;
     [SerializeField] private float gravityValue = 0;
+    private Vector3 rotationOffset;
 
     private const float COEF_G = 1f; // 1G = 9.80665f m/s**2
     private const float ACCEL_DAMP = 0.6f;
@@ -95,6 +96,7 @@ public class ArduinoControllerTracker : MonoBehaviour
 
     void Init()
     {
+        rotationOffset = leftHand.eulerAngles;
         leftHand.rotation = Quaternion.identity;
         rightHand.rotation = Quaternion.identity;
         leftHand.localPosition = leftStartPos;
@@ -111,13 +113,13 @@ public class ArduinoControllerTracker : MonoBehaviour
 
         if (routine != null)
         {
-            //leftHand.Rotate(new Vector3(Gyro_x, Gyro_y, Gyro_z) * Time.deltaTime);
-            //rightHand.Rotate(new Vector3(Gyro_x, Gyro_y, Gyro_z) * Time.deltaTime);
+            leftHand.eulerAngles = new Vector3(-Gyro_x, -Gyro_y, -Gyro_z) + rotationOffset;
+            rightHand.eulerAngles = new Vector3(-Gyro_x, -Gyro_y, -Gyro_z) + rotationOffset;
 
-            leftHand.position += new Vector3(Speed_X, Speed_Y, Speed_Z) * Time.deltaTime * COEF_G +
-            -Vector3.up * Time.deltaTime * gravityValue * COEF_G;
+            leftHand.position += (leftHand.forward * Speed_X + leftHand.right * Speed_Z + leftHand.up * Speed_Y) * Time.deltaTime * COEF_G
+            - Vector3.up * Time.deltaTime * gravityValue * COEF_G;
 
-            rightHand.position += new Vector3(Speed_X, Speed_Y, Speed_Z) * Time.deltaTime * COEF_G
+            rightHand.position += (rightHand.forward * Speed_X + rightHand.right * Speed_Z + rightHand.up * Speed_Y) * Time.deltaTime * COEF_G
             - Vector3.up * Time.deltaTime * gravityValue * COEF_G;
 
 
