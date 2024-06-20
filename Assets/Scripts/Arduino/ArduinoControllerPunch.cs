@@ -16,10 +16,11 @@ public class ArduinoControllerPunch : MonoBehaviour
     [SerializeField] private TextMeshProUGUI textMax;
     [SerializeField] private float gravityValue = 0;
     [SerializeField] private float maxAngle;
-
+    [SerializeField] private float minimumMagnitude = 1f;
 
     [SerializeField] private bool changeTarget = true;
-    [SerializeField]
+    private Vector3 rotationOffset;
+
     private Vector3[] targets = {
         Vector3.forward,
         Vector3.up,
@@ -100,8 +101,10 @@ public class ArduinoControllerPunch : MonoBehaviour
 
     void Init()
     {
+        rotationOffset = rotateCube.eulerAngles;
         rotateCube.rotation = Quaternion.identity;
         gravityValue = Accel_Y;
+
     }
 
 
@@ -114,23 +117,28 @@ public class ArduinoControllerPunch : MonoBehaviour
 
         lineRendererTarget.SetPosition(1, target * 3);
 
-        rotateCube.Rotate(new Vector3(Gyro_x, Gyro_y, Gyro_z) * Time.deltaTime);
+        rotateCube.eulerAngles = new Vector3(Gyro_x, Gyro_y - 180f, Gyro_z) - rotationOffset;
 
-        Vector3 vectorArduino = new Vector3(Accel_X, Accel_Y, Accel_Z) - Vector3.up * gravityValue;
+        Vector3 vectorArduino = rotateCube.right * Accel_X + rotateCube.forward * Accel_Z + rotateCube.up * Accel_Y - Vector3.up * gravityValue;
 
         lineRendererArduino.SetPosition(1, vectorArduino);
 
         float angle = Vector3.Angle(target, vectorArduino);
         print("Angle : " + angle);
 
-        bool didAPunch = angle <= maxAngle && Time.time - lastGood >= 1; // Angle OK + Au moins 1 seconde après le dernier punch
+        bool didAPunch = angle <= maxAngle && Time.time - lastGood >= 1 && (Mathf.Abs(vectorArduino.magnitude) >= minimumMagnitude);
+        // Angle OK + Au moins 1 seconde après le dernier punch + magnitude suffisante
 
         textMax.text = didAPunch ? "Punch !" : "";
         if (didAPunch) lastGood = Time.time;
 
         if (didAPunch && changeTarget)
         {
-            target = targets[UnityEngine.Random.Range(0, targets.Length)];
+            Vector3 oldTarget = target;
+            while (target.Equals(oldTarget))
+            {
+                target = targets[UnityEngine.Random.Range(0, targets.Length)];
+            }
         }
     }
 

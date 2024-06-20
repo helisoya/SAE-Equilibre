@@ -1,5 +1,7 @@
 #include <MPU9250_WE.h>
 #include <Wire.h>
+#include "MadgwickAHRS.h"
+
 #define MPU9250_ADDR 0x68
 
 
@@ -12,9 +14,14 @@
  */
 MPU9250_WE myMPU9250 = MPU9250_WE(MPU9250_ADDR);
 
+Madgwick filter;
+
 void setup() {
   Serial.begin(115200);
   Serial.println("Starting !");
+
+	filter.begin(60);
+
   Wire.begin();  
   if(!myMPU9250.init()){
     Serial.println("MPU9250 does not respond");
@@ -82,9 +89,10 @@ void loop() {
   float temp = myMPU9250.getTemperature();
   float resultantG = myMPU9250.getResultantG(gValue);
 
-
   // Print Order
   // Accel.X | Accel.Y | Accel.Z | Gyro.X | Gyro.Y | Gyro.Z
+
+  filter.update(gyr.x, gyr.y, gyr.z, gValue.x, gValue.y, gValue.z, magValue.x, magValue.y, magValue.z);
 
   Serial.print(gValue.x);
   Serial.print(";");
@@ -92,11 +100,11 @@ void loop() {
   Serial.print(";");
   Serial.print(gValue.z);
   Serial.print(";");
-  Serial.print(gyr.x);
+  Serial.print(filter.getRoll());
   Serial.print(";");
-  Serial.print(gyr.y);
+  Serial.print(filter.getPitch());
   Serial.print(";");
-  Serial.println(gyr.z);
+  Serial.println(filter.getYaw());
 
   delay(10);
 }
