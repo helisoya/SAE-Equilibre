@@ -4025,7 +4025,7 @@ Animator:
   m_GameObject: {fileID: 268154181}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 92252b1e07166a645b043ced042d093c, type: 2}
+  m_Controller: {fileID: 9100000, guid: 926b7843e8de1a24f8edf06c0fcaf298, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -4941,7 +4941,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 0.9999652}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -5998,7 +5998,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.00015514535}
+  m_AnchoredPosition: {x: 0, y: -0.0000033894985}
   m_SizeDelta: {x: 0, y: 300}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &353306603
@@ -6456,7 +6456,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 320221837}
   m_Direction: 2
   m_Value: 0
-  m_Size: 1
+  m_Size: 0.9999652
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -33271,7 +33271,7 @@ Animator:
   m_GameObject: {fileID: 2141926542}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 92252b1e07166a645b043ced042d093c, type: 2}
+  m_Controller: {fileID: 9100000, guid: 926b7843e8de1a24f8edf06c0fcaf298, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
