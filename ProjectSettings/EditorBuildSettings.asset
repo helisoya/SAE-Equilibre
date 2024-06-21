@@ -11,9 +11,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: 4065aada25a3de34a9f3964f5e91899e
-  - enabled: 0
-    path: Assets/Scenes/TESTS/GameScene.unity
-    guid: 0034af4c13487e546a591e251075ca0b
   - enabled: 1
     path: Assets/Scenes/ForestSpring.unity
     guid: 1dfd62514ed29fb409463a09f63efb8e
