@@ -90,6 +90,22 @@ public class CurrentMoveComponent : MonoBehaviour
     }
 
     /// <summary>
+    /// Click event for moving the sequence up
+    /// </summary>
+    public void Click_MoveUp()
+    {
+        tab.Click_MoveSequence(sequence, -1);
+    }
+
+    /// <summary>
+    /// Click event for moving the sequence down
+    /// </summary>
+    public void Click_MoveDown()
+    {
+        tab.Click_MoveSequence(sequence, 1);
+    }
+
+    /// <summary>
     /// OnPointerEnter event
     /// </summary>
     public void OnPointerEnter()

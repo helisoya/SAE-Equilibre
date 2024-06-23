@@ -130,6 +130,23 @@ public class EditExerciceTab : MainMenuTab
     }
 
     /// <summary>
+    /// Moves a sequence in the list
+    /// </summary>
+    /// <param name="sequence">The sequence to move</param>
+    /// <param name="side">Where should the movement be moved</param>
+    public void Click_MoveSequence(Sequence sequence, int side)
+    {
+        int indexSeq = exercice.sequences.IndexOf(sequence);
+
+        if (indexSeq == -1 || (indexSeq == 0 && side == -1) || (indexSeq == exercice.sequences.Count - 1 && side == 1)) return;
+
+        exercice.sequences[indexSeq] = exercice.sequences[indexSeq + side];
+        exercice.sequences[indexSeq + side] = sequence;
+
+        currentMovesRoot.GetChild(indexSeq).SetSiblingIndex(indexSeq + side);
+    }
+
+    /// <summary>
     /// Changes the preview
     /// </summary>
     /// <param name="triggerName">The animation's trigger</param>

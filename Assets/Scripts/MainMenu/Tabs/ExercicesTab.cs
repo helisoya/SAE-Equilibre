@@ -78,6 +78,11 @@ public class ExercicesTab : MainMenuTab
                 exerciceLenth += 1;
             }
 
+            exerciceMovesRoot.GetComponent<RectTransform>().sizeDelta = new Vector2(
+                exerciceMovesRoot.GetComponent<RectTransform>().sizeDelta.x,
+                (prefabMoveText.GetComponent<RectTransform>().sizeDelta.y + 5) * exercice.sequences.Count
+            );
+
             exerciceLengthText.text = "Temps total : " + exerciceLenth + " secondes";
         }
     }
