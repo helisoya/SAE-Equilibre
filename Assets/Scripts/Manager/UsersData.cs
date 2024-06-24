@@ -30,6 +30,10 @@ public class User
     public int age;
     public List<Session> sessions;
 
+    public User() : this("", 0)
+    {
+    }
+
     public User(string name, int age)
     {
         id = -1;

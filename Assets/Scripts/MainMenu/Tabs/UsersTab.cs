@@ -25,6 +25,7 @@ public class UsersTab : MainMenuTab
     [SerializeField] private GameObject managementButtons;
 
     private User currentUser;
+    private bool creatingUser;
 
     public override void Open()
     {
@@ -86,9 +87,23 @@ public class UsersTab : MainMenuTab
     /// </summary>
     public void Click_OpenCreateUser()
     {
+        creatingUser = true;
+        currentUser = new User();
+
         SetCreateUserPanelActive(true);
         inputFieldAge.SetTextWithoutNotify("");
         inputFieldName.SetTextWithoutNotify("");
+    }
+
+    /// <summary>
+    /// Click event for 
+    /// </summary>
+    public void Click_EditUser()
+    {
+        creatingUser = false;
+        SetCreateUserPanelActive(true);
+        inputFieldAge.SetTextWithoutNotify(currentUser.age.ToString());
+        inputFieldName.SetTextWithoutNotify(currentUser.username);
     }
 
     /// <summary>
@@ -96,6 +111,7 @@ public class UsersTab : MainMenuTab
     /// </summary>
     public void Click_CloseCreateUser()
     {
+        if (currentUser != null && currentUser.id == -1) GameManager.instance.RemoveUser(currentUser);
         SetCreateUserPanelActive(false);
     }
 
@@ -126,9 +142,13 @@ public class UsersTab : MainMenuTab
         {
             return;
         }
+        currentUser.age = age;
+        currentUser.username = inputName;
 
-        User user = new User(inputName, age);
-        GameManager.instance.AddUser(user);
+        if (creatingUser)
+        {
+            GameManager.instance.AddUser(currentUser);
+        }
 
         Open();
 

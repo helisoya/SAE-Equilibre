@@ -30,8 +30,15 @@ public class DataHandler<T>
         }
         else
         {
+            CreateDefault();
             Save();
         }
     }
 
+    /// <summary>
+    /// Initialize and empty datafile
+    /// </summary>
+    protected virtual void CreateDefault()
+    {
+    }
 }

@@ -64,4 +64,22 @@ public class ExercicesDataHandler : DataHandler<ExercicesData>
     {
         data.exercices.Remove(exercice);
     }
+
+    protected override void CreateDefault()
+    {
+        data = new ExercicesData();
+
+        Exercice exercice = new Exercice();
+        exercice.exerciceName = "Session par défaut";
+        exercice.exerciceColor = Color.red;
+
+        exercice.sequences.Add(new Sequence("MARCHE1", 2, 1));
+        exercice.sequences.Add(new Sequence("SQUAT1", 3, 3));
+        exercice.sequences.Add(new Sequence("BOXEVAR2", 3, 3));
+        exercice.sequences.Add(new Sequence("EQUILIBREJAMBES", 8, 1));
+        exercice.sequences.Add(new Sequence("BRASHAUT3", 5, 3));
+        exercice.sequences.Add(new Sequence("POINTEPIED1", 6, 1));
+        exercice.sequences.Add(new Sequence("TALLONFESSES", 7, 2));
+        data.exercices.Add(exercice);
+    }
 }

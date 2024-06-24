@@ -93,4 +93,10 @@ public class UsersDataHandler : DataHandler<UsersData>
             Debug.Log("Error while connecting to database");
         }
     }
+
+
+    protected override void CreateDefault()
+    {
+        data = new UsersData();
+    }
 }
