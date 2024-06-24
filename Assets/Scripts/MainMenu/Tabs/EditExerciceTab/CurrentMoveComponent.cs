@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 /// <summary>
 /// Represents a sequence from an edited exercice. 
@@ -12,7 +13,11 @@ public class CurrentMoveComponent : MonoBehaviour
     [SerializeField] private TextMeshProUGUI moveNameText;
     [SerializeField] private TMP_InputField inputFieldNumberTimes;
     [SerializeField] private TMP_InputField inputFieldAnimationLength;
-    [SerializeField] private TextMeshProUGUI numberTimesLabel;
+
+    [Header("Continuous / Repetition")]
+    [SerializeField] private Image numberTimesIcon;
+    [SerializeField] private Sprite continuousIcon;
+    [SerializeField] private Sprite repetitionIcon;
 
     private EditExerciceTab tab;
     private Sequence sequence;
@@ -30,7 +35,7 @@ public class CurrentMoveComponent : MonoBehaviour
         this.tab = tab;
         this.movement = movement;
 
-        numberTimesLabel.text = movement.isContinuous ? "Temps : " : "Nb répétition :";
+        numberTimesIcon.sprite = movement.isContinuous ? continuousIcon : repetitionIcon;
 
 
         moveNameText.text = movement.movementName;

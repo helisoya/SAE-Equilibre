@@ -1698,7 +1698,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 22.5
+  m_fontSize: 14.05
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -2259,7 +2259,9 @@ MonoBehaviour:
   moveNameText: {fileID: 5566384754329132280}
   inputFieldNumberTimes: {fileID: 685613237211123531}
   inputFieldAnimationLength: {fileID: 2941500013670565535}
-  numberTimesLabel: {fileID: 0}
+  numberTimesIcon: {fileID: 6453144019478698409}
+  continuousIcon: {fileID: 21300000, guid: da76aba41b5ea23498c950c6ede931eb, type: 3}
+  repetitionIcon: {fileID: 21300000, guid: 64f5294d28e78c3478bba96ee4517a0d, type: 3}
 --- !u!114 &71487748424604238
 MonoBehaviour:
   m_ObjectHideFlags: 0
